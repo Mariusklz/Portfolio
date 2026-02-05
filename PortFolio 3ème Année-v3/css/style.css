@@ -924,6 +924,16 @@ section {
     backdrop-filter: blur(10px);
 }
 
+.professor-tag {
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    background: rgba(52, 152, 219, 0.2);
+    backdrop-filter: blur(10px);
+    color: rgba(255, 255, 255, 0.9);
+    font-style: italic;
+}
+
 .project-body {
     padding: var(--spacing-md);
     display: grid;
