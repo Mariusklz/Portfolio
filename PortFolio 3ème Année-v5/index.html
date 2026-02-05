@@ -22,17 +22,18 @@
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="container">
-            <div class="logo">
-                <a href="#home">
-                    <img src="assets/icons/portfolio.jpg" alt="Logo Portfolio" class="logo-img">
-                    <span>KELTZ Marius</span>
-                </a>
-            </div>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home" class="nav-link">Accueil</a></li>
                 <li><a href="#about" class="nav-link">À propos</a></li>
                 <li><a href="competences.html" class="nav-link">Compétences</a></li>
-                <li><a href="projets.html" class="nav-link">Projets</a></li>
+                <li class="dropdown">
+                    <a href="#" class="nav-link dropdown-toggle">Projets <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projets.html">Projets SAE</a></li>
+                        <li><a href="perso.html">Projets Perso</a></li>
+                        <li><a href="entreprise.html">Projets Entreprise</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
             <div class="hamburger" id="hamburger">
@@ -91,58 +92,60 @@
         </div>
     </section>
 
-    <!-- Section Contact -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Me contacter</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Restons en contact</h3>
-                    <p>N'hésitez pas à me contacter pour toute opportunité ou collaboration.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>keltz.marius.colmar@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+33 6 14 22 28 09</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Ensisheim, France</span>
+    <!-- Section Contact avec Footer -->
+    <section id="contact" class="contact-wrapper">
+        <div class="contact">
+            <div class="container">
+                <h2 class="section-title">Me contacter</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>Restons en contact</h3>
+                        <p>N'hésitez pas à me contacter pour toute opportunité ou collaboration.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>keltz.marius.colmar@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+33 6 14 22 28 09</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Ensisheim, France</span>
+                            </div>
                         </div>
                     </div>
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Votre nom" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="Votre email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="subject" placeholder="Sujet">
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                    </form>
                 </div>
-                <form class="contact-form" id="contact-form">
-                    <div class="form-group">
-                        <input type="text" name="name" placeholder="Votre nom" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="email" name="email" placeholder="Votre email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" name="subject" placeholder="Sujet">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer</button>
-                </form>
             </div>
         </div>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p>&copy; 2026 KELTZ Marius. Tous droits réservés.</p>
+                <div class="footer-links">
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </footer>
     </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 KELTZ Marius. Tous droits réservés.</p>
-            <div class="footer-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
 
     <!-- Bouton Scroll to Top -->
     <button id="scroll-top" class="scroll-top" aria-label="Retour en haut">

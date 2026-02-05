@@ -74,6 +74,10 @@ section {
     padding: var(--spacing-xl) 0;
 }
 
+.contact-wrapper {
+    padding: 0;
+}
+
 /* ===================================
    Container
    =================================== */
@@ -122,6 +126,7 @@ section {
 .nav-menu {
     display: flex;
     gap: var(--spacing-md);
+    align-items: center;
 }
 
 .nav-link {
@@ -208,7 +213,7 @@ section {
 }
 
 .social-links a {
-    color: var(--text-color);
+    color: #ffffff;
     transition: all var(--transition-fast);
 }
 
@@ -292,6 +297,10 @@ section {
    =================================== */
 .about {
     background-color: var(--bg-light);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
 }
 
 .about-content {
@@ -448,6 +457,20 @@ section {
 /* ===================================
    Contact Section
    =================================== */
+.contact-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contact {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding-top: 80px;
+}
+
 .contact-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -614,6 +637,32 @@ section {
     
     .nav-menu.active {
         left: 0;
+    }
+    
+    /* Dropdown responsive sur mobile */
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background-color: var(--bg-light);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height var(--transition-normal);
+        margin-top: 0;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        max-height: 300px;
+    }
+    
+    .dropdown-toggle i {
+        transition: transform var(--transition-fast);
+    }
+    
+    .dropdown.active .dropdown-toggle i {
+        transform: rotate(180deg);
     }
     
     .hero-title {
@@ -1064,6 +1113,75 @@ section {
 .nav-link.active {
     color: var(--primary-color);
     font-weight: 600;
+}
+
+/* ===================================
+   Menu Déroulant (Dropdown)
+   =================================== */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.dropdown-toggle i {
+    font-size: 0.75rem;
+    transition: transform var(--transition-fast);
+}
+
+.dropdown:hover .dropdown-toggle i {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--bg-color);
+    box-shadow: var(--shadow-md);
+    border-radius: 8px;
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all var(--transition-normal);
+    padding: var(--spacing-xs) 0;
+    margin-top: 0.5rem;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--text-color);
+    transition: all var(--transition-fast);
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--bg-light);
+    color: var(--primary-color);
+}
+
+.dropdown-menu a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.dropdown.active > .nav-link {
+    color: var(--primary-color);
 }
 
 /* Responsive pour pages Compétences & Projets */

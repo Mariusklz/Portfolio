@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projets Personnels - KELTZ Marius - BUT Réseaux et Télécommunications">
+    <meta name="keywords" content="projets personnels, réseaux, télécommunications, portfolio">
+    <meta name="author" content="KELTZ Marius">
+    
+    <title>Projets Personnels - KELTZ Marius</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="competences.html" class="nav-link">Compétences</a></li>
+                <li class="dropdown active">
+                    <a href="#" class="nav-link dropdown-toggle">Projets <i class="fas fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="projets.html">Projets SAE</a></li>
+                        <li><a href="perso.html" class="active">Projets Perso</a></li>
+                        <li><a href="entreprise.html">Projets Entreprise</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Projets Personnels</h1>
+            <p class="page-subtitle">Mes réalisations et expérimentations personnelles</p>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="intro-text">
+                <p>
+                    Cette section présente mes projets personnels réalisés en dehors du cadre scolaire. 
+                    Ces projets reflètent ma passion pour les réseaux, la programmation et les technologies 
+                    informatiques, et démontrent ma capacité à apprendre de manière autonome.
+                </p>
+            </div>
+            
+            <!-- PROJET PRINCIPAL : HOMELAB -->
+            <div class="project-detail" id="homelab">
+                <div class="project-header">
+                    <div class="project-number">🏠</div>
+                    <div>
+                        <h2>Mon Homelab Personnel</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag administrer">Infrastructure</span>
+                            <span class="competence-tag connecter">Réseaux</span>
+                            <span class="date-tag">Projet continu</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Vue d'ensemble</h3>
+                        <p>
+                            Mon homelab est un environnement d'apprentissage et d'expérimentation que j'ai construit 
+                            pour approfondir mes compétences en administration réseau, virtualisation et systèmes. 
+                            C'est un laboratoire personnel qui me permet de tester de nouvelles technologies, 
+                            déployer des services et reproduire des architectures professionnelles.
+                        </p>
+                        
+                        <h3>Architecture de l'infrastructure</h3>
+                        <ul>
+                            <li><strong>Serveurs physiques :</strong> [Décrivez votre matériel - ex: Dell R720, HP ProLiant, PC reconverti, etc.]</li>
+                            <li><strong>Hyperviseur :</strong> [Proxmox VE / VMware ESXi / Hyper-V]</li>
+                            <li><strong>Réseau :</strong> [Switch manageable, VLANs, firewall/routeur]</li>
+                            <li><strong>Stockage :</strong> [NAS, SAN, stockage direct]</li>
+                        </ul>
+
+                        <h3>Services et applications déployés</h3>
+                        <ul>
+                            <li><strong>Virtualisation :</strong> [VMs Linux/Windows, conteneurs Docker]</li>
+                            <li><strong>Services réseau :</strong> [DNS, DHCP, VPN, Reverse Proxy]</li>
+                            <li><strong>Monitoring :</strong> [Grafana, Prometheus, Zabbix, Uptime Kuma]</li>
+                            <li><strong>Stockage et partage :</strong> [Nextcloud, Samba, NFS]</li>
+                            <li><strong>Automatisation :</strong> [Ansible, scripts Bash/Python]</li>
+                            <li><strong>Laboratoire de test :</strong> [Environnements de dev, tests de sécurité]</li>
+                        </ul>
+
+                        <h3>Technologies et outils maîtrisés</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Proxmox</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">pfSense</span>
+                            <span class="tech-tag">VLANs</span>
+                            <span class="tech-tag">Ansible</span>
+                            <span class="tech-tag">Nginx</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Cas d'usage et bénéfices</h3>
+                        <ul>
+                            <li><strong>Apprentissage pratique :</strong> Expérimentation sans risque pour l'apprentissage</li>
+                            <li><strong>Reproduction d'architectures :</strong> Simulation d'environnements d'entreprise</li>
+                            <li><strong>Certification :</strong> Préparation aux certifications (CCNA, Linux, etc.)</li>
+                            <li><strong>Services personnels :</strong> Hébergement de mes propres services</li>
+                            <li><strong>Veille technologique :</strong> Test des dernières technologies</li>
+                        </ul>
+
+                        <h3>Défis relevés et compétences développées</h3>
+                        <ul>
+                            <li>Conception et segmentation réseau avec VLANs</li>
+                            <li>Gestion de la haute disponibilité et de la redondance</li>
+                            <li>Mise en place de solutions de monitoring et d'alerting</li>
+                            <li>Automatisation des déploiements et configurations</li>
+                            <li>Troubleshooting réseau et système avancé</li>
+                            <li>Optimisation des performances et de la consommation énergétique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet personnel 2 -->
+            <div class="project-detail">
+                <div class="project-header">
+                    <div class="project-number">01</div>
+                    <div>
+                        <h2>Autre projet personnel</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag programmer">Développement</span>
+                            <span class="date-tag">Date</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Description de votre autre projet personnel (script d'automatisation, 
+                            application web, bot Discord, outil réseau, etc.)
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Fonctionnalité principale</li>
+                            <li>Technologies utilisées</li>
+                            <li>Défis techniques relevés</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Résultats et apprentissages</h3>
+                        <ul>
+                            <li>Compétences acquises</li>
+                            <li>Résultats obtenus</li>
+                            <li>Utilisation actuelle</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="#" class="btn-link" target="_blank">
+                                <i class="fab fa-github"></i> Voir sur GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ajoutez d'autres projets personnels ici -->
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2026 KELTZ Marius - Tous droits réservés</p>
+                <div class="footer-links">
+                    <a href="index.html">Accueil</a>
+                    <a href="index.html#about">À propos</a>
+                    <a href="competences.html">Compétences</a>
+                    <a href="projets.html">Projets SAE</a>
+                    <a href="perso.html">Projets Perso</a>
+                    <a href="entreprise.html">Projets Entreprise</a>
+                    <a href="index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -33,6 +33,32 @@ if (hamburger && navMenu) {
 }
 
 // ===================================
+// Dropdown Menu for Mobile
+// ===================================
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => {
+    const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+    
+    if (dropdownToggle) {
+        dropdownToggle.addEventListener('click', (e) => {
+            // Sur mobile, empêcher le lien par défaut et toggle le menu
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+                
+                // Fermer les autres dropdowns
+                dropdowns.forEach(otherDropdown => {
+                    if (otherDropdown !== dropdown) {
+                        otherDropdown.classList.remove('active');
+                    }
+                });
+            }
+        });
+    }
+});
+
+// ===================================
 // Navbar Scroll Effect
 // ===================================
 const navbar = document.getElementById('navbar');
