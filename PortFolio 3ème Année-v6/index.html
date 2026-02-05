@@ -44,8 +44,10 @@
         </div>
     </nav>
 
-    <!-- Section Hero -->
-    <section id="home" class="hero">
+    <!-- Sections Home (par défaut) -->
+    <div id="home-sections">
+        <!-- Section Hero -->
+        <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
                 <h1 class="hero-title">Bonjour, je suis <span class="highlight">KELTZ Marius</span></h1>
@@ -56,8 +58,8 @@
                     <a href="#contact" class="btn btn-secondary">Me contacter</a>
                 </div>
                 <div class="social-links">
-                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Mariusklz" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/marius-keltz-18a084257/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </div>
@@ -86,7 +88,8 @@
                         des réseaux et des télécommunications. Actuellement en troisième année, j'ai développé des compétences 
                         solides en administration réseau, sécurité informatique et gestion de projets IT. 
                     </p>
-                    <a href="#" class="btn btn-outline">Télécharger mon CV</a>
+                    <a href="./assets/docs/CV_5.pdf" class="btn btn-outline">Télécharger mon CV Français</a>
+                    <a href="#" class="btn btn-outline">Télécharger mon CV Anglais</a>
                 </div>
             </div>
         </div>
@@ -140,12 +143,17 @@
             <div class="container">
                 <p>&copy; 2026 KELTZ Marius. Tous droits réservés.</p>
                 <div class="footer-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/Mariusklz" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/marius-keltz-18a084257/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
                 </div>
             </div>
         </footer>
     </section>
+    </div>
+    <!-- Fin des sections Home -->
+
+    <!-- Zone de contenu dynamique pour les autres pages -->
+    <div id="dynamic-content" class="hidden-page"></div>
 
     <!-- Bouton Scroll to Top -->
     <button id="scroll-top" class="scroll-top" aria-label="Retour en haut">
@@ -153,6 +161,7 @@
     </button>
 
     <!-- JavaScript -->
+    <script src="js/spa.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
