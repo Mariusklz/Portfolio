@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projets et SAE - KELTZ Marius - BUT Réseaux et Télécommunications">
+    <meta name="keywords" content="projets, SAE, réseaux, télécommunications, portfolio">
+    <meta name="author" content="KELTZ Marius">
+    
+    <title>Projets - KELTZ Marius</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
+    
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">KELTZ Marius</a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#about" class="nav-link">À propos</a></li>
+                <li><a href="competences.html" class="nav-link">Compétences</a></li>
+                <li><a href="projets.html" class="nav-link active">Projets</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1 class="page-title">Mes Projets & SAE</h1>
+            <p class="page-subtitle">Situations d'Apprentissage et d'Évaluation réalisées durant ma formation</p>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section class="projects-section">
+        <div class="container">
+            <div class="intro-text">
+                <p>
+                    Voici l'ensemble des projets et SAE (Situations d'Apprentissage et d'Évaluation) que j'ai réalisés 
+                    durant ma formation en BUT Réseaux et Télécommunications. Chaque projet illustre une ou plusieurs 
+                    compétences du référentiel et démontre ma progression dans le domaine.
+                </p>
+            </div>
+
+            <!-- Projet 1 : Infrastructure réseau d'entreprise -->
+            <div class="project-detail" id="sae-infra">
+                <div class="project-header">
+                    <div class="project-number">01</div>
+                    <div>
+                        <h2>SAE Infrastructure réseau d'entreprise</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag administrer">Administrer</span>
+                            <span class="competence-tag connecter">Connecter</span>
+                            <span class="date-tag">Année 2 - Semestre 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Conception et déploiement d'une infrastructure réseau complète pour une entreprise de 150 utilisateurs 
+                            répartis sur deux sites distants. Le projet comprenait la mise en place de l'architecture réseau, 
+                            la configuration des équipements, et l'administration des services réseau.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Architecture réseau hiérarchique avec segmentation par VLAN</li>
+                            <li>Configuration de routeurs et switches Cisco (2960, 3560, 2911)</li>
+                            <li>Mise en place de serveurs DHCP, DNS et Active Directory</li>
+                            <li>Configuration du routage inter-VLAN et protocole OSPF</li>
+                            <li>Redondance des liens avec HSRP et EtherChannel</li>
+                            <li>Documentation technique complète et schémas réseau</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Cisco IOS</span>
+                            <span class="tech-tag">VLAN</span>
+                            <span class="tech-tag">OSPF</span>
+                            <span class="tech-tag">HSRP</span>
+                            <span class="tech-tag">Active Directory</span>
+                            <span class="tech-tag">Windows Server</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Administration de réseaux d'entreprise</li>
+                            <li><i class="fas fa-check"></i> Configuration avancée d'équipements réseau</li>
+                            <li><i class="fas fa-check"></i> Mise en place de services réseau</li>
+                            <li><i class="fas fa-check"></i> Documentation technique</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 : Administration systèmes -->
+            <div class="project-detail" id="sae-admin">
+                <div class="project-header">
+                    <div class="project-number">02</div>
+                    <div>
+                        <h2>SAE Administration systèmes</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag administrer">Administrer</span>
+                            <span class="competence-tag programmer">Programmer</span>
+                            <span class="date-tag">Année 2 - Semestre 3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Administration de serveurs Linux (Debian/Ubuntu) et Windows Server pour héberger des services 
+                            d'entreprise. Automatisation des tâches d'administration et mise en place de stratégies de sauvegarde.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Installation et configuration de serveurs Linux (LAMP)</li>
+                            <li>Gestion des utilisateurs et permissions (sudo, ACL)</li>
+                            <li>Configuration de services : Apache, MySQL, SSH, FTP</li>
+                            <li>Scripts d'automatisation en Bash et Python</li>
+                            <li>Mise en place de sauvegardes automatisées (rsync, cron)</li>
+                            <li>Monitoring des ressources système</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Bash</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Apache</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Cron</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Administration Linux avancée</li>
+                            <li><i class="fas fa-check"></i> Automatisation de tâches</li>
+                            <li><i class="fas fa-check"></i> Scripting système</li>
+                            <li><i class="fas fa-check"></i> Gestion des sauvegardes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 : Routage et interconnexion -->
+            <div class="project-detail" id="sae-routage">
+                <div class="project-header">
+                    <div class="project-number">03</div>
+                    <div>
+                        <h2>SAE Routage et interconnexion</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag connecter">Connecter</span>
+                            <span class="date-tag">Année 2 - Semestre 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Interconnexion de plusieurs sites distants d'une entreprise avec mise en place de protocoles 
+                            de routage dynamique. Configuration de tunnels VPN pour sécuriser les communications inter-sites.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Configuration de routeurs Cisco pour 4 sites distants</li>
+                            <li>Implémentation de OSPF multi-zones</li>
+                            <li>Configuration de BGP pour la redondance Internet</li>
+                            <li>Mise en place de VPN site-à-site IPsec</li>
+                            <li>Optimisation du routage et QoS</li>
+                            <li>Tests de connectivité et résolution de problèmes</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Cisco</span>
+                            <span class="tech-tag">OSPF</span>
+                            <span class="tech-tag">BGP</span>
+                            <span class="tech-tag">IPsec</span>
+                            <span class="tech-tag">QoS</span>
+                            <span class="tech-tag">GNS3</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Protocoles de routage dynamique</li>
+                            <li><i class="fas fa-check"></i> Interconnexion de sites</li>
+                            <li><i class="fas fa-check"></i> Configuration VPN</li>
+                            <li><i class="fas fa-check"></i> Optimisation réseau</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 4 : Déploiement WiFi -->
+            <div class="project-detail" id="sae-wifi">
+                <div class="project-header">
+                    <div class="project-number">04</div>
+                    <div>
+                        <h2>SAE Déploiement WiFi d'entreprise</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag connecter">Connecter</span>
+                            <span class="competence-tag securiser">Sécuriser</span>
+                            <span class="date-tag">Année 3 - Semestre 5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Conception et déploiement d'un réseau sans fil d'entreprise sécurisé avec contrôleur WiFi centralisé. 
+                            Étude de site, dimensionnement et configuration de bornes WiFi professionnelles.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Étude de couverture radio et positionnement des AP</li>
+                            <li>Configuration de contrôleur WiFi Cisco WLC</li>
+                            <li>Déploiement de plusieurs SSID avec segmentation VLAN</li>
+                            <li>Sécurisation avec WPA2-Enterprise et serveur RADIUS</li>
+                            <li>Configuration de portail captif pour invités</li>
+                            <li>Tests de débit et optimisation des canaux</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Cisco WLC</span>
+                            <span class="tech-tag">802.11ac</span>
+                            <span class="tech-tag">WPA2-Enterprise</span>
+                            <span class="tech-tag">RADIUS</span>
+                            <span class="tech-tag">Ekahau</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Conception réseau WiFi</li>
+                            <li><i class="fas fa-check"></i> Sécurisation 802.1X</li>
+                            <li><i class="fas fa-check"></i> Gestion centralisée des AP</li>
+                            <li><i class="fas fa-check"></i> Optimisation radio</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 5 : Développement web -->
+            <div class="project-detail" id="sae-dev-web">
+                <div class="project-header">
+                    <div class="project-number">05</div>
+                    <div>
+                        <h2>SAE Développement web</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag programmer">Programmer</span>
+                            <span class="date-tag">Année 1 - Semestre 2</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Création d'un site web dynamique pour la gestion d'une médiathèque en ligne. 
+                            Développement front-end et back-end avec base de données relationnelle.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Interface responsive avec HTML5, CSS3 et JavaScript</li>
+                            <li>Développement back-end en PHP avec architecture MVC</li>
+                            <li>Base de données MySQL avec requêtes SQL optimisées</li>
+                            <li>Système d'authentification sécurisé</li>
+                            <li>Panel d'administration complet (CRUD)</li>
+                            <li>Gestion de versions avec Git</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Développement web full-stack</li>
+                            <li><i class="fas fa-check"></i> Architecture MVC</li>
+                            <li><i class="fas fa-check"></i> Conception de bases de données</li>
+                            <li><i class="fas fa-check"></i> Gestion de versions</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 6 : Automatisation réseau -->
+            <div class="project-detail" id="sae-auto">
+                <div class="project-header">
+                    <div class="project-number">06</div>
+                    <div>
+                        <h2>SAE Automatisation réseau avec Python</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag programmer">Programmer</span>
+                            <span class="competence-tag administrer">Administrer</span>
+                            <span class="date-tag">Année 3 - Semestre 5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Développement de scripts Python pour automatiser les tâches de configuration et de maintenance 
+                            d'équipements réseau. Utilisation de bibliothèques spécialisées pour l'interaction avec les API réseau.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Scripts de configuration automatique de switches avec Netmiko</li>
+                            <li>Collecte automatisée d'informations réseau (inventaire)</li>
+                            <li>Génération de rapports de configuration</li>
+                            <li>Sauvegarde automatique des configurations</li>
+                            <li>Interface CLI avec argparse pour faciliter l'utilisation</li>
+                            <li>Tests unitaires et documentation du code</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Netmiko</span>
+                            <span class="tech-tag">Paramiko</span>
+                            <span class="tech-tag">YAML</span>
+                            <span class="tech-tag">Git</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Programmation Python avancée</li>
+                            <li><i class="fas fa-check"></i> Automatisation réseau</li>
+                            <li><i class="fas fa-check"></i> Utilisation d'API réseau</li>
+                            <li><i class="fas fa-check"></i> Bonnes pratiques de développement</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 7 : Sécurité réseau -->
+            <div class="project-detail" id="sae-secu">
+                <div class="project-header">
+                    <div class="project-number">07</div>
+                    <div>
+                        <h2>SAE Sécurité réseau et pare-feu</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag securiser">Sécuriser</span>
+                            <span class="date-tag">Année 2 - Semestre 4</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Sécurisation d'un réseau d'entreprise avec déploiement de pare-feu nouvelle génération, 
+                            mise en place de zones de sécurité (DMZ) et configuration de règles de filtrage avancées.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Architecture réseau sécurisée avec DMZ</li>
+                            <li>Configuration de pare-feu pfSense et FortiGate</li>
+                            <li>Mise en place de règles de filtrage par zones</li>
+                            <li>Configuration de NAT/PAT pour l'accès Internet</li>
+                            <li>Déploiement d'IDS/IPS (Snort, Suricata)</li>
+                            <li>Tests d'intrusion et audit de sécurité</li>
+                            <li>Documentation des politiques de sécurité</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">pfSense</span>
+                            <span class="tech-tag">FortiGate</span>
+                            <span class="tech-tag">Snort</span>
+                            <span class="tech-tag">Suricata</span>
+                            <span class="tech-tag">Kali Linux</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Architecture sécurisée</li>
+                            <li><i class="fas fa-check"></i> Configuration pare-feu</li>
+                            <li><i class="fas fa-check"></i> IDS/IPS</li>
+                            <li><i class="fas fa-check"></i> Audit de sécurité</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 8 : Déploiement VPN -->
+            <div class="project-detail" id="sae-vpn">
+                <div class="project-header">
+                    <div class="project-number">08</div>
+                    <div>
+                        <h2>SAE Déploiement de solutions VPN</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag securiser">Sécuriser</span>
+                            <span class="competence-tag connecter">Connecter</span>
+                            <span class="date-tag">Année 3 - Semestre 5</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Mise en place de solutions VPN pour permettre l'accès distant sécurisé au réseau d'entreprise 
+                            et interconnecter des sites distants. Comparaison de différentes technologies VPN.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>VPN site-à-site avec IPsec entre 3 sites</li>
+                            <li>VPN d'accès distant avec OpenVPN pour les télétravailleurs</li>
+                            <li>Configuration de certificats PKI pour l'authentification</li>
+                            <li>Mise en place de VPN SSL avec FortiGate</li>
+                            <li>Tests de performance et optimisation</li>
+                            <li>Guide utilisateur pour la connexion VPN</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">IPsec</span>
+                            <span class="tech-tag">OpenVPN</span>
+                            <span class="tech-tag">SSL VPN</span>
+                            <span class="tech-tag">PKI</span>
+                            <span class="tech-tag">FortiGate</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Technologies VPN</li>
+                            <li><i class="fas fa-check"></i> Cryptographie appliquée</li>
+                            <li><i class="fas fa-check"></i> Gestion de certificats</li>
+                            <li><i class="fas fa-check"></i> Accès distant sécurisé</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 9 : Supervision réseau -->
+            <div class="project-detail" id="sae-supervision">
+                <div class="project-header">
+                    <div class="project-number">09</div>
+                    <div>
+                        <h2>SAE Supervision et monitoring réseau</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag surveiller">Surveiller</span>
+                            <span class="date-tag">Année 2 - Semestre 3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Déploiement d'une solution de supervision complète pour monitorer l'infrastructure réseau 
+                            et les serveurs d'une entreprise. Configuration d'alertes et création de tableaux de bord personnalisés.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Installation et configuration de Nagios Core</li>
+                            <li>Supervision de 50+ équipements réseau via SNMP</li>
+                            <li>Monitoring des services (HTTP, SSH, DNS, DHCP)</li>
+                            <li>Configuration d'alertes par email et SMS</li>
+                            <li>Création de graphiques de performance avec RRDtool</li>
+                            <li>Interface web personnalisée pour la visualisation</li>
+                            <li>Documentation des procédures d'escalade</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Nagios</span>
+                            <span class="tech-tag">SNMP</span>
+                            <span class="tech-tag">RRDtool</span>
+                            <span class="tech-tag">Grafana</span>
+                            <span class="tech-tag">Syslog</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Outils de supervision</li>
+                            <li><i class="fas fa-check"></i> Protocole SNMP</li>
+                            <li><i class="fas fa-check"></i> Gestion des alertes</li>
+                            <li><i class="fas fa-check"></i> Visualisation de données</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 10 : Analyse de performances -->
+            <div class="project-detail" id="sae-analyse">
+                <div class="project-header">
+                    <div class="project-number">10</div>
+                    <div>
+                        <h2>SAE Analyse de trafic et performances</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag surveiller">Surveiller</span>
+                            <span class="date-tag">Année 3 - Semestre 6</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Analyse approfondie du trafic réseau d'une entreprise pour identifier les problèmes de performance, 
+                            optimiser l'utilisation de la bande passante et détecter les anomalies de sécurité.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Captures et analyse de trafic avec Wireshark</li>
+                            <li>Analyse des protocoles réseau et identification de problèmes</li>
+                            <li>Collecte de statistiques avec NetFlow/sFlow</li>
+                            <li>Détection d'anomalies et de comportements suspects</li>
+                            <li>Mesure de performances et tests de débit (iPerf)</li>
+                            <li>Rapport d'analyse avec recommandations d'optimisation</li>
+                            <li>Mise en place de QoS pour prioriser le trafic critique</li>
+                        </ul>
+                        <h3>Technologies utilisées</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Wireshark</span>
+                            <span class="tech-tag">tcpdump</span>
+                            <span class="tech-tag">NetFlow</span>
+                            <span class="tech-tag">iPerf</span>
+                            <span class="tech-tag">PRTG</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> Analyse de protocoles</li>
+                            <li><i class="fas fa-check"></i> Diagnostic réseau</li>
+                            <li><i class="fas fa-check"></i> Optimisation performances</li>
+                            <li><i class="fas fa-check"></i> Configuration QoS</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section CTA -->
+            <div class="projects-cta">
+                <h2>Intéressé par mes compétences ?</h2>
+                <p>
+                    Ces projets représentent les principales réalisations de ma formation. Chacun m'a permis de développer 
+                    des compétences techniques solides et une méthodologie de travail rigoureuse. Je continue à approfondir 
+                    mes connaissances dans le cadre de mon alternance chez Wienerberger.
+                </p>
+                <div class="cta-buttons">
+                    <a href="competences.html" class="btn btn-primary">Voir mes compétences</a>
+                    <a href="index.html#contact" class="btn btn-secondary">Me contacter</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 KELTZ Marius. Tous droits réservés.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-github"></i></a>
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton Scroll to Top -->
+    <button id="scroll-top" class="scroll-top" aria-label="Retour en haut">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+</html>
