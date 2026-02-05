@@ -850,6 +850,187 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Projet 15 : SAE5.01 -->
+            <div class="project-detail" id="sae-501">
+                <div class="project-header">
+                    <div class="project-number">15</div>
+                    <div>
+                        <h2>SAE5.01 : Concevoir, réaliser et présenter une solution technique</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag connecter">Connecter</span>
+                            <span class="competence-tag programmer">Programmer</span>
+                            <span class="date-tag">BUT3 - Semestre 5</span>
+                            <span class="professor-tag">Olivier MURA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Ce projet en équipe (3-4 étudiants) vise à concevoir et réaliser une solution complète de traçage de véhicule par GNSS. Le système transmet les données de géolocalisation via le réseau LoRaWAN et The Things Network (TTN) pour visualiser la position sur une carte via un serveur web. Une contrainte majeure est l'optimisation énergétique : le système doit fonctionner en autonomie sur batterie en exploitant des modes de faible consommation (Deep Sleep) et ne s'active que lorsque le véhicule se déplace grâce à un accéléromètre.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Conception IoT : mise en œuvre d'une architecture complète du capteur (End-Device) à l'application utilisateur via Gateway et Network Server</li>
+                            <li>Développement embarqué : programmation en Python/MicroPython sur environnement Pycom (cartes Pytrack/Fipy/Lopy)</li>
+                            <li>Gestion de l'énergie : maîtrise des modes "sleep" et interruptions matérielles (accéléromètre) pour optimiser l'autonomie</li>
+                            <li>Configuration réseau LoRaWAN & TTN : application, Gateway et gestion du "Airtime" (Duty Cycle)</li>
+                            <li>Protocole MQTT : utilisation du broker MQTT de TTN pour récupérer les données</li>
+                            <li>Node-RED : création d'un serveur web et tableaux de bord pour cartographie et contrôle</li>
+                            <li>Optimisation binaire : encodage latitude/longitude sur 3 octets pour réduire la taille des messages LoRa</li>
+                            <li>Système de veille à distance (Downlink) et alertes SMS via clé 2G/3G</li>
+                            <li>Traitement de données : formatage des Payloads (JSON, binaire) et visualisation via Node-RED</li>
+                        </ul>
+                        <h3>Technologies et concepts</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">LoRaWAN</span>
+                            <span class="tech-tag">IoT</span>
+                            <span class="tech-tag">GNSS/GPS</span>
+                            <span class="tech-tag">MicroPython</span>
+                            <span class="tech-tag">Pycom</span>
+                            <span class="tech-tag">MQTT</span>
+                            <span class="tech-tag">Node-RED</span>
+                            <span class="tech-tag">TTN</span>
+                            <span class="tech-tag">Deep Sleep</span>
+                            <span class="tech-tag">Accéléromètre</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> AC22.01 : Déployer des systèmes de transmissions complexes</li>
+                            <li><i class="fas fa-check"></i> AC22.04 : Déployer des réseaux d'accès</li>
+                            <li><i class="fas fa-check"></i> AC22.05 : Questionner un cahier des charges</li>
+                            <li><i class="fas fa-check"></i> AC23.02 : Développer une application à partir d'un cahier des charges</li>
+                            <li><i class="fas fa-check"></i> AC23.03 : Utiliser un protocole réseau pour client/serveur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 16 : Immersion 2025 -->
+            <div class="project-detail" id="immersion-2025">
+                <div class="project-header">
+                    <div class="project-number">16</div>
+                    <div>
+                        <h2>Immersion 2025 : Projet d'intégration ingénieur</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag programmer">Programmer</span>
+                            <span class="date-tag">BUT3 - Septembre 2025</span>
+                            <span class="professor-tag">Équipe pédagogique UNISTRA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            L'Immersion 2025 est un module intensif de 15 jours (8-19 septembre 2025) destiné à plonger les étudiants dans le monde du futur métier d'ingénieur-informaticien. L'objectif est de réaliser une application ludique riche en totale autonomie, sans cours formels, mais rythmée par des topos matinaux. Les équipes sont constituées scientifiquement pour mélanger diverses origines (BUT, Campus, PC, MP) et favoriser la cohésion et les soft skills.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Développement d'une application de jeu : mode manuel et mode IA avec contraintes strictes</li>
+                            <li>Environnement Linux Ubuntu : développement exclusivement en langage C (pas de C++ ni Python)</li>
+                            <li>Interface graphique : utilisation de la bibliothèque GTK4 pour l'IHM</li>
+                            <li>Intelligence Artificielle : implémentation d'une IA pour les décisions du jeu</li>
+                            <li>Communication réseau : permettre aux instances du jeu de communiquer entre elles</li>
+                            <li>Gestion de sources : utilisation de Git pour la collaboration et le versioning</li>
+                            <li>Tests et qualité logicielle : validation automatisée, documentation et bonnes pratiques</li>
+                            <li>Tournoi final : compétition entre les IA des différents groupes avec phases finales</li>
+                            <li>Contraintes de production : respect des limites de ressources (2Go RAM, pas de GPU)</li>
+                        </ul>
+                        <h3>Technologies et concepts</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">C</span>
+                            <span class="tech-tag">Linux Ubuntu</span>
+                            <span class="tech-tag">GTK4</span>
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">gcc</span>
+                            <span class="tech-tag">Intelligence Artificielle</span>
+                            <span class="tech-tag">Réseaux</span>
+                            <span class="tech-tag">Tests unitaires</span>
+                            <span class="tech-tag">CLI</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> AC23.01 : Utiliser un environnement de développement</li>
+                            <li><i class="fas fa-check"></i> AC23.02 : Développer une application à partir d'un cahier des charges</li>
+                            <li><i class="fas fa-check"></i> AC23.03 : Utiliser un protocole réseau pour client/serveur</li>
+                            <li><i class="fas fa-check"></i> Travail en équipe : coordination et soft skills</li>
+                            <li><i class="fas fa-check"></i> Gestion de projet : autonomie et respect des contraintes</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 17 : Certification CSNA -->
+            <div class="project-detail" id="certification-csna">
+                <div class="project-header">
+                    <div class="project-number">17</div>
+                    <div>
+                        <h2>Certification CSNA : Certified Stormshield Network Administrator</h2>
+                        <div class="project-meta">
+                            <span class="competence-tag administrer">Administrer</span>
+                            <span class="competence-tag securiser">Sécuriser</span>
+                            <span class="competence-tag surveiller">Surveiller</span>
+                            <span class="date-tag">BUT3</span>
+                            <span class="professor-tag">Alexandre VALENTIN</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <div class="project-description">
+                        <h3>Contexte et objectifs</h3>
+                        <p>
+                            Cette SAE vise la préparation et l'obtention de la certification professionnelle CSNA (Certified Stormshield Network Administrator). Basée sur le cursus officiel Stormshield (version 4), cette formation permet de maîtriser l'administration des appliances de sécurité Stormshield Network Security (SNS). À travers des laboratoires pratiques virtualisés, nous avons appris à déployer, configurer et maintenir un pare-feu de nouvelle génération pour protéger efficacement un système d'information.
+                        </p>
+                        <h3>Réalisations</h3>
+                        <ul>
+                            <li>Laboratoires pratiques : série de Labs sur environnement VirtualBox avec maquette d'entreprise complète</li>
+                            <li>Configuration initiale : enregistrement du boîtier, mise à jour, configuration interfaces et routage</li>
+                            <li>Objets et politique de sécurité : création d'objets réseaux et règles de filtrage granulaires</li>
+                            <li>NAT : configuration de translation d'adresses (Masquerading, DNAT, SNAT)</li>
+                            <li>Protection applicative : configuration des proxys (HTTP, SMTP) et inspection SSL</li>
+                            <li>Infrastructure PKI : génération de certificats et mise en place d'une autorité de certification</li>
+                            <li>VPN IPSec : configuration de tunnels site-à-site (IKEv1/IKEv2) avec authentification par certificats</li>
+                            <li>VPN SSL : portail VPN pour accès distant sécurisé des utilisateurs nomades</li>
+                            <li>Authentification : intégration LDAP/Active Directory et portails captifs</li>
+                            <li>Supervision : exploitation des journaux (logs) et monitoring de l'activité réseau</li>
+                            <li>Haute disponibilité : principes de mise en cluster pour continuité de service</li>
+                        </ul>
+                        <h3>Technologies et concepts</h3>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Stormshield SNS</span>
+                            <span class="tech-tag">Pare-feu Next-Gen</span>
+                            <span class="tech-tag">VPN IPSec</span>
+                            <span class="tech-tag">VPN SSL</span>
+                            <span class="tech-tag">PKI</span>
+                            <span class="tech-tag">NAT</span>
+                            <span class="tech-tag">Filtrage URL</span>
+                            <span class="tech-tag">LDAP/AD</span>
+                            <span class="tech-tag">IDS/IPS</span>
+                            <span class="tech-tag">Haute disponibilité</span>
+                        </div>
+                    </div>
+                    <div class="project-outcomes">
+                        <h3>Compétences validées</h3>
+                        <ul class="outcomes-list">
+                            <li><i class="fas fa-check"></i> AC21.02 : Mettre en œuvre les fonctions de base de la sécurité réseau</li>
+                            <li><i class="fas fa-check"></i> AC21.06 : Rédiger une documentation d'exploitation</li>
+                            <li><i class="fas fa-check"></i> AC24.01Cyber : Connaître et utiliser les bonnes pratiques de cybersécurité</li>
+                            <li><i class="fas fa-check"></i> AC24.02Cyber : Mettre en œuvre les outils fondamentaux de sécurisation d'une infrastructure réseau</li>
+                            <li><i class="fas fa-check"></i> AC24.03Cyber : Sécuriser les services</li>
+                            <li><i class="fas fa-check"></i> AC24.04Cyber : Choisir les outils cryptographiques adaptés au besoin fonctionnel du SI</li>
+                            <li><i class="fas fa-check"></i> AC25.03 : Identifier et résoudre un problème réseau à partir d'outils de supervision</li>
+                            <li><i class="fas fa-check"></i> Certification professionnelle CSNA validée</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
             
             <!-- Section CTA -->
             <div class="projects-cta">
