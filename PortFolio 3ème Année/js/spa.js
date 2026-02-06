@@ -29,6 +29,11 @@ const pages = {
         id: 'page-content',
         file: 'entreprise.html',
         title: 'Projets Entreprise - KELTZ Marius'
+    },
+    'annexes': {
+        id: 'page-content',
+        file: 'annexes.html',
+        title: 'Annexes - KELTZ Marius'
     }
 };
 
@@ -85,6 +90,7 @@ function getPageNameFromFile(filename) {
     if (basename === 'projets.html') return 'projets-sae';
     if (basename === 'perso.html') return 'projets-perso';
     if (basename === 'entreprise.html') return 'projets-entreprise';
+    if (basename === 'annexes.html') return 'annexes';
     if (basename === 'index.html') return 'home';
     
     return null;

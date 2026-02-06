@@ -1,0 +1,19 @@
+apt update
+apt install proftpd
+
+/etc/proftpd/proftpd.conf
+
+     <Directory /home/toto>
+       <Limit WRITE READ>
+         AllowALL
+       </Limit>
+       <Limit ALL>
+         AllowALL
+       </Limit>
+     </Directory>
+
+   mkdir -p /home/toto
+   chown toto:toto /home/toto
+   chmod 755 /home/toto
+
+systemctl restart proftpd

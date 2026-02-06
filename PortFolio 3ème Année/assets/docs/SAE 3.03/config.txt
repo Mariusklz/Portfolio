@@ -1,0 +1,946 @@
+_________________________________________________________
+		AS10 PE1
+_________________________________________________________
+
+en
+conf t
+hostname PE1
+mpls ip
+int lo0
+ip add 10.10.1.1 255.255.255.255	
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.5 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 172.16.20.10 255.255.255.252
+no shut
+exit
+
+router rip
+no auto-summary
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+ip vrf UC_Exchange
+rd 10:2
+route-target both 10:2
+exit
+ip route vrf UC_Exchange 192.168.20.0 255.255.255.0 172.16.20.9
+
+int e0/1
+ip vrf forwarding UC_Exchange
+ip add 172.16.20.10 255.255.255.252
+exit
+do wr
+
+router bgp 10
+bgp log-neighbor-changes
+neighbor 10.10.4.4 remote-as 10
+neighbor 10.10.4.4 update-source Loopback0
+address-family vpnv4
+neighbor 10.10.4.4 activate
+neighbor 10.10.4.4 send-community extended
+exit
+address-family ipv4 vrf UC_Exchange
+redistribute static
+redistribute connected
+exit
+exit
+do wr
+
+
+
+
+_________________________________________________________
+		AS10 P1
+_________________________________________________________
+
+en
+conf t
+hostname P1
+mpls ip
+int lo0
+ip add 10.10.4.4 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.10 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 10.10.10.2 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/2
+ip add 10.10.10.6 255.255.255.252
+mpls ip
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+router bgp 10
+bgp log-neighbor-changes
+neighbor 10.10.1.1 remote-as 10
+neighbor 10.10.1.1 update-source Loopback0
+neighbor 10.10.1.1 route-reflector-client
+neighbor 10.10.2.2 remote-as 10
+neighbor 10.10.2.2 update-source Loopback0
+neighbor 10.10.2.2 route-reflector-client
+neighbor 10.10.3.3 remote-as 10
+neighbor 10.10.3.3 update-source Loopback0
+neighbor 10.10.3.3 route-reflector-client
+address-family vpnv4
+neighbor 10.10.1.1 activate
+neighbor 10.10.1.1 send-community extended
+neighbor 10.10.1.1 route-reflector-client
+neighbor 10.10.2.2 activate
+neighbor 10.10.2.2 send-community extended
+neighbor 10.10.2.2 route-reflector-client
+neighbor 10.10.3.3 activate
+neighbor 10.10.3.3 send-community extended
+neighbor 10.10.3.3 route-reflector-client
+exit
+exit
+do wr
+
+
+_________________________________________________________
+		AS10 ASBR1
+_________________________________________________________
+
+en
+conf t
+hostname ASBR1
+mpls ip
+int lo0
+ip add 10.10.2.2 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.1 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 172.16.10.5 255.255.255.252
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+router bgp 10
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.4.4 remote-as 10
+neighbor 10.10.4.4 update-source Loopback0
+neighbor 10.10.4.4 next-hop-self
+neighbor 172.16.10.6 remote-as 20
+address-family vpnv4
+neighbor 10.10.4.4 activate
+neighbor 10.10.4.4 send-community extended
+neighbor 172.16.10.6 activate
+neighbor 172.16.10.6 send-community extended
+exit
+exit
+do wr
+
+
+
+_________________________________________________________
+		AS10 PE2_ASBR2
+_________________________________________________________
+
+
+en
+conf t
+hostname PE2_ASBR2
+mpls ip
+int lo0
+ip add 10.10.3.3 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 172.16.10.1 255.255.255.252
+no shut
+exit
+int e0/1
+ip add 10.10.10.9 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/2
+ip add 172.16.20.13 255.255.255.252
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+ip vrf ABC_Conseil
+rd 10:1
+route-target both 10:1
+exit
+
+int e0/2
+ip vrf forwarding ABC_Conseil
+ip add 172.16.20.13 255.255.255.252
+exit
+do wr
+router rip
+address-family ipv4 vrf ABC_Conseil
+version 2
+no auto-summary
+default-information originate
+network 172.16.20.12
+exit
+exit
+do wr
+
+
+router bgp 10
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.4.4 remote-as 10
+neighbor 10.10.4.4 update-source Loopback0
+neighbor 172.16.10.2 remote-as 30
+address-family vpnv4
+neighbor 10.10.4.4 activate
+neighbor 10.10.4.4 send-community extended
+neighbor 10.10.4.4 next-hop-self
+neighbor 172.16.10.2 activate
+neighbor 172.16.10.2 send-community extended
+exit
+address-family ipv4 vrf ABC_Conseil
+redistribute static
+redistribute connected
+redistribute rip
+exit
+exit
+do wr
+
+
+
+
+_________________________________________________________
+		AS20 ASBR3
+_________________________________________________________
+
+
+en
+conf t
+hostname ASBR3
+mpls ip
+int lo0
+ip add 10.10.12.12 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 172.16.10.6 255.255.255.252
+no shut
+exit
+int e0/1
+ip add 10.10.10.1 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/2
+ip add 172.16.40.254 255.255.255.0
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+router bgp 20
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.13.13 remote-as 20
+neighbor 10.10.13.13 update-source Loopback0
+neighbor 172.16.10.5 remote-as 10
+address-family vpnv4
+neighbor 10.10.13.13 activate
+neighbor 10.10.13.13 send-community extended
+neighbor 10.10.13.13 next-hop-self
+neighbor 172.16.10.5 activate
+neighbor 172.16.10.5 send-community extended
+exit
+exit
+do wr
+
+
+_________________________________________________________
+		AS20 ASBR4
+_________________________________________________________
+
+en
+conf t
+hostname ASBR4
+mpls ip
+int lo0
+ip add 10.10.11.11 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 172.16.10.9 255.255.255.252
+no shut
+exit
+int e0/1
+ip add 10.10.10.13 255.255.255.252
+mpls ip
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+router bgp 20
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.13.13 remote-as 20
+neighbor 10.10.13.13 update-source Loopback0
+neighbor 172.16.10.10 remote-as 30
+address-family vpnv4
+neighbor 10.10.13.13 activate
+neighbor 10.10.13.13 send-community extended
+neighbor 10.10.13.13 next-hop-self
+neighbor 172.16.10.10 activate
+neighbor 172.16.10.10 send-community extended
+exit
+exit
+do wr
+
+
+_________________________________________________________
+		AS20 P2
+_________________________________________________________
+
+en
+conf t
+hostname P2
+mpls ip
+int lo0
+ip add 10.10.14.14 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.5 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 10.10.10.10 255.255.255.252
+mpls ip
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+router bgp 20
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.13.13 remote-as 20
+neighbor 10.10.13.13 update-source Loopback0
+neighbor 10.10.9.9 remote-as 20
+neighbor 10.10.9.9 update-source Loopback0
+address-family vpnv4
+neighbor 10.10.13.13 activate
+neighbor 10.10.13.13 send-community extended
+neighbor 10.10.9.9 activate
+neighbor 10.10.9.9 send-community extended
+exit
+exit
+do wr
+
+
+_________________________________________________________
+		AS20 PE5
+_________________________________________________________
+
+
+en
+conf t
+hostname PE5
+mpls ip
+int lo0
+ip add 10.10.9.9 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.9 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/2
+ip add 172.16.50.1 255.255.255.252
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+
+ip vrf ABC_Conseil
+rd 10:1
+route-target both 10:1
+exit
+int e0/2
+ip vrf forwarding ABC_Conseil
+ip add 172.16.50.1 255.255.255.252
+exit
+do wr
+router rip
+address-family ipv4 vrf ABC_Conseil
+version 2
+default-information originate
+network 172.16.50.0
+exit
+exit
+do wr
+
+router bgp 20
+bgp log-neighbor-changes
+neighbor 10.10.13.13 remote-as 20
+neighbor 10.10.13.13 update-source Loopback0
+neighbor 10.10.14.14 remote-as 20
+neighbor 10.10.14.14 update-source Loopback0
+address-family vpnv4
+neighbor 10.10.13.13 activate
+neighbor 10.10.13.13 send-community extended
+neighbor 10.10.14.14 activate
+neighbor 10.10.14.14 send-community extended
+address-family ipv4 vrf ABC_Conseil
+redistribute static
+redistribute connected
+redistribute rip
+exit
+exit
+do wr
+
+
+_________________________________________________________
+		AS20 P1
+_________________________________________________________
+
+en
+conf t
+hostname P1
+mpls ip
+int lo0
+ip add 10.10.13.13 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.6 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 10.10.10.2 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/2
+ip add 10.10.10.14 255.255.255.252
+mpls ip
+no shut
+exit
+
+router rip
+version 2
+no auto-summary
+network 10.0.0.0
+exit
+
+router bgp 20
+neighbor 10.10.9.9 remote-as 20
+neighbor 10.10.9.9 update-source Loopback0
+neighbor 10.10.9.9 route-reflector-client
+neighbor 10.10.14.14 remote-as 20
+neighbor 10.10.14.14 update-source Loopback0
+neighbor 10.10.14.14 route-reflector-client
+neighbor 10.10.12.12 remote-as 20
+neighbor 10.10.12.12 update-source Loopback0
+neighbor 10.10.12.12 route-reflector-client
+neighbor 10.10.11.11 remote-as 20
+neighbor 10.10.11.11 update-source Loopback0
+neighbor 10.10.11.11 route-reflector-client
+address-family vpnv4
+neighbor 10.10.9.9 activate
+neighbor 10.10.9.9 send-community extended
+neighbor 10.10.9.9 route-reflector-client
+neighbor 10.10.11.11 activate
+neighbor 10.10.11.11 send-community extended
+neighbor 10.10.11.11 route-reflector-client
+neighbor 10.10.12.12 activate
+neighbor 10.10.12.12 send-community extended
+neighbor 10.10.12.12 route-reflector-client
+neighbor 10.10.14.14 activate
+neighbor 10.10.14.14 send-community extended
+neighbor 10.10.14.14 route-reflector-client
+exit
+exit
+do wr
+
+
+
+_________________________________________________________
+		AS30 ASBR5
+_________________________________________________________
+
+
+en
+conf t
+hostname ASBR5
+mpls ip
+int lo0
+ip add 10.10.5.5 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 172.16.10.10 255.255.255.252
+no shut
+exit
+int e0/1
+ip add 10.10.10.9 255.255.255.252
+mpls ip
+no shut
+exit
+
+router ospf 1
+router-id 10.10.5.5
+network 10.10.5.5 0.0.0.0 area 0
+network 10.10.10.8 0.0.0.3 area 0
+exit
+do wr
+
+
+router bgp 30
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.8.8 remote-as 30
+neighbor 10.10.8.8 update-source Loopback0
+neighbor 172.16.10.9 remote-as 20
+address-family vpnv4
+neighbor 10.10.8.8 activate
+neighbor 10.10.8.8 send-community extended
+neighbor 10.10.8.8 next-hop-self
+neighbor 172.16.10.9 activate
+neighbor 172.16.10.9 send-community extended
+exit
+exit
+do wr
+
+
+
+_________________________________________________________
+		AS30 ASBR7
+_________________________________________________________
+
+
+en
+conf t
+hostname ASBR7
+mpls ip
+int lo0
+ip add 10.10.7.7 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 172.16.10.2 255.255.255.252
+no shut
+exit
+int e0/1
+ip add 10.10.10.1 255.255.255.252
+mpls ip
+no shut
+exit
+
+router ospf 1
+router-id 10.10.7.7
+network 10.10.7.7 0.0.0.0 area 0
+network 10.10.10.0 0.0.0.3 area 0
+exit
+do wr
+
+
+router bgp 30
+bgp log-neighbor-changes
+no bgp default route-target filter
+neighbor 10.10.8.8 remote-as 30
+neighbor 10.10.8.8 update-source Loopback0
+neighbor 172.16.10.1 remote-as 10
+address-family vpnv4
+neighbor 10.10.8.8 activate
+neighbor 10.10.8.8 send-community extended
+neighbor 10.10.8.8 next-hop-self
+neighbor 172.16.10.1 activate
+neighbor 172.16.10.1 send-community extended
+exit
+exit
+do wr
+
+
+_________________________________________________________
+		AS30 PE6_ASBR6
+_________________________________________________________
+
+
+en
+conf t
+hostname PE6_ASBR6
+mpls ip
+int lo0
+ip add 10.10.6.6 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.5 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 172.16.20.26 255.255.255.252
+no shut
+exit
+int e0/2
+ip add 172.16.20.18 255.255.255.252
+no shut
+exit
+int e0/3
+ip add 172.16.20.22 255.255.255.252
+no shut
+exit
+
+router ospf 1
+router-id 10.10.6.6
+network 10.10.6.6 0.0.0.0 area 0
+network 10.10.10.4 0.0.0.3 area 0
+exit
+
+ip vrf UC_Exchange
+rd 10:2
+route-target both 10:2
+exit
+ip vrf ABC_Conseil
+rd 10:1
+route-target both 10:1
+exit
+int e0/1
+ip vrf forwarding UC_Exchange
+ip add 172.16.20.26 255.255.255.252
+exit
+int e0/2
+ip vrf forwarding UC_Exchange
+ip add 172.16.20.18 255.255.255.252
+exit
+do wr
+int e0/3
+ip vrf forwarding ABC_Conseil
+ip add 172.16.20.22 255.255.255.252
+exit
+do wr
+router rip
+no auto-summary
+address-family ipv4 vrf ABC_Conseil
+version 2
+default-information originate
+network 172.16.20.20
+exit
+exit
+ip route vrf UC_Exchange 192.168.40.0 255.255.255.0 172.16.20.17
+do wr
+
+
+router bgp 30
+bgp log-neighbor-changes
+neighbor 10.10.8.8 remote-as 30
+neighbor 10.10.8.8 update-source Loopback0
+address-family vpnv4
+neighbor 10.10.8.8 activate
+neighbor 10.10.8.8 send-community extended
+exit
+address-family ipv4 vrf ABC_Conseil
+redistribute static
+redistribute connected
+redistribute rip
+exit
+address-family ipv4 vrf UC_Exchange
+redistribute static
+redistribute connected
+exit
+exit
+do wr
+
+
+
+_________________________________________________________
+		AS30 P1
+_________________________________________________________
+
+en
+conf t
+hostname P1
+mpls ip
+int lo0
+ip add 10.10.8.8 255.255.255.255
+mpls ip
+no shut
+exit
+int e0/0
+ip add 10.10.10.2 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/1
+ip add 10.10.10.10 255.255.255.252
+mpls ip
+no shut
+exit
+int e0/2
+ip add 10.10.10.6 255.255.255.252
+mpls ip
+no shut
+exit
+
+router ospf 1
+router-id 10.10.8.8
+network 10.10.8.8 0.0.0.0 area 0
+network 10.10.10.0 0.0.0.3 area 0
+network 10.10.10.4 0.0.0.3 area 0
+network 10.10.10.8 0.0.0.3 area 0
+exit
+
+
+router bgp 30
+neighbor 10.10.5.5 remote-as 30
+neighbor 10.10.5.5 update-source Loopback0
+neighbor 10.10.5.5 route-reflector-client
+neighbor 10.10.6.6 remote-as 30
+neighbor 10.10.6.6 update-source Loopback0
+neighbor 10.10.6.6 route-reflector-client
+neighbor 10.10.7.7 remote-as 30
+neighbor 10.10.7.7 update-source Loopback0
+neighbor 10.10.7.7 route-reflector-client
+address-family vpnv4
+neighbor 10.10.5.5 activate
+neighbor 10.10.5.5 send-community extended
+neighbor 10.10.5.5 route-reflector-client
+neighbor 10.10.6.6 activate
+neighbor 10.10.6.6 send-community extended
+neighbor 10.10.6.6 route-reflector-client
+neighbor 10.10.7.7 activate
+neighbor 10.10.7.7 send-community extended
+neighbor 10.10.7.7 route-reflector-client
+exit
+exit
+do wr
+
+======================================================
+
+_________________________________________________________
+		CE1_1
+_________________________________________________________
+
+en
+conf t
+int e0/1
+ip add 172.16.20.9 255.255.255.252
+no shut
+exit
+int lo0
+ip add 192.168.20.1 255.255.255.0
+no shut
+exit
+ip route 0.0.0.0 0.0.0.0 172.16.20.10
+do wr
+
+_________________________________________________________
+		CE2_1
+_________________________________________________________
+
+en
+conf t
+int e0/0
+ip add 172.16.20.14 255.255.255.252
+no shut
+exit
+int lo0
+ip add 192.168.20.1 255.255.255.0
+no shut
+exit
+router rip
+no auto-summary
+version 2
+network 172.16.20.12
+network 192.168.20.0
+exit
+do wr
+
+
+_________________________________________________________
+		CE2_2
+_________________________________________________________
+
+en
+conf t
+int e0/0
+ip add 172.16.50.2 255.255.255.252
+no shut
+exit
+int lo0
+ip add 192.168.40.1 255.255.255.0
+no shut
+exit
+router rip
+version 2
+no auto-summary
+network 172.16.50.0
+network 192.168.40.0
+exit
+do wr
+
+
+
+_________________________________________________________
+		CE1_2
+_________________________________________________________
+
+en
+conf t
+int e0/0
+ip add 172.16.20.17 255.255.255.252
+no shut
+exit
+int e0/2
+ip add 172.16.20.25 255.255.255.252
+no shut
+exit
+int lo0
+ip add 192.168.40.1 255.255.255.0
+no shut
+exit
+ip route 0.0.0.0 0.0.0.0 172.16.20.18
+do wr
+
+
+_________________________________________________________
+		CE2_3
+_________________________________________________________
+
+en
+conf t
+int e0/0
+ip add 172.16.20.21 255.255.255.252
+no shut
+exit
+int lo0
+ip add 192.168.30.1 255.255.255.0
+no shut
+exit
+router rip
+version 2
+no auto-summary
+network 172.16.20.20
+network 192.168.30.0
+exit
+do wr
+
+
+_____________
+		R20
+_________________________________________________________
+
+en
+conf t
+int e0/0
+ip add 172.16.20.29 255.255.255.252
+no shut
+exit
+int lo0
+ip add 192.168.50.1 255.255.255.0
+no shut
+exit
+router rip
+version 2
+no auto-summary
+network 172.16.20.28
+network 192.168.50.0
+exit
+
+
+
+
+ip vrf ABC_Conseil
+rd 10:1
+route-target both 10:1
+exit
+
+int e0/3
+ip vrf forwarding ABC_Conseil
+ip add 172.16.20.30 255.255.255.252
+no shut
+exit
+
+router rip
+address-family ipv4 vrf ABC_Conseil
+version 2
+no auto-summary
+default-information originate
+network 172.16.20.28
+exit
+exit
+
+
+
+en
+erase startup-config
+
+
+
+
+

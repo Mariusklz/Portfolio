@@ -1,0 +1,41 @@
+
+conf t 
+no ip domain-lookup
+vlan 10
+name Voix
+exit
+int range fa0/1-8
+switchport mode access
+switchport access vlan 10
+no shut
+exit
+vlan 20
+name User
+exit
+int range fa0/9-15
+switchport mode access
+switchport access vlan 20
+no shut
+exit
+vlan 30
+name Server
+exit
+int range fa0/16-23
+switchport mode access
+switchport access vlan 30
+no shut
+exit
+vlan 40
+name Admin
+exit
+int fa0/24
+switchport mode access
+switchport access vlan 40
+no shut
+exit
+int gi0/1
+switchport trunk encapsulation dot1q
+switchport mode trunk 
+switchport trunk allowed vlan 10,20,30,40
+no shut 
+exit

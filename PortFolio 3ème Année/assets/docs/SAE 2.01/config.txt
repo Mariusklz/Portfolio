@@ -1,0 +1,334 @@
+###### COMMANDE SW2 ######
+en
+conf t
+no ip domain-lookup
+vlan 100
+name Administration
+exit
+vlan 200
+name Developper
+exit
+vlan 300
+name Administrateur
+exit
+
+conf t
+interface gigabitethernet 0/0
+ip address 192.168.40.178
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+no shutdown
+exit
+
+conf t
+interface gigabitethernet 3/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+spanning-tree vlan 100 cost 1
+spanning-tree vlan 200 cost 4096
+spanning-tree vlan 300 cost 8192
+exit
+
+
+conf t
+interface gigabitethernet 3/2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+spanning-tree vlan 100 cost 8192
+spanning-tree vlan 200 cost 1
+spanning-tree vlan 300 cost 4096
+exit
+
+conf t
+interface gigabitethernet 3/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+spanning-tree vlan 100 cost 4096
+spanning-tree vlan 200 cost 8192
+spanning-tree vlan 300 cost 1
+exit
+
+
+conf t
+interface vlan 100
+ip address 192.168.40.129 255.255.255.240
+no shutdown
+exit
+
+
+conf t
+interface vlan 200
+ip address 192.168.40.145 255.255.255.240
+no shutdown
+exit
+
+
+conf t
+interface vlan 300
+ip address 192.168.40.161 255.255.255.240
+no shutdown
+exit
+
+ip route 0.0.0.0 0.0.0.0 192.168.40.177
+
+conf t
+ip dhcp excluded-address 192.168.40.129
+ip dhcp excluded-address 192.168.40.145
+ip dhcp excluded-address 192.168.40.161
+
+ip dhcp pool Administration
+network 192.168.40.128 255.255.255.240
+default-router 192.168.40.129
+
+ip dhcp pool Developpement
+network 192.168.40.144 255.255.255.240
+default-router 192.168.40.145
+
+ip dhcp pool Administrateur
+network 192.168.40.160 255.255.255.240
+default-router 192.168.40.161
+
+router rip
+version 2
+no auto-summary
+network 192.168.40.0
+
+spanning-tree mode pvst
+
+spanning-tree vlan 100 priority 8192
+spanning-tree vlan 200 priority 4096
+spanning-tree vlan 300 priority 16384
+
+
+###### COMMANDE SW1 ######
+en
+conf t
+no ip domain-lookup
+vlan 100
+name Administration
+exit
+vlan 200
+name Developper
+exit
+vlan 300
+name Administrateur
+exit
+
+conf t 
+interface gigabitEthernet 0/3
+switchport mode access
+switchport access vlan 100
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+interface gigabitEthernet 0/0
+switchport mode access
+switchport access vlan 100
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+interface gigabitEthernet 0/2
+switchport mode access
+switchport access vlan 200
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+interface gigabitEthernet 1/0
+switchport mode access
+switchport access vlan 200
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+interface gigabitEthernet 1/1
+switchport mode access
+switchport access vlan 300
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+
+interface gigabitEthernet 0/1
+switchport mode access
+switchport access vlan 300
+switchport port-security
+switchport port-security maximum 1
+switchport port-security mac-address sticky
+switchport port-security violation shutdown
+exit
+
+
+
+conf t
+interface gigabitethernet 3/1
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+exit
+
+
+conf t
+interface gigabitethernet 3/2
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+exit
+
+conf t
+interface gigabitethernet 3/3
+switchport trunk encapsulation dot1q
+switchport mode trunk
+switchport trunk allowed vlan 100,200,300
+exit
+
+
+spanning-tree mode pvst
+
+spanning-tree vlan 100 priority 4096
+spanning-tree vlan 200 priority 8192
+spanning-tree vlan 300 priority 16384
+
+
+
+###### COMMANDE R1  ######
+en
+conf t
+interface fastethernet 0/0
+ip address 192.168.40.177 255.255.255.252
+no shutdown
+exit
+
+interface serial 1/0
+ip address 192.168.40.185 255.255.255.252
+no shutdown
+exit
+interface serial 1/2
+ip address 192.168.40.181 255.255.255.252
+no shutdown
+exit
+
+router rip
+version 2
+network 192.168.40.0
+no auto-summary
+no passive-interface fastethernet 0/0
+no passive-interface serial 1/0
+no passive-interface serial 1/2
+exit
+wr
+
+##Mettre l'interface s1/0 du routeur bordure
+ip route 0.0.0.0 0.0.0.0 192.168.40.186
+
+###### COMMANDE ROUTEUR-BORDURE ######
+en
+conf t
+interface FastEthernet0/0
+ip address 192.168.122.2 255.255.255.0
+ip nat outside
+no shutdown
+exit
+
+interface serial 1/0
+ip address 192.168.40.186 255.255.255.252
+ip nat inside
+no shutdown
+exit
+
+interface serial 1/1
+ip address 192.168.40.189 255.255.255.252
+ip nat inside
+no shutdown
+exit
+
+
+router rip
+version 2
+network 192.168.40.0
+network 192.168.1.0
+no auto-summary
+no passive-interface serial 1/0
+no passive-interface serial 1/1
+exit
+
+##Mettre en ip route la passerelle du réseau WAN (passerelle de l'IUT)
+ip route 0.0.0.0 0.0.0.0 192.168.1.1
+
+conf t
+ip nat inside source list 101 interface FastEthernet0/0 overload
+access-list 101 permit icmp any any
+access-list 101 permit tcp any any eq 443
+access-list 101 permit tcp any any eq 80
+access-list 101 permit udp any any eq bootps
+access-list 101 permit udp any any eq bootpc
+access-list 101 deny ip any any
+exit
+wr
+
+###### COMMANDE R2 ######
+en
+conf t
+interface serial 1/1
+ip address 192.168.40.190 255.255.255.252
+ip access-group 101 out
+no shutdown
+exit
+
+interface serial 1/2
+ip address 192.168.40.182 255.255.255.252
+ip access-group 101 in
+no shutdown
+exit
+
+interface f0/0
+ip address 192.168.40.193 255.255.255.252
+no shutdown
+exit
+
+router rip
+version 2
+network 192.168.40.0
+no auto-summary
+no passive-interface serial 1/1
+no passive-interface serial 1/2
+exit
+exit
+wr
+
+conf t
+ip nat inside source list 103 interface serial1/1 overload
+access-list 101 permit tcp any any eq 22
+access-list 101 permit tcp any any eq 873
+access-list 101 permit tcp any any eq 443
+access-list 101 permit tcp any any eq 80
+access-list 101 deny ip any any
+
+
+##Mettre l'interface s1/1 du routeur bordure
+ip route 0.0.0.0 0.0.0.0 192.168.40.189
+
+
+##########
+curl @ipduservapache	pour inspecter le code la page
+rsync -avz /var/www/html/index.html debian@192.168.40.194
+
+
+proftpd
+

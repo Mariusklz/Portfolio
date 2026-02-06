@@ -1,0 +1,72 @@
+conf t
+no ip domain-lookup
+int g0/0
+no shut
+exit
+int g0/0.10
+encapsulation dot1Q 10
+ip add 10.252.13.1 255.255.255.224
+ip nat inside
+no shut
+exit
+int g0/0.20
+encapsulation dot1Q 20
+ip add 10.252.13.33 255.255.255.224
+ip nat inside
+no shut
+exit
+int g0/0.30
+encapsulation dot1Q 30
+ip add 10.252.13.65 255.255.255.240
+ip nat inside
+no shut
+exit
+int g0/0.40
+encapsulation dot1Q 40
+ip add 10.252.13.81 255.255.255.252
+ip nat inside
+no shut
+exit
+ip dhcp pool Voix
+network 10.252.13.0 255.255.255.224
+default-router 10.252.13.1
+dns-server 10.252.13.66
+exit
+ip dhcp pool User
+network 10.252.13.32 255.255.255.224
+default-router 10.252.13.33
+dns-server 10.252.13.66
+exit
+ip dhcp pool Admin
+network 10.252.13.80 255.255.255.252
+default-router 10.252.13.81
+dns-server 10.252.13.66
+exit
+ip dhcp excluded-address 10.252.13.1 10.252.13.10
+ip dhcp excluded-address 10.252.13.33 10.252.13.42
+ip dhcp excluded-address 10.252.13.81
+int g0/1
+ip add dchp
+ip nat outside
+no shut
+exit
+access-list 10 permit 10.252.13.0 0.0.0.255
+ip nat inside source list 10 interface GigabitEthernet0/1 overload
+
+ip access-list extended 100 
+deny ip 10.252.13.32 0.0.0.31 host 91.211.165.100
+permit icmp 10.252.13.32 0.0.0.31 10.252.13.80 0.0.0.3 echo-reply
+deny ip 10.252.13.32 0.0.0.31 10.252.13.80 0.0.0.3
+permit ip any any
+exit
+int g0/0.20
+ip access-group 100 in
+
+ip access-list extended 101
+ permit tcp 10.252.13.80 0.0.0.3 any eq 21
+ permit tcp 10.252.13.80 0.0.0.3 any eq 20
+ deny tcp any any eq 21
+ deny tcp any any eq 20
+ permit ip any any
+interface GigabitEthernet0/0.30
+ ip access-group 101 out

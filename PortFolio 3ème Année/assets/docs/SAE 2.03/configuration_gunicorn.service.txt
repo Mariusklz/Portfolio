@@ -1,0 +1,17 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=toto
+Group=www-data
+WorkingDirectory=/home/toto/SAE23/project_sae
+ExecStart=/home/toto/SAE23/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          project_sae.wsgi:application
+
+[Install]
+WantedBy=multi-user.target

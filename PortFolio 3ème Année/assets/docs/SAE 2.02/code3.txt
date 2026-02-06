@@ -1,0 +1,85 @@
+// Define the pin numbers for the buttons
+int Bouton_1 = 8;
+int Bouton_2 = 9;
+int Bouton_3 = 10;
+int Bouton_4 = A0;
+int Bouton_5 = A1;
+int Bouton_6 = A2;
+int Bouton_7 = A3;
+int Bouton_8 = A4;
+int Bouton_9 = A5;
+
+// Define the pin for the piezo buzzer
+int buzzer = 7;
+
+// Define the notes (frequencies in Hz)
+const int note1 = 147;  // RE2
+const int note2 = 165;  // MI2
+const int note3 = 175;  // FA2
+const int note4 = 196;  // SOL2
+const int note5 = 220;  // LA2
+const int note6 = 247;  // SI2
+const int note7 = 262;  // DO3
+const int note8 = 294;  // RE3
+const int note9 = 330;  // MI3
+
+void setup() {
+  // Initialize the button pins as input with internal pull-up resistors
+  pinMode(Bouton_1, INPUT_PULLUP);
+  pinMode(Bouton_2, INPUT_PULLUP);
+  pinMode(Bouton_3, INPUT_PULLUP);
+  pinMode(Bouton_4, INPUT_PULLUP);
+  pinMode(Bouton_5, INPUT_PULLUP);
+  pinMode(Bouton_6, INPUT_PULLUP);
+  pinMode(Bouton_7, INPUT_PULLUP);
+  pinMode(Bouton_8, INPUT_PULLUP);
+  pinMode(Bouton_9, INPUT_PULLUP);
+
+  // Initialize the buzzer pin as output
+  pinMode(buzzer, OUTPUT);
+}
+
+void loop()
+{
+  // Read the values from the buttons
+  int b1 = digitalRead(Bouton_1);
+  int b2 = digitalRead(Bouton_2);
+  int b3 = digitalRead(Bouton_3);
+  int b4 = digitalRead(Bouton_4);
+  int b5 = digitalRead(Bouton_5);
+  int b6 = digitalRead(Bouton_6);
+  int b7 = digitalRead(Bouton_7);
+  int b8 = digitalRead(Bouton_8);
+  int b9 = digitalRead(Bouton_9);
+  
+  // If a button is pressed (reads LOW), play the corresponding note
+  if(b1 == LOW) {
+    tone(buzzer, note1, 100);
+  }
+  if(b2 == LOW) {
+    tone(buzzer, note2, 100);
+  }
+  if(b3 == LOW) {
+    tone(buzzer, note3, 100);
+  }
+  if(b4 == LOW) {
+    tone(buzzer, note4, 100);
+  }
+  if(b5 == LOW) {
+    tone(buzzer, note5, 100);
+  }
+  if(b6 == LOW) {
+    tone(buzzer, note6, 100);
+  }
+  if(b7 == LOW) {
+    tone(buzzer, note7, 100);
+  }
+  if(b8 == LOW) {
+    tone(buzzer, note8, 100);
+  }
+  if(b9 == LOW) {
+    tone(buzzer, note9, 100);
+  }
+  
+  delay(10); // Small delay to debounce the buttons
+}

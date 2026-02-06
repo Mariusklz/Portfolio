@@ -1,0 +1,73 @@
+Résumé des étapes pour déployer un service FTP
+
+1. Installation de ProFTPD
+   sudo apt update
+   sudo apt install proftpd
+
+2. Configuration de ProFTPD
+   - Modifier le fichier /etc/proftpd/proftpd.conf :
+     <Anonymous ~ftp>
+       User                          ftp
+       Group                         nogroup
+       UserAlias                     anonymous ftp
+       RequireValidshell	     off
+       MaxClients                    10
+       <Limit LOGIN>
+         AllowAll
+       </Limit>
+       <Directory *>
+         <Limit WRITE>
+           DenyAll
+         </Limit>
+       </Directory>
+     </Anonymous>
+
+     <Directory /home/antoine>
+       <Limit WRITE READ>
+         AllowUser antoine
+       </Limit>
+       <Limit ALL>
+         DenyAll
+       </Limit>
+     </Directory>
+
+     <Directory /home/elise>
+       <Limit WRITE READ>
+         AllowUser elise
+       </Limit>
+       <Limit ALL>
+         DenyAll
+       </Limit>
+     </Directory>
+
+3. Créer les utilisateurs et définir leurs répertoires
+   sudo adduser antoine
+   sudo adduser elise
+
+   sudo mkdir -p /home/antoine
+   sudo mkdir -p /home/elise
+   sudo chown antoine:antoine /home/antoine
+   sudo chown elise:elise /home/elise
+   
+   sudo mkdir -p /srv/ftp
+   sudo chown ftp:nogroup /srv/ftp
+   sudo chmod 755 /srv/ftp
+
+
+4. Redémarrer le service ProFTPD
+   sudo systemctl restart proftpd
+
+5. Vérifier le statut du service
+   sudo systemctl status proftpd
+
+6. Tester l'accès FTP
+   - Accès anonyme :
+     ftp Serveur-sauvegarde
+     Nom d'utilisateur : anonymous
+     Mot de passe : une adresse email
+
+   - Accès utilisateurs :
+     ftp Serveur-sauvegarde
+     Noms d'utilisateur : antoine, elise
+     Mots de passe : ceux définis lors de la création des utilisateurs
+

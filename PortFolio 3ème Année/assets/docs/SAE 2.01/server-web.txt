@@ -1,0 +1,12 @@
+
+sudo apt update
+sudo apt install apache2
+sudo apt install rsync
+
+
+### Sur Server dev ###
+rsync -avz /var/www/html/index.html debian@192.168.40.194:/var/www/html/index.html
+curl @ip du serveur prod soit 192.168.40.194
+
+### Sur Server prod ###
+sudo chmod -R 777 /var/www/html
