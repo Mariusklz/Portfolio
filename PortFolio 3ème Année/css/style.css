@@ -1239,6 +1239,266 @@ section {
     color: var(--primary-color);
 }
 
+/* ===================================
+   Page Annexes - Styles
+   =================================== */
+
+.annexes-section {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--bg-color);
+}
+
+.annexe-category {
+    margin-bottom: var(--spacing-xl);
+    background: white;
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.annexe-category .section-title {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.annexe-category .section-title i {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+
+.annexe-content > p {
+    color: var(--text-light);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.8;
+}
+
+/* Semestres SAE */
+.sae-semester {
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: var(--bg-light);
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.semester-title {
+    color: var(--secondary-color);
+    font-size: 1.6rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-weight: 600;
+}
+
+.semester-title i {
+    color: var(--primary-color);
+    font-size: 1.6rem;
+}
+
+/* Sections SAE individuelles */
+.sae-section {
+    background: white;
+    border-radius: 6px;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    border: 1px solid var(--border-color);
+}
+
+.sae-section:last-child {
+    margin-bottom: 0;
+}
+
+.sae-section h4 {
+    color: var(--secondary-color);
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding-bottom: var(--spacing-sm);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.sae-section h4 i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+/* Grille de documents */
+.documents-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-md);
+}
+
+/* Cartes de documents */
+.document-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: var(--spacing-md);
+    text-align: center;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.document-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-md);
+}
+
+.document-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-sm);
+}
+
+.document-card h3,
+.document-card h5 {
+    color: var(--secondary-color);
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+}
+
+.document-card h5 {
+    font-size: 1rem;
+}
+
+.document-card p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.document-card .btn {
+    margin-top: auto;
+    width: 100%;
+    padding: 0.7rem 1.2rem;
+    background: var(--primary-color);
+    color: white !important;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.document-card .btn i {
+    color: white !important;
+    font-size: 0.95rem;
+    line-height: 1;
+    margin: 0;
+}
+
+.document-card .btn:hover {
+    background: #2980b9;
+}
+
+/* Icônes colorées par type de fichier */
+.document-card .fa-python {
+    color: #3776ab;
+}
+
+.document-card .fa-github {
+    color: #333;
+}
+
+.document-card .fa-file-pdf {
+    color: #e74c3c;
+}
+
+.document-card .fa-file-word {
+    color: #2b579a;
+}
+
+.document-card .fa-file-powerpoint {
+    color: #d24726;
+}
+
+.document-card .fa-file-excel {
+    color: #217346;
+}
+
+.document-card .fa-shield-alt,
+.document-card .fa-file-code {
+    color: #27ae60;
+}
+
+.document-card .fa-image {
+    color: #f39c12;
+}
+
+.document-card .fa-file-archive {
+    color: #95a5a6;
+}
+
+/* Responsive Annexes */
+@media screen and (max-width: 968px) {
+    .documents-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: var(--spacing-sm);
+    }
+    
+    .annexe-category {
+        padding: var(--spacing-md);
+    }
+    
+    .sae-semester {
+        padding: var(--spacing-sm);
+    }
+    
+    .semester-title {
+        font-size: 1.4rem;
+    }
+    
+    .sae-section h4 {
+        font-size: 1.1rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .documents-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .annexe-category .section-title {
+        font-size: 1.5rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .semester-title {
+        flex-direction: column;
+        text-align: center;
+        font-size: 1.3rem;
+    }
+    
+    .sae-section h4 {
+        flex-direction: column;
+        align-items: flex-start;
+        font-size: 1rem;
+    }
+    
+    .document-card {
+        padding: var(--spacing-sm);
+    }
+}
+
 /* Responsive pour pages Compétences & Projets */
 @media screen and (max-width: 968px) {
     .page-title {
