@@ -82,59 +82,128 @@
                         <p>
                             Mon homelab est un environnement d'apprentissage et d'expérimentation que j'ai construit 
                             pour approfondir mes compétences en administration réseau, virtualisation et systèmes. 
-                            C'est un laboratoire personnel qui me permet de tester de nouvelles technologies, 
-                            déployer des services et reproduire des architectures professionnelles.
+                            Cette infrastructure me permet d'héberger mes propres services, d'expérimenter avec 
+                            différentes technologies et de reproduire des architectures d'entreprise.
                         </p>
                         
-                        <h3>Architecture de l'infrastructure</h3>
+                        <h3>📊 Architecture Schématique</h3>
+                        <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0; font-family: monospace; font-size: 14px;">
+<pre style="margin: 0; line-height: 1.6;">
+┌─────────────────────────────────────────────────────────────────┐
+│                         INTERNET (Box SFR)                      │
+└──────────────────────────┬──────────────────────────────────────┘
+                           │
+        ┌──────────────────┴──────────────────┐
+        │                                     │
+┌───────▼──────────┐              ┌──────────▼─────────┐
+│  SERVEUR PROXMOX │              │  SYNOLOGY NAS      │
+└──────────────────┘              └────────────────────┘
+                                  
+🖥️  <strong>PROXMOX VE</strong>                    💾 <strong>SYNOLOGY</strong>
+├─ 📦 LXC: NPM                    ├─ 🔒 Serveur VPN
+│  (Nginx Proxy Manager)          ├─ 📁 NAS (SMB + SFTP)
+├─ 📦 LXC: AdGuard Home           ├─ 🏠 VM: Home Assistant
+├─ 📦 LXC: Vaultwarden            └─ 🐳 Portainer
+└─ 🖥️  VM: Pterodactyl                ├─ 🌐 Serveur Web Portfolio
+   (Serveurs de jeux)                 └─ 📊 Zabbix (Supervision)
+</pre>
+                        </div>
+
+                        <h3>🔧 Infrastructure détaillée</h3>
+                        
+                        <h4>Réseau et Routage</h4>
                         <ul>
-                            <li><strong>Serveurs physiques :</strong> [Décrivez votre matériel - ex: Dell R720, HP ProLiant, PC reconverti, etc.]</li>
-                            <li><strong>Hyperviseur :</strong> [Proxmox VE / VMware ESXi / Hyper-V]</li>
-                            <li><strong>Réseau :</strong> [Switch manageable, VLANs, firewall/routeur]</li>
-                            <li><strong>Stockage :</strong> [NAS, SAN, stockage direct]</li>
+                            <li><strong>Gateway :</strong> Box SFR (routeur principal)</li>
+                            <li><strong>Reverse Proxy :</strong> Nginx Proxy Manager pour l'accès externe sécurisé</li>
+                            <li><strong>DNS :</strong> AdGuard Home (filtrage publicitaire + DNS local)</li>
+                            <li><strong>VPN :</strong> Serveur VPN sur Synology pour accès distant sécurisé</li>
                         </ul>
 
-                        <h3>Services et applications déployés</h3>
+                        <h4>Serveur de Virtualisation - Proxmox VE</h4>
                         <ul>
-                            <li><strong>Virtualisation :</strong> [VMs Linux/Windows, conteneurs Docker]</li>
-                            <li><strong>Services réseau :</strong> [DNS, DHCP, VPN, Reverse Proxy]</li>
-                            <li><strong>Monitoring :</strong> [Grafana, Prometheus, Zabbix, Uptime Kuma]</li>
-                            <li><strong>Stockage et partage :</strong> [Nextcloud, Samba, NFS]</li>
-                            <li><strong>Automatisation :</strong> [Ansible, scripts Bash/Python]</li>
-                            <li><strong>Laboratoire de test :</strong> [Environnements de dev, tests de sécurité]</li>
+                            <li><strong>Conteneurs LXC :</strong>
+                                <ul>
+                                    <li><strong>Nginx Proxy Manager (NPM) :</strong> Reverse proxy avec gestion SSL automatique</li>
+                                    <li><strong>AdGuard Home :</strong> Serveur DNS avec filtrage publicitaire réseau</li>
+                                    <li><strong>Vaultwarden :</strong> Gestionnaire de mots de passe auto-hébergé (compatible Bitwarden)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Machine Virtuelle :</strong>
+                                <ul>
+                                    <li><strong>Pterodactyl Panel :</strong> Plateforme de gestion de serveurs de jeux (Minecraft, etc.)</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <h4>Serveur de Stockage - Synology NAS</h4>
+                        <ul>
+                            <li><strong>Serveur VPN :</strong> Accès distant sécurisé à l'infrastructure</li>
+                            <li><strong>Serveur de fichiers :</strong> 
+                                <ul>
+                                    <li>SMB (partage Windows/Mac/Linux)</li>
+                                    <li>SFTP (transfert sécurisé)</li>
+                                </ul>
+                            </li>
+                            <li><strong>VM Home Assistant :</strong> Domotique et automatisation</li>
+                            <li><strong>Portainer :</strong> Gestion de conteneurs Docker
+                                <ul>
+                                    <li>Serveur web pour hébergement du portfolio</li>
+                                    <li>Zabbix pour supervision et monitoring</li>
+                                </ul>
+                            </li>
                         </ul>
 
                         <h3>Technologies et outils maîtrisés</h3>
                         <div class="tech-tags">
-                            <span class="tech-tag">Proxmox</span>
+                            <span class="tech-tag">Proxmox VE</span>
                             <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Linux</span>
-                            <span class="tech-tag">pfSense</span>
-                            <span class="tech-tag">VLANs</span>
-                            <span class="tech-tag">Ansible</span>
-                            <span class="tech-tag">Nginx</span>
-                            <span class="tech-tag">Grafana</span>
-                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">Portainer</span>
+                            <span class="tech-tag">LXC</span>
+                            <span class="tech-tag">Nginx Proxy Manager</span>
+                            <span class="tech-tag">AdGuard Home</span>
+                            <span class="tech-tag">Vaultwarden</span>
+                            <span class="tech-tag">Pterodactyl</span>
+                            <span class="tech-tag">Synology DSM</span>
+                            <span class="tech-tag">VPN</span>
+                            <span class="tech-tag">SMB/SFTP</span>
+                            <span class="tech-tag">Home Assistant</span>
+                            <span class="tech-tag">Zabbix</span>
+                            <span class="tech-tag">SSL/TLS</span>
                         </div>
                     </div>
                     <div class="project-outcomes">
-                        <h3>Cas d'usage et bénéfices</h3>
+                        <h3>🎯 Services en production</h3>
                         <ul>
-                            <li><strong>Apprentissage pratique :</strong> Expérimentation sans risque pour l'apprentissage</li>
-                            <li><strong>Reproduction d'architectures :</strong> Simulation d'environnements d'entreprise</li>
-                            <li><strong>Certification :</strong> Préparation aux certifications (CCNA, Linux, etc.)</li>
-                            <li><strong>Services personnels :</strong> Hébergement de mes propres services</li>
-                            <li><strong>Veille technologique :</strong> Test des dernières technologies</li>
+                            <li><strong>Gestion de mots de passe :</strong> Vaultwarden pour sécuriser mes identifiants</li>
+                            <li><strong>Hébergement de jeux :</strong> Serveurs Minecraft et autres via Pterodactyl</li>
+                            <li><strong>Protection réseau :</strong> Filtrage DNS et blocage publicitaire avec AdGuard</li>
+                            <li><strong>Stockage personnel :</strong> NAS sécurisé avec accès SMB et SFTP</li>
+                            <li><strong>Accès distant :</strong> VPN pour connexion sécurisée depuis l'extérieur</li>
+                            <li><strong>Portfolio en ligne :</strong> Hébergement de mon site web personnel</li>
+                            <li><strong>Supervision :</strong> Monitoring en temps réel avec Zabbix</li>
+                            <li><strong>Domotique :</strong> Automatisation avec Home Assistant</li>
                         </ul>
 
-                        <h3>Défis relevés et compétences développées</h3>
+                        <h3>💡 Compétences développées</h3>
                         <ul>
-                            <li>Conception et segmentation réseau avec VLANs</li>
-                            <li>Gestion de la haute disponibilité et de la redondance</li>
-                            <li>Mise en place de solutions de monitoring et d'alerting</li>
-                            <li>Automatisation des déploiements et configurations</li>
-                            <li>Troubleshooting réseau et système avancé</li>
-                            <li>Optimisation des performances et de la consommation énergétique</li>
+                            <li><strong>Virtualisation :</strong> Maîtrise de Proxmox VE (VMs et conteneurs LXC)</li>
+                            <li><strong>Conteneurisation :</strong> Docker et orchestration avec Portainer</li>
+                            <li><strong>Reverse Proxy :</strong> Configuration Nginx pour exposition sécurisée des services</li>
+                            <li><strong>Sécurité :</strong> Gestion SSL/TLS, VPN, isolation des services</li>
+                            <li><strong>Stockage :</strong> Administration NAS Synology, protocoles SMB/SFTP</li>
+                            <li><strong>Monitoring :</strong> Supervision infrastructure avec Zabbix</li>
+                            <li><strong>DNS :</strong> Configuration et filtrage avec AdGuard Home</li>
+                            <li><strong>Troubleshooting :</strong> Résolution de problèmes réseau et système</li>
+                            <li><strong>Automatisation :</strong> Scripts et intégrations Home Assistant</li>
+                        </ul>
+
+                        <h3>🚀 Évolutions futures</h3>
+                        <ul>
+                            <li>Déploiement d'un firewall dédié (pfSense/OPNsense)</li>
+                            <li>Mise en place de VLANs pour segmentation réseau</li>
+                            <li>Ajout de solutions de backup automatisées</li>
+                            <li>Expansion du monitoring avec Grafana</li>
+                            <li>Expérimentation avec Kubernetes</li>
                         </ul>
                     </div>
                 </div>

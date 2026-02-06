@@ -132,54 +132,31 @@ const contactForm = document.getElementById('contact-form');
 
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
-        e.preventDefault();
+        // Ne pas empêcher la soumission par défaut pour FormSubmit
+        // Juste valider les champs avant l'envoi
         
-        // Récupérer les valeurs du formulaire
         const formData = new FormData(contactForm);
         const name = formData.get('name');
         const email = formData.get('email');
-        const subject = formData.get('subject');
         const message = formData.get('message');
         
         // Validation simple
         if (!name || !email || !message) {
+            e.preventDefault();
             showNotification('Veuillez remplir tous les champs obligatoires.', 'error');
             return;
         }
         
         // Validation email
         if (!isValidEmail(email)) {
+            e.preventDefault();
             showNotification('Veuillez entrer une adresse email valide.', 'error');
             return;
         }
         
-        // Ici, vous pouvez ajouter votre logique d'envoi du formulaire
-        // Par exemple, utiliser fetch() pour envoyer à un backend
-        console.log('Form Data:', { name, email, subject, message });
-        
-        // Simuler l'envoi
-        showNotification('Message envoyé avec succès!', 'success');
-        contactForm.reset();
-        
-        // Exemple d'envoi à un backend (à décommenter et adapter)
-        /*
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ name, email, subject, message })
-        })
-        .then(response => response.json())
-        .then(data => {
-            showNotification('Message envoyé avec succès!', 'success');
-            contactForm.reset();
-        })
-        .catch(error => {
-            showNotification('Erreur lors de l\'envoi du message.', 'error');
-            console.error('Error:', error);
-        });
-        */
+        // Si tout est OK, laisser le formulaire se soumettre normalement
+        // FormSubmit gérera l'envoi
+        showNotification('Envoi en cours...', 'info');
     });
 }
 

@@ -1,0 +1,839 @@
+Dans la partie administrer
+SAE1.01 : Sensibilisation à l'hygiène
+informatique et à la cybersécurité
+Marc GILG
+Édition rapide
+Introduction
+
+La SAE 11, dirigée par Marc Gilg, se concentre sur l'administration et la gestion des risques liés à l'environnement numérique. Elle vise à développer des compétences en hygiène informatique, permettant de protéger les systèmes d'informations et de garantir leur sécurité et leur intégrité. Cette SAE était coefficient 10 dans la première compétence du BUT Réseaux et Télécommunications.
+Édition rapide
+Compétences validées
+
+    CE1.02 : en respectant les principes fondamentaux de la sécurité informatique
+    CE1.03 : en utilisant une approche rigoureuse pour la résolution des dysfonctionnements
+
+Édition rapide
+Projets et Évaluations
+
+    Projets SAE11 : Réalisés en groupes, avec des sujets proposés sur Moodle et possibilité de soumettre des sujets personnalisés. Évaluations basées sur la compréhension, la couverture du sujet, le niveau technique, la qualité de la présentation, et les réponses aux questions.
+    Présentation et Vidéo : Présentation de 10 minutes et vidéo de 3 minutes, évaluées sur des critères de présentation, niveau technique, bibliographie, originalité, et qualité.
+
+Lien vers les preuves de la SAE 1.0.1
+Édition rapide
+Thèmes abordés
+
+    Valeur de l’information : Confidentialité, intégrité, disponibilité, et validité des données.
+    Menaces et attaques : Ingénierie sociale, logiciels malveillants, attaques réseaux et physiques.
+    Protection et Prévention : Utilisation d'anti-virus, bonnes pratiques de sécurité, gestion des mots de passe, et double authentification.
+
+Lien vers les preuves de la SAE 1.01
+Édition rapide
+SAE1.02 : S’initier aux réseaux informatiques
+Benoît HILT
+Sébastien BINDEL
+Ismail BENNIS
+Édition rapide
+Introduction
+
+La SAE 1.02, intitulé "S’initier aux réseaux informatiques", détaille les responsabilités des techniciens réseaux et télécoms dans le cadre de l'ouverture de nouvelles succursales pour une entreprise en expansion. Chaque nouvelle implantation requiert une configuration standardisée du réseau local. Le but de la SAE est de simuler un réseau informatique à l'aide de EVE NG et d'assurer le bon fonctionnement des services réseaux de base dans un environnement professionnel.
+Édition rapide
+Compétences validées
+
+    AC11.02 : Comprendre l'architecture et les fondements des systèmes numériques, les principes du codage de l'information, des communications et de l'Internet
+    AC11.03 : Configurer les fonctions de base du réseau local
+    AC11.05 : Identifier les dysfonctionnements du réseau local et savoir les signaler
+
+Édition rapide
+Thèmes abordés
+
+Architecture des Réseaux Locaux : Topologies de réseaux (étoile, bus, anneau, etc.).
+
+Protocoles de Communication : Protocoles de couche application (DHCP). Protocoles de couche réseau et transport (IPv4, ICMP)
+
+Configuration des Équipements Réseau : Paramétrage de commutateurs et routeurs. Configuration des adresses IP et des sous-réseaux
+
+Lien vers les preuves de la SAE 1.02
+Édition rapide
+Projets et Évaluations
+
+    Projets SAE11 : Réalisé individuellement, avec des consignes données sur les différents documents déposés sur Moodle. Évaluations basées sur le bon fonctionnement des switchs, routeur, le bon adressage des différents équipement réseaux ainsi que la communication entre eux.
+
+Lien vers les preuves de la SAE 1.02
+Édition rapide
+SAE2.01 : Construire un réseau informatique pour une petite structure
+Benoît HILT
+Sébastien BINDEL
+Ismail BENNIS
+Édition rapide
+Introduction
+
+Le projet mené durant cette SAE a pour objectif de consolider votre savoir-faire sur le matériel réseau de niveau deux (commutateur) et trois (routeur). Vous êtes maintenant capable de construire un réseau local constitué de commutateurs et de routeurs et de mettre en place des règles de sécurité simples. Dans cette SAE, vous travaillerez de manière individuelle et utiliserez le logiciel GNS3. La section II décrit le réseau à mettre en place. La section III décrit les services à déployer. La section IV décrit les règles de sécurité à mettre en place.
+Édition rapide
+Compétences validées
+
+    AC11.02 : Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet
+    AC11.03 : Configurer les fonctions de base du réseau local
+    AC11.04 : Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l’administration des réseaux et services fournis
+    AC11.05 : Identifier les dysfonctionnements du réseau local et savoir les signaler
+    AC11.06 : Installer un poste client, expliquer la procédure mise en place
+
+Édition rapide
+Projets et Evaluation
+
+Le projet SAE21 visait à construire un réseau local utilisant des équipements de niveau 2 (commutateurs) et 3 (routeurs). Le projet était individuel et réalisé à l'aide du simulateur GNS3. Les tâches principales incluaient la segmentation du réseau en plusieurs VLAN (Administration, Développeurs, Administrateurs), la configuration de ces VLAN avec un routage inter-VLAN, ainsi que l'équilibrage de charge via le protocole Spanning-Tree. En complément, un serveur DHCP a été configuré pour attribuer automatiquement des adresses IP aux machines des différents VLAN.
+
+Des services essentiels ont également été déployés, tels qu'un serveur FTP avec gestion des accès pour des utilisateurs spécifiques, et des serveurs web avec synchronisation de contenu via Rsync. Enfin, des règles de sécurité ont été mises en place, incluant des ACL sur les routeurs et la sécurisation des ports des commutateurs.
+Édition rapide
+Thèmes abordés
+
+    Architecture des Réseaux Locaux : Segmentation des VLAN, routage inter-VLAN, et équilibrage de charge avec Spanning-Tree.
+    Services Réseaux : Déploiement de serveurs FTP et Web, synchronisation de contenu via Rsync.
+    Configuration des Équipements Réseau : Configuration des commutateurs et routeurs, adressage IP avec masques variables, et activation du protocole DHCP.
+    Sécurité Réseau : Sécurisation des ports des commutateurs, configuration d'ACL pour limiter les accès, et mise en œuvre du NAT pour les communications externes.
+
+Édition rapide
+SAE2.04 : Projet intégratif
+Sébastien BINDEL
+Arnauld Albert
+Philippe Hensel
+Laurent Mura
+Édition rapide
+Introduction
+
+La Situation d'Apprentissage et d'Évaluation (SAE) intégrative que j'ai entrepris est conçue pour valider mes compétences fondamentales en matière de réseau, téléphonie, collecte de données, et développement web et base de données. Cette SAE vise à regrouper et synthétiser l'ensemble des ressources et connaissances que j'ai acquises au cours de ma formation, en les appliquant dans un projet pratique et concret. J'ai travaillé en équipe pour concevoir et implémenter une maquette fonctionnelle, en suivant des directives précises et en respectant des critères techniques rigoureux. Chaque partie du projet est évaluée individuellement et collectivement, incluant des validations progressives et un test final sur la plateforme Moodle. Ce projet représente une opportunité clé pour démontrer mes capacités à gérer des réseaux locaux, configurer des systèmes de téléphonie IP, collecter et analyser des données, ainsi que développer des applications web et des bases de données efficaces et sécurisées.
+Édition rapide
+Compétences validées
+
+AC11.01 | Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications
+– AC11.02 | Comprendre l’architecture et les fondements des systèmes numériques, les principes du codage de l’information, des communications et de l’Internet
+– AC11.03 | Configurer les fonctions de base du réseau local
+– AC11.04 | Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour
+la configuration et l’administration des réseaux et services fournis
+– AC11.05 | Identifier les dysfonctionnements du réseau local et savoir les signaler
+– AC11.06 | Installer un poste client, expliquer la procédure mise en place
+– AC12.01 | Mesurer, analyser et commenter les signaux
+– AC12.02 | Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur
+fonctionnement
+– AC12.03 | Déployer des supports de transmission
+– AC12.04 | Connecter les systèmes de ToIP
+– AC12.05 | Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur
+– AC13.01 | Utiliser un système informatique et ses outils
+– AC13.02 | Lire, exécuter, corriger et modifier un programme
+– AC13.03 | Traduire un algorithme, dans un langage et pour un environnement donné
+– AC13.04 | Connaître l’architecture et les technologies d’un site Web
+– AC13.05 | Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix
+– AC13.06 | S’intégrer dans un environnement propice au développement et au travail collaboratif 
+Édition rapide
+Projets et Evaluation
+
+Les objectifs de la Situation d'Apprentissage et d'Évaluation (SAE) intégrative sont les suivants :
+
+    Validation des compétences fondamentales : Prouver la maîtrise des compétences techniques essentielles en réseau, téléphonie, collecte de données, et développement web et base de données.
+
+    Intégration des connaissances : Synthétiser et appliquer les connaissances acquises au cours de la formation dans un projet pratique et concret.
+
+    Travail en équipe : Collaborer efficacement en équipe pour concevoir et mettre en œuvre une maquette fonctionnelle, en suivant des directives précises et des critères techniques rigoureux.
+
+    Développement de solutions techniques : Configurer un réseau local avec différents VLANs, installer et configurer des systèmes de téléphonie IP, collecter et analyser des données, et développer des applications web et des bases de données.
+
+    Validation progressive : Réaliser des validations progressives des différentes parties du projet selon les disponibilités des enseignants, et passer un test final sur la plateforme Moodle.
+
+    Application des standards de sécurité et de qualité : Assurer que les solutions développées sont efficaces et sécurisées, en respectant les meilleures pratiques et les standards du domaine.
+
+Édition rapide
+Thèmes abordés
+
+    Maîtrise de Django: J'ai utilisé Django pour structurer l'application, en créant des modèles pour représenter les films, réalisateurs, genres, etc.
+    Configuration Nginx: J'ai configuré Nginx pour servir l'application Django, en configurant les blocs serveur et en optimisant les paramètres pour la performance.
+    HTML/CSS/JavaScript: J'ai utilisé HTML pour structurer les pages web, CSS pour le stylisme et JavaScript pour les interactions utilisateur dynamiques.
+    Gestion de Serveurs: J'ai configuré le serveur Linux pour héberger l'application, en installant et en configurant les logiciels nécessaires comme Django, MySQL et Nginx.
+    Déploiement: J'ai automatisé le processus de déploiement en utilisant des scripts et des outils pour assurer une transition en douceur de l’environnement de développement à la production.
+    Gestion de Bases de Données : Conception et gestion de la base de données MySQL. Création de schémas de bases de données, tables, et relations entre les entités.
+    Automatisation et Scripts : Création de scripts pour automatiser les tâches courantes, comme les déploiements ou les sauvegardes de bases de données.
+
+Ajouter un commentaire Détails
+Partie Réseau
+Ajouter un commentaire Détails
+Adressage IP
+Édition rapide
+
+Adresse réseau de base : 10.252.13.0/24
+
+Sous réseaux en /26 pour permettre les 4 VLANs : 
+
+    10.252.13.0/27 → VLAN Voix/10 → en 255.255.255.224
+    10.252.13.32/27 → VLAN User/20 → en 255.255.255.224
+    10.252.13.64/28 → VLAN Serveur/30 → en 255.255.255.240
+    10.252.13.80/30 → VLAN Administarteur/40 → en 255.255.255.252
+
+    10 premières IP en statiques
+    Administrateur doit communiquer avec tout
+    User doit communiquer avec Serveur mais pas Admin
+
+Partie WEB et Django
+
+Veuillez modifier ce bloc pour choisir son type
+Édition rapide
+Conclusion
+
+En conclusion, la réalisation de cette SAE intégrative m'a permis de valider et de renforcer une large gamme de compétences essentielles dans le domaine du développement web et de la gestion de systèmes informatiques. J'ai démontré ma maîtrise de Django pour structurer des applications complexes, de Nginx pour optimiser les performances, et de technologies front-end comme HTML, CSS et JavaScript pour créer des interfaces utilisateur dynamiques et attrayantes.
+
+En parallèle, j'ai prouvé ma capacité à gérer des serveurs Linux, à configurer des bases de données MySQL et à automatiser les déploiements pour assurer une transition fluide entre les environnements de développement et de production. La mise en œuvre de mesures de sécurité robustes et l'écriture de tests unitaires et d'intégration ont garanti la fiabilité et la sécurité de l'application.
+
+En travaillant sur ce projet, j'ai également acquis de précieuses compétences en gestion de projets et en collaboration, en utilisant des outils de gestion de versions et de plateformes de développement collaboratif.
+
+Cette SAE m'a non seulement permis de consolider mes connaissances techniques, mais elle m'a aussi préparé à relever les défis professionnels futurs en appliquant des solutions pratiques et efficaces aux problèmes complexes du monde réel.
+
+SAE 3.03 Concevoir un réseau informatique sécurisé multi-sites :
+Sébastien BINDEL
+Ismail BENNIS
+
+ 
+ 
+Édition rapide
+Introduction :
+
+Dans le cadre de la SAÉ Réseaux multi-sites, nous avons été amenés à concevoir l'architecture réseau de deux entreprises fictives dans le domaine de l’e-commerce, réparties sur plusieurs sites dans l’Est de la France. Ce projet visait à modéliser, configurer et sécuriser un réseau informatique interconnecté, en intégrant des services réseau avancés, une gestion hiérarchique des infrastructures LAN, ainsi que des protocoles de haute disponibilité. Réalisée en groupe de 3 avec Julien KOERBER et Eric Petersen. Cette SAÉ nous a permis d’approfondir nos compétences en ingénierie réseau, en lien direct avec les problématiques des réseaux d’entreprise multi-sites.
+Édition rapide
+Apprentissages critiques :
+
+    AC21.01 : Configurer et dépanner le routage dynamique dans un réseau
+    AC21.02 : Configurer et expliquer une politique simple de QoS et les fonctions de base de la sécurité d’un réseau
+    AC21.03 : Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée
+    AC21.04 : Déployer des services réseaux avancés
+    AC21.05 : Identifier les réseaux opérateurs et l’architecture d’Internet
+    AC21.06 : Travailler en équipe pour développer ses compétences professionnelles
+    AC22.02 : Mettre en place un accès distant sécurisé
+    AC22.03 : Mettre en place une connexion multi-site via un réseau opérateur
+    AC24.02Cyber : Mettre en œuvre les outils fondamentaux de sécurisation d’une infrastructure du réseau
+    AC24.03Cyber : Sécuriser les services
+    AC24.06Cyber : Comprendre des documents techniques en anglais
+    AC25.01Cyber : Administrer les protections contre les logiciels malveillants
+
+Édition rapide
+Projets et Évaluations :
+
+    Projet de réseau multi-sites : Le projet consistait à concevoir les infrastructures réseau de deux entreprises, UC Exchange et ABC Conseil, présentes à Strasbourg, Nancy et Metz. Il s’agissait de répondre à un cahier des charges précis en dimensionnant correctement les services, l’adressage IP, les VLAN, les liens inter-sites et les services réseau (DNS, DHCP, AD, etc.).
+
+    Travail en groupe : Réalisé en trinôme, le projet a nécessité une coordination rigoureuse pour couvrir les trois grandes parties demandées : architecture LAN, mise en œuvre des services réseau et configuration du réseau opérateur.
+
+    Évaluations : Le travail a été évalué sur la qualité des solutions proposées, leur adéquation aux besoins, la documentation fournie, la pertinence de l’adressage et la mise en œuvre technique (configuration des équipements, simulation, etc.).
+
+Édition rapide
+Thèmes abordés :
+
+    Architecture hiérarchique : Mise en place d’un réseau structuré en couches (Core, Distribution, Access), facilitant la modularité et la scalabilité des infrastructures.
+
+    Adressage IP : Élaboration d’un plan d’adressage cohérent pour chaque entreprise et chaque site, basé sur des plages privées (ex. : 10.242.xy.0/17).
+
+    VLAN & segmentation : Création de VLAN pour isoler les différents services (informatique, direction, finance, etc.) au sein de chaque site.
+
+    Services réseau : Configuration des services essentiels : DNS, DHCP, Active Directory, mail, Web, avec redondance pour certains (DNS secondaire).
+
+    Haute disponibilité : Implémentation de protocoles tels que HSRP, VRRP ou CARP pour garantir la continuité de service en cas de panne matérielle.
+
+    NAT (Network Address Translation) : Mise en place de NAT statique, dynamique et PAT pour gérer l’accès à Internet et l’interconnexion des réseaux.
+
+    Réseau opérateur : Définition des liens inter-sites via des technologies WAN adaptées aux exigences de connectivité et de sécurité.
+
+Édition rapide
+Conclusion :
+
+Grâce à la SAE 3.03, j’ai pu valider de nombreux apprentissages critiques liés à l’administration des réseaux. J’ai configuré et dépanné le routage dynamique entre plusieurs sites (AC21.01), mis en œuvre des fonctions de base de la sécurité réseau et segmenté les flux via des VLAN (AC21.02), et déployé des services virtualisés adaptés aux besoins des entreprises fictives, comme DNS, DHCP et Active Directory (AC21.03). L’intégration de services avancés tels que la haute disponibilité, la redondance des serveurs et la centralisation des ressources m’a permis de démontrer mes compétences en déploiement de services complexes (AC21.04). J’ai également conçu une infrastructure reliant plusieurs sites à travers un réseau opérateur, en tenant compte des contraintes WAN et de l’architecture d’Internet (AC21.05). Enfin, le travail en trinôme a renforcé ma capacité à collaborer efficacement en équipe, à répartir les tâches et à produire une documentation complète et structurée (AC21.06).
+
+
+
+
+
+Pour la partie Connecter : 
+
+SAE1.03 : Découvrir un dispositif de transmission
+Jacques GARINET
+
+ 
+Édition rapide
+Introduction
+
+La SAE13, menée en groupe avec LERAY Valentin, SCHUWER Esteban et CRAVERO Quentin en 2023, se concentre sur l'installation, la configuration et l'optimisation des réseaux informatiques au sein d'un établissement. En résumé, cette SAE nous a permis de mettre en pratique leurs connaissances en réseaux informatiques à travers des tâches concrètes allant de l'installation de câblage à la simulation et analyse de performances réseaux, tout en développant des compétences essentielles en gestion de projet et en travail d'équipe.
+Édition rapide
+Compétences validées
+
+    CE2.03 : en choisissant les solutions et technologies adaptées
+    CE2.04 : en proposant des solutions respectueuses de l'environnement
+    CE2.02 : en faisant preuve d’une démarche scientifique
+    AC12.01 : Mesurer, analyser et commenter les signaux
+    AC12.03 : Déployer des supports de transmission
+
+Édition rapide
+Thèmes abordés
+
+Câblages Réalisés : Installation de câbles RJ45 et fibre optique selon les normes et schéma du câblage.
+
+Mesures de PoE sur le Switch Cisco : Tests avec un testeur de câble et de PoE. Mesure de la puissance totale, tension, et conformité aux normes IEEE 802.3af.
+
+Mesures de Puissance des Réseaux : Comparaison des puissances des réseaux 2.4GHz et 5GHz. Observation de la dégradation du signal en fonction de la distance et de l'environnement.
+
+Heatmaps : Création de heatmaps pour visualiser la couverture des réseaux 2.4GHz et 5GHz. Analyse de la couverture réseau dans le bâtiment C et la bibliothèque.
+
+Simulation Packet Tracer : Modélisation du réseau de l'IUT avec Packet Tracer. Configuration des adresses IP, serveurs DNS.
+
+Lien vers les preuves de la SAE S1.03
+Édition rapide
+Projets et Évaluations
+
+Projets SAE11 : qu'on a réalisé en groupe avec LERAY Valentin, SCHUWER Esteban, et CRAVERO Quentin nous ont permis de collaborer et de mettre en commun nos compétences et connaissances. Les sujets de ces projets étaient donnés sur Moodle, ce qui nous fournissait un cadre précis pour travailler. La répartition du travail était essentielle pour garantir que chaque membre du groupe contribue efficacement à la réalisation du projet.
+
+Présentation et Compte Rendu : Chaque groupe devait réaliser une présentation de 12 minutes, avec une moyenne de 1 minute par diapositive évaluées sur des critères de présentation, niveau technique, originalité, et qualité. En complément de la présentation, nous devions également soumettre un rapport écrit par groupe. Ce rapport était divisé en quatre parties, chaque section étant rédigée par différents membres du groupe. Cela permettait d'évaluer non seulement la cohésion et la coopération au sein du groupe, mais aussi la contribution individuelle de chaque membre.
+
+Lien vers les preuves de la SAE
+Édition rapide
+SAE2.02 : Mesurer et caractériser un signal ou un système
+Laurent Mura
+Édition rapide
+Introduction
+
+La SAE 2.02, intitulée "Numérisation de signaux audio et codage des messages", vise à approfondir la compréhension et la maîtrise des concepts liés à l'acquisition, au traitement et à la transmission de signaux audio. Cette SAE a pour objectif principal de concevoir un système permettant d'acquérir un signal sinusoïdal, de le numériser, et de l'utiliser pour générer des sons correspondant aux fréquences des notes d’un piano. Ce projet permet de mettre en pratique des compétences en électronique, en programmation et en communication numérique, tout en respectant les contraintes théoriques et pratiques imposées.
+Édition rapide
+Compétences validées
+
+    AC12.01 : Mesurer, analyser et commenter les signaux
+    AC12.02 : Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement
+    AC12.03 : Déployer des supports de transmission
+    AC12.05 : Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur
+
+Édition rapide
+Projets et Évaluations
+
+    Projets : La réalisation de cette SAE se déroule en plusieurs étapes clés :
+        Acquisition d’un signal sinusoïdal : Création d’un circuit permettant de capter un signal analogique via un potentiomètre, et numérisation à l’aide d’une carte Arduino.
+        Traitement du signal : Programmation d’un microcontrôleur pour interpréter les données capturées et générer des fréquences correspondant à des notes de piano.
+        Transmission et réception des données : Utilisation de protocoles de communication série (UART) pour échanger des données entre un microcontrôleur et un ordinateur.
+
+    Évaluations : L'évaluation repose sur :
+        La conception et le bon fonctionnement du circuit électronique (simulation et réalisation physique).
+        La qualité du code produit pour l’acquisition et la transmission des données.
+        La présentation finale du projet, démontrant la maîtrise des concepts abordés et le respect des consignes techniques.
+
+Édition rapide
+Thèmes abordés
+
+    Acquisition de signaux : Mesure et conversion de signaux analogiques en numériques à l’aide d’entrées analogiques de l’Arduino.
+    Programmation de microcontrôleurs : Écriture de programmes permettant d’interpréter les signaux capturés et d’en générer de nouveaux.
+    Protocole de communication : Configuration et utilisation de l’interface UART pour transmettre des données entre dispositifs.
+    Traitement numérique du signal : Application des théories sur l’échantillonnage et la quantification pour numériser les signaux.
+    Codage des messages : Mise en place d’un système de transmission d’informations en suivant un protocole structuré.
+
+
+SAÉ 3.01 : Mettre en oeuvre un système de transmission :
+Laurent MURA
+Édition rapide
+Introduction :
+
+Dans le cadre du projet SAE301, nous avons conçu et développé une prise électrique connectée en Wifi. Ce projet, réalisé en équipe, combine électronique, développement web et mobile, ainsi que des problématiques de cybersécurité. Il nous a permis de mettre en œuvre des compétences techniques variées autour de l’IoT (Internet of Things), en intégrant un ESP8266, un serveur web sur Raspberry Pi et une application Android pour le pilotage à distance.
+Édition rapide
+Apprentissages critiques :
+
+    AC22.01 : Déployer et caractériser des systèmes de transmissions complexes
+    AC22.03 : Mettre en place une connexion multi-site via un réseau opérateur
+    AC22.04 : Déployer des réseaux d’accès des opérateurs
+    AC22.05 : Capacité à questionner un cahier des charges R
+
+Édition rapide
+Projets et Évaluations :
+
+    Projet SAE301 : Réalisé en équipe avec Valentin LERAY, Julien KOERBER et Eric Petersen. Le projet portait sur la conception d’une prise électrique Wifi intelligente. Il comprenait plusieurs volets menés en parallèle : conception électronique (avec EasyEDA), développement d’un serveur web sur Raspberry Pi, création d’une application Android, et intégration d’un capteur de température.
+
+    Évaluations : Basées sur la qualité technique du prototype, la justification des choix (composants, architecture), la conformité aux fonctionnalités demandées dans le cahier des charges, ainsi que sur la présentation finale du projet.
+
+Édition rapide
+Thèmes abordés :
+
+    Conception électronique : choix des composants (ESP8266, relais, capteur DS18B20), schéma et routage de la carte.
+
+    Développement web : création d’une interface de contrôle pour les prises (ON/OFF, plages horaires, état LED).
+
+    Développement Android : interface mobile reprenant les fonctionnalités web, sécurisation de l’accès et des échanges.
+
+    Communication réseau : mise en place d’un broker MQTT privé, communication entre les modules via Wi-Fi.
+
+    Cybersécurité : sécurisation des accès web et Android, chiffrement des communications, notifications par SMS/email en cas de dépassement de température.
+
+Édition rapide
+Conclusion :
+
+La SAE 3.01 m’a permis de valider plusieurs apprentissages critiques liés à la connexion des entreprises et des usagers. En développant une prise électrique connectée intégrant un ESP8266, un serveur web sur Raspberry Pi et une application Android, j’ai mis en œuvre un système de transmission complexe combinant électronique, communication réseau et interface utilisateur (AC22.01). La communication via un broker MQTT sécurisé et accessible à distance démontre la mise en place d’une architecture réseau distribuée, comparable à une connexion multi-site (AC22.03). L'utilisation du Wi-Fi comme technologie d'accès, associée à la gestion des communications entre modules, reflète le déploiement d’un réseau d’accès opérateur (AC22.04). Enfin, le respect des exigences fonctionnelles du cahier des charges et la justification de nos choix techniques montrent ma capacité à analyser, questionner et répondre à un besoin formalisé (AC22.05).
+
+
+
+pour la partie Programmer : 
+
+SAE1.04 : Se présenter sur internet
+Albert Arnauld
+Édition rapide
+Introduction
+
+La SAE 1.04 présente un projet pédagogique visant à aider les étudiants à réfléchir sur leur identité numérique et leur e-réputation. Ce projet inclut une introduction, quatre travaux pratiques en autonomie, et un travail pratique et dirigé. Nous devons réfléchir sur notre identité numérique et e-réputation, créer une page web de présentation personnelle, et une page de présentation d'un centre d'intérêt personnel ou projet avec un résumé en anglais.
+Édition rapide
+Compétences validées
+
+    AC13.01 : Utiliser un système informatique et ses outils
+    AC13.04 : Connaître l’architecture et les technologies d’un site Web
+
+Édition rapide
+Projets et Évaluations
+
+Il a pour objectif de me sensibiliser à l'importance de mon identité numérique et de mon e-réputation dans un contexte professionnel. Je vais réfléchir sur les traces que je laisse en ligne, construire une page de descriptif personnel et créer une page de présentation d'un centre d'intérêt avec un résumé en anglais. Ce projet comprend plusieurs étapes, dont une introduction théorique, des travaux pratiques en autonomie et des séances encadrées. Je vais apprendre à maîtriser les informations disponibles en ligne, gérer mon e-réputation et produire du contenu valorisant pour améliorer mon image sur internet. Le rendu final inclut une réflexion sur mon identité numérique et une présentation personnelle sous forme de pages web.
+
+ 
+Lien vers les preuves de la SAE S1.04
+Édition rapide
+Thèmes abordés
+
+Identité Numérique : Profils sur les réseaux sociaux, commentaires, posts sur des blogs, vidéos ou photos associées à son nom ou identifiant.
+
+E-réputation : Utilisée pour la réservation en ligne, la recherche de matériel ou services, et le recrutement.
+
+Prendre en Compte son Identité Numérique dans le Monde Professionnel : Gérer ses avis et son e-réputation, séparer public et privé.
+
+Création de deux pages web : sur une présentation personnelle et une sur un centre d'intérêt personnel ou projet avec un résumé en anglais.
+
+Lien vers les preuves de la SAE 1.04
+Édition rapide
+SAE1.05 : Traiter des données
+Sébastien BINDEL 
+Édition rapide
+Introduction
+
+Durant cette SAE effectuée en binôme, nous avons du prendre en main le logiciel Scapy ainsi que Python. Scapy est un puissant outil open-source conçu pour manipuler, envoyer et analyser des paquets réseaux. Initialement développé en Python, Scapy permet aux utilisateurs d'interagir directement avec les couches réseaux, facilitant ainsi des tâches complexes telles que le sniffing, le spoofing, et l'analyse de trafic. Grâce à sa flexibilité et à sa capacité à construire des paquets de manière détaillée, Scapy est largement utilisé par les professionnels de la cybersécurité pour tester les vulnérabilités des réseaux, développer des tests d'intrusion, et apprendre les protocoles réseau. Son interface intuitive et ses fonctionnalités avancées en font un outil de choix pour les chercheurs, les ingénieurs réseau, et les passionnés de sécurité informatique.
+Édition rapide
+Compétences validées
+
+    CE3.03 : en utilisant les outils numériques à bon escient
+    AC13.01 : Utiliser un système informatique et ses outils
+    AC13.02 : Lire, exécuter, corriger et modifier un programme
+
+Édition rapide
+Projets et Évaluations
+
+Découverte automatique des hôtes :  l'option  -a déclenche la découverte active avec l'adresse IP d'un hôte qui sera donnée en argument. L'option -p permet de déclencher une découverte passive, avec comme argument l'adresse IP de l'hôte cible. L'option -t permet de tester la présence de l'ensemble des hôtes d'un réseau avec ICMP et dont l'adresse réseau est donnée en argument, comme le montre l'exemple ci-dessous. Enfin lorsqu'une écoute est déclenchée, le programme affiche le résultat de la découverte en indiquant si un hôte est présent ou non. Ce même résultat pourra être exporté dans un fichier avec l'option -x, dont le nom est donné en argument.
+
+Attaque de l'homme du milieu :
+
+    L'attaquant intercepte et peut potentiellement altérer la communication entre deux parties (par exemple, un utilisateur et un serveur).
+    Les deux parties croient qu'elles communiquent directement entre elles, alors que l'attaquant relaie et modifie éventuellement les messages.
+
+Lien vers les preuves de la SAE 1.05
+Édition rapide
+Thèmes abordés
+
+Paquet (Packet) : Unité de données transmise sur un réseau. Scapy permet de créer, manipuler, envoyer et capturer des paquets.
+
+Protocoles de réseau :
+
+    Ethernet: Scapy peut manipuler les trames Ethernet au niveau de la couche 2.
+    IP (Internet Protocol): Gestion des paquets IP, incluant IPv4 et IPv6.
+    TCP (Transmission Control Protocol)et UDP (User Datagram Protocol) : Manipulation des paquets de transport.
+    ARP (Address Resolution Protocol): Utilisé pour mapper les adresses IP aux adresses MAC.
+    ICMP (Internet Control Message Protocol): Utilisé pour diagnostiquer les réseaux (par exemple, ping).
+
+ 
+
+Lien vers les preuves de la SAE 1.05
+Édition rapide
+SAE2.03 : Mettre en place une solution informatique pour l’entreprise
+Albert Arnauld
+Édition rapide
+Introduction
+
+Le projet que nous avons réalisé est la création d'une application web de gestion de filmographie en utilisant Django. L'application fournit une plateforme intuitive et efficace pour cataloguer, gérer et consulter des informations détaillées sur des films. Que ce soit pour des cinéphiles, des critiques de cinéma ou des professionnels de l'industrie, cette application se veut un outil précieux pour organiser et explorer l'univers du cinéma.
+Édition rapide
+Compétences validées
+
+    AC13.01 : Utiliser un système informatique et ses outils
+    AC13.02 : Lire, exécuter, corriger et modifier un programme
+    AC13.03 : Traduire un algorithme, dans un langage et pour un environnement donné
+    AC13.04 : Connaître l’architecture et les technologies d’un site Web
+    AC13.05 : Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix
+    AC13.06 : S’intégrer dans un environnement propice au développement et au travail collaboratif
+
+Édition rapide
+Projets et Évaluations
+
+    Projets :
+    La SAE a consisté en plusieurs étapes clés :
+        Développement de fonctionnalités CRUD : Mise en place des fonctionnalités pour créer, lire, mettre à jour et supprimer des données concernant les films, acteurs, réalisateurs, catégories et commentaires.
+        Interface utilisateur intuitive : Conception d’une interface fluide et ergonomique grâce à l’utilisation de HTML, CSS et JavaScript pour rendre l’expérience utilisateur agréable.
+        Déploiement et hébergement : Configuration d’un serveur Linux et mise en place de Nginx pour héberger l’application. Automatisation du déploiement pour assurer une transition rapide entre les environnements de développement et de production.
+
+    Évaluations :
+    L’évaluation reposait sur :
+        La qualité et la fonctionnalité des opérations CRUD.
+        La performance et l’efficacité de l’application, notamment grâce à la configuration du serveur et de Nginx.
+        L’aspect visuel et l’expérience utilisateur de l’interface.
+        La capacité à déployer et maintenir une application en production.
+        Une présentation orale finale permettant d’expliquer les choix techniques, de démontrer le fonctionnement de l’application et de répondre aux questions du jury.
+
+Édition rapide
+Thèmes abordés
+
+    Développement web dynamique : Utilisation de Django pour structurer l’application et gérer la base de données.
+    Conception d'interfaces utilisateur : Création d’une interface web en HTML, CSS, et JavaScript pour offrir une expérience intuitive et interactive.
+    Configuration de serveurs : Mise en place d’un serveur Linux pour héberger l’application, avec l’utilisation de Nginx comme serveur web.
+    Automatisation du déploiement : Création de scripts pour assurer une transition fluide de l’environnement de développement à la production.
+    Gestion de projet : Respect des délais et coordination entre plusieurs tâches dans un contexte de travail sur plusieurs SAE simultanées.
+
+Édition rapide
+Conclusion
+
+Cette SAE m'a permis d'apprendre le web dynamique et d'approfondir les connaissances vu dans la ressource R2.09. J'ai pu m'aider des TP effectué en cours pour mettre en places les différents CRUD. J'ai aimé travaillé sur cette SAE, de plus j'ai appris a hébergé un projet Django en externe. Cependant, malgré le fait que j'ai aimé cette SAE, l'inconvénient que j'ai retrouvé est le nombre d'heures que j'ai travaillé dessus. Selon moi, j'aurai pu fournir un meilleur travaille si j'avais eu un petit plus de temps. Cela est dû au nombre de SAE qu'on a du rendre en même temps, on a dû travaillé sur 3 SAE en simultané. J'ai donc favorisé les SAE avec les dates butoir les plus courte et celle-ci étant la dernière j'ai eu moins de temps.
+
+SAE 3.02 Développer des applications communicantes :
+Frédéric DROUHIN
+
+ 
+Édition rapide
+Introduction :
+
+Dans le cadre de la SAÉ "Cluster de Calculs", j’ai développé seul une architecture distribuée multi-serveurs permettant de compiler et d’exécuter des programmes envoyés à distance par des clients. Ce projet individuel m’a permis de mettre en œuvre des compétences avancées en développement réseau, en gestion de processus et en conception d’applications scalables. L’objectif principal était de créer un système robuste et performant, capable de répartir dynamiquement la charge de travail entre plusieurs serveurs, tout en assurant une communication fluide entre les composants via des sockets.
+Édition rapide
+Apprentissages critiques :
+
+AC22.05 : Capacité à questionner un cahier des charges RT
+AC23.02 : Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles
+AC23.03 : Utiliser un protocole réseau pour programmer une application client/serveur
+AC23.04 : Installer, administrer un système de gestion de données
+AC23.05 : Accéder à un ensemble de données depuis une application et/ou un site web
+Édition rapide
+Projets et Évaluations :
+
+    Projet de cluster multi-serveurs : Le système repose sur un serveur maître qui reçoit des programmes Python depuis une interface client graphique, les exécute ou les délègue à des serveurs secondaires selon la charge du système. L’architecture permet la gestion simultanée de plusieurs clients avec retour des résultats d’exécution.
+
+    Développement individuel : Tous les composants ont été développés seul : le client graphique, le serveur principal, les serveurs esclaves, et le mécanisme de répartition de charge.
+
+    Évaluations : Basées sur la mise en œuvre des fonctionnalités de base (client-serveur, exécution, multi-clients), la qualité du code, la documentation, ainsi que sur une vidéo de démonstration du système avec plusieurs serveurs fonctionnels et équilibrage de charge actif.
+
+Édition rapide
+Thèmes abordés :
+
+    Architecture distribuée : Conception d’un système modulaire avec un serveur maître pouvant déléguer des tâches à des serveurs esclaves en fonction de la charge détectée.
+
+    Sockets TCP : Mise en œuvre d’une communication fiable entre le client, le serveur principal et les serveurs secondaires, avec gestion fine des erreurs et reconnexion.
+
+    Répartition de charge (Load Balancing) : Surveillance de la charge CPU et du nombre de programmes en file pour déclencher la délégation vers d’autres serveurs.
+
+    Multithreading / Concurrence : Traitement parallèle des requêtes clients via des threads, garantissant une exécution simultanée sans blocage.
+
+    Interface graphique : Création d’un client en interface utilisateur (GUI) permettant d’envoyer des programmes, suivre leur traitement, et visualiser les résultats.
+
+    Compilation et exécution dynamique : Intégration de l’interpréteur Python pour exécuter du code reçu en temps réel, avec gestion des erreurs de syntaxe et d’exécution.
+
+    Scalabilité et robustesse : Ajout de serveurs à la volée, tolérance aux pannes, et maintien des performances malgré l’augmentation du nombre de clients.
+
+    Documentation et démonstration : Rédaction d’une documentation claire (installation, utilisation, architecture) et production d’une vidéo illustrant le bon fonctionnement du cluster.
+
+Édition rapide
+Conclusion :
+
+La SAE 3.02 m’a permis de valider plusieurs apprentissages critiques liés au développement d’outils et d’applications pour les réseaux et télécommunications. J’ai développé seul une application communicante à partir d’un cahier des charges, en concevant une architecture distribuée capable de compiler et exécuter des programmes à distance (AC23.02). J’ai utilisé le protocole TCP via des sockets pour assurer la communication entre les différents composants du système client/serveur (AC23.03), et intégré un mécanisme d’échange et de gestion de données pour permettre le traitement et le retour des résultats d’exécution (AC23.04, AC23.05). Ce projet a également démontré ma capacité à analyser un cahier des charges technique complexe et à y répondre par une solution robuste, documentée et scalable (AC22.05).
+
+
+
+La Partie sécuriser : 
+
+SAE 3.04 Découvrir le pentesting :
+Marc GILG
+ 
+Édition rapide
+Introduction :
+
+Dans le cadre de la SAÉ 3.04 encadrée par Marc GILG, j’ai exploré les fondamentaux du pentesting à travers la plateforme Root-Me, un environnement en ligne regroupant des défis réalistes en cybersécurité. Cette SAE avait pour objectif de découvrir les différentes typologies d’attaques et de renforcer notre compréhension des bonnes pratiques de sécurité informatique. Réalisée de manière autonome, elle m’a permis de développer une culture offensive en cybersécurité pour mieux concevoir des systèmes défensifs robustes.
+Édition rapide
+Apprentissages critiques :
+
+    AC24.01Cyber : Connaître et utiliser les bonnes pratiques et les recommandations de cybersécurité
+    AC24.05Cyber : Connaître les différents types d’attaque
+    AC24.06Cyber : Comprendre des documents techniques en anglais
+
+Édition rapide
+Projets et Évaluations :
+
+    Parcours sur Root-Me : J’ai relevé plusieurs défis (web, réseau, cryptographie, forensic, etc.) me confrontant à des failles courantes (XSS, SQLi, RCE, etc.).
+
+    Analyse des attaques : Chaque challenge résolu m’a permis de documenter la vulnérabilité exploitée, les méthodes d’attaque, les contre-mesures possibles et leur intégration dans une politique de sécurité.
+
+    Évaluation : Basée sur l’autonomie, la capacité à analyser les risques, à comprendre la documentation technique en anglais, et à proposer des solutions équilibrées entre sécurité et usage.
+
+Édition rapide
+Thèmes abordés :
+
+    Bonnes pratiques de cybersécurité : Respect des recommandations de l’ANSSI, gestion des droits, isolation des services, etc.
+
+    Typologie d’attaques : XSS, injection SQL, élévation de privilèges, sniffing, etc.
+
+    Cadre juridique et éthique : Distinction entre pratiques légales et illégales, respect du cadre de tests autorisés.
+
+    Technologies récentes : Utilisation d’outils comme Burp Suite, Wireshark, John the Ripper, et de techniques actuelles de pentesting.
+
+    Communication et sensibilisation : Documentation vulgarisée pour présenter les risques à un public non technique (ex : phishing, gestion de mots de passe).
+
+Édition rapide
+Conclusion :
+
+La SAE 3.04 m’a permis de valider plusieurs apprentissages critiques fondamentaux en cybersécurité à travers une approche offensive du pentesting. En résolvant des défis variés sur la plateforme Root-Me, j’ai appris à identifier et exploiter différents types d’attaques (XSS, injection SQL, élévation de privilèges, etc.), ce qui m’a permis d’en comprendre les mécanismes et les contre-mesures associées (AC24.05Cyber). Cette démarche m’a également conduit à intégrer les bonnes pratiques de sécurité issues des recommandations officielles comme celles de l’ANSSI (AC24.01Cyber). Enfin, l’ensemble des défis reposant sur de la documentation en anglais, j’ai renforcé ma capacité à comprendre et exploiter des documents techniques en langue étrangère dans un contexte professionnel (AC24.06Cyber).
+Édition rapide
+Emplacement
+SAÉ 4.Cyber.01 : Sécuriser un système d’information
+Marc GILG
+ 
+Édition rapide
+Introduction :
+
+La SAE 4.Cyber.01 avait pour objectif de concevoir et sécuriser un système d’information d’entreprise en intégrant des services critiques tout en assurant leur confidentialité, intégrité et disponibilité. Le projet nous a permis de mettre en œuvre une infrastructure complète incluant un pare-feu, un annuaire LDAP sécurisé, des services de messagerie chiffrés, une infrastructure de gestion de certificats (IGC), un service VPN pour les connexions distantes, ainsi que des outils de surveillance et de durcissement. Cette SAE s’inscrit dans une démarche globale de sécurisation du SI tout en conciliant les exigences de sécurité avec les contraintes d’usage métier.
+Édition rapide
+Emplacement
+
+    AC24.01Cyber : Connaître et utiliser les bonnes pratiques et les recommandations de cybersécurité
+    AC24.02Cyber : Mettre en œuvre les outils fondamentaux de sécurisation d’une infrastructure du réseau
+    AC24.03Cyber : Sécuriser les services
+    AC24.04Cyber : Choisir les outils cryptographiques adaptés au besoin fonctionnel du système d’information
+    AC24.05Cyber : Connaître les différents types d’attaque
+    AC24.06Cyber : Comprendre des documents techniques en anglais
+
+Édition rapide
+Projet et Évaluation :
+
+Réalisé en trinôme, le projet reposait sur la création d’un environnement VirtualBox simulant un réseau d’entreprise sécurisé. Chaque étudiant était responsable de plusieurs services à sécuriser. Nous avons déployé des serveurs (DNS, LDAP, Postfix, Dovecot, OpenVPN, NFS), configuré le chiffrement via TLS à l’aide d’une IGC interne, mis en place des règles de pare-feu, et assuré la traçabilité des accès. L’évaluation portait sur la qualité de la configuration des services, la pertinence des choix techniques, la rigueur dans l’application des standards de cybersécurité, ainsi que sur la capacité à documenter, justifier et présenter l’ensemble de l’architecture mise en place.
+Édition rapide
+Thèmes abordés :
+
+    Gestion des identités : mise en place d’un annuaire LDAP sécurisé (LDAPS), création de comptes, gestion des droits et authentification centralisée.
+
+    Sécurisation des communications : configuration de certificats TLS via une IGC locale pour les services web, messagerie, VPN, etc.
+
+    Messagerie sécurisée : mise en œuvre de Postfix et Dovecot avec authentification via LDAP et chiffrement SMTPS/IMAPS.
+
+    Pare-feu et filtrage : définition des règles de sécurité réseau pour restreindre les flux, bloquer les connexions non autorisées et isoler les services.
+
+    Haute disponibilité et continuité de service : intégration de services web avec load balancing, test de résilience et de tolérance aux pannes.
+
+    Respect des normes et cadre légal : intégration des bonnes pratiques de l’ANSSI et respect du RGPD dans la gestion des données personnelles.
+
+Édition rapide
+Conclusion :
+
+La SAE 4.Cyber.01 m’a permis de valider les apprentissages critiques liés à l’administration d’un système d’information sécurisé. J’ai appliqué les recommandations en matière de cybersécurité (AC24.01Cyber), configuré et durci les principaux services réseau et systèmes (AC24.02Cyber), et sécurisé l’ensemble des communications et accès via TLS et VPN (AC24.03Cyber). Ce projet m’a aussi permis de mieux comprendre les types d’attaques potentiels (AC24.05Cyber), de choisir les outils cryptographiques adaptés aux besoins fonctionnels (AC24.04Cyber), et de renforcer ma capacité à lire et exploiter des documentations techniques en anglais dans un contexte professionnel (AC24.06Cyber). Cette SAE m’a permis de développer une approche globale et cohérente de la sécurité des systèmes d’information, en conciliant rigueur technique, conformité, et esprit d’équipe.
+
+
+la partie surveiller : 
+
+SAE 3.04 Découvrir le pentesting :
+Marc GILG
+ 
+Édition rapide
+Introduction :
+
+Cette SAÉ individuelle m’a permis de découvrir concrètement les outils et méthodes de test de pénétration en environnement contrôlé. À travers des défis techniques proposés sur la plateforme Root-Me, j’ai appris à simuler des attaques réelles afin de mieux comprendre comment protéger un système d’information. Cette approche m’a formé à la détection de vulnérabilités, à l’usage d’outils d’analyse réseau et à l’importance d’une veille active en cybersécurité.
+Édition rapide
+Apprentissages Critiques :
+
+    AC25.01Cyber : Administrer les protections contre les logiciels malveillants
+    AC25.02Cyber : Prendre en main des outils de test de pénétration réseau/système
+
+Édition rapide
+Projets et Évaluations
+
+    Utilisation d’outils de pentest : J’ai utilisé des outils comme Nmap, Nikto, Hydra, ou encore SQLmap pour automatiser la découverte et l’exploitation de failles.
+    Analyse réseau : Grâce à des outils comme Wireshark ou tcpdump, j’ai appris à surveiller le trafic réseau et identifier des comportements anormaux.
+    Évaluation : Portant sur la capacité à prendre en main les outils, à automatiser les tests, à surveiller les systèmes, et à proposer des stratégies de durcissement (hardening).
+
+Édition rapide
+Thèmes abordés :
+
+    Veille en cybersécurité : Suivi des CVE, tests sur des environnements mis à jour et non mis à jour pour évaluer les risques.
+    Mise à jour et correctifs : Importance des patchs de sécurité dans les scénarios d’exploitation de vulnérabilités connues.
+    Automatisation des tests : Scripts de scan, brute-force, et recherche de failles sur des cibles simulées.
+    Surveillance réseau : Analyse de paquets pour détecter les transmissions suspectes ou les tentatives d’accès non autorisées.
+    Conformité et SI : Application des principes de durcissement et de configuration sécurisée selon les standards.
+
+Édition rapide
+Conclusion :
+
+La SAE 3.04 m’a permis de valider des apprentissages critiques essentiels à la surveillance d’un système d’information sécurisé. En utilisant des outils de pentesting tels que Nmap, Nikto, Hydra ou SQLmap, j’ai pris en main des solutions d’analyse réseau et de détection d’intrusion, renforçant ma capacité à identifier les failles potentielles d’un système (AC25.02Cyber). Par ailleurs, j’ai appris à administrer des protections contre les logiciels malveillants en mettant en œuvre des stratégies de durcissement basées sur l’observation du trafic réseau, l’analyse comportementale et l’automatisation de tests de vulnérabilité (AC25.01Cyber). Cette SAE a également illustré l’importance d’une veille continue en cybersécurité, du suivi des CVE et de la mise à jour régulière des systèmes pour garantir la conformité et la résilience du système d’information face aux menaces actuelles.
+Édition rapide
+SAÉ 4.Cyber.01 : Sécuriser un système d’information
+Marc GILG
+ 
+Édition rapide
+Introduction :
+
+Dans le cadre de la SAE 4.Cyber.01, notre objectif était de concevoir et sécuriser un système d’information complet pour une entreprise, incluant des services critiques comme un annuaire LDAP, un serveur de messagerie, un service de partage de fichiers, un accès VPN sécurisé pour les postes nomades, et une infrastructure de gestion de certificats (IGC) pour l’usage du protocole TLS. Ce projet a été réalisé en groupe de trois étudiants, avec une forte autonomie dans le choix des technologies et une attention particulière portée à la surveillance, la conformité, et la sécurisation du réseau.
+Édition rapide
+Apprentissages Critiques :
+
+    AC25.01Cyber : Administrer les protections contre les logiciels malveillants
+    AC25.02Cyber : Prendre en main des outils de test de pénétration réseau/système
+
+Édition rapide
+Projet et Évaluation :
+
+Le projet a été structuré autour de la création d’un laboratoire VirtualBox simulant l’infrastructure d’une entreprise. Nous avons mis en place un pare-feu, défini un plan d’adressage IP, configuré des services DNS (avec BIND9), LDAP sécurisé (LDAPS), NFS, Postfix/Dovecot pour la messagerie, ainsi qu’un serveur VPN (OpenVPN). L’évaluation s’est déroulée sur la base de travaux pratiques, de livrables techniques, d’une démonstration vidéo et d’une soutenance orale. Les critères portaient sur la maîtrise des outils de surveillance, l’automatisation des configurations, la capacité à détecter et prévenir les failles, ainsi que sur l’argumentation des choix de sécurité mis en place.
+Édition rapide
+Thèmes abordés :
+
+    Surveillance réseau : utilisation de journaux (logs) système, analyse des connexions VPN, surveillance du comportement réseau des services critiques.
+
+    Automatisation et durcissement : mise en place de règles de filtrage sur le pare-feu, scripts d’installation et de configuration pour les services (LDAP, DNS, NFS…).
+
+    Mises à jour et conformité : prise en compte des correctifs de sécurité, configuration sécurisée des services, usage de TLS/SSL avec certificats signés par une IGC locale.
+
+    Protection contre les malwares et fuites de données : configuration sécurisée des serveurs de messagerie (Postfix/Dovecot) avec authentification et chiffrement, gestion des droits d’accès aux partages NFS.
+
+    Travail collaboratif : répartition des rôles dans le groupe, documentation des étapes, et validation croisée des configurations par les membres de l’équipe.
+
+Édition rapide
+Conclusion :
+
+La SAE 4.Cyber.01 m’a permis de valider pleinement les apprentissages critiques associés à la surveillance d’un système d’information sécurisé. En configurant et en surveillant l’ensemble des services critiques de l’entreprise, j’ai pris en main des outils permettant de prévenir les intrusions et de sécuriser durablement le système (AC25.01Cyber). L’utilisation d’outils de configuration, d’analyse réseau, de chiffrement et de journalisation m’a également permis de maîtriser les bases des tests de vulnérabilité réseau/système dans un contexte réel (AC25.02Cyber). Cette SAE a renforcé ma capacité à anticiper les risques, à automatiser les tâches de supervision, et à maintenir un haut niveau de sécurité opérationnelle au sein d’un SI.
+
+
+SAE 5.01 : Concevoir, réaliser et présenter une solution technique Olivier MURA
+
+Édition rapide Introduction
+
+La SAE 5.01, dirigée par Olivier Mura, a pour objectif principal la conception et la réalisation d'une solution technique complète de traçage de véhicule par GNSS. Réalisé en groupe de 3 ou 4 étudiants, ce projet vise à transmettre les données de géolocalisation d'un véhicule à travers le réseau LoRaWAN via The Things Network (TTN) et à visualiser sa position sur une carte via un serveur web. Une contrainte majeure du projet est l'optimisation énergétique : le système doit fonctionner en autonomie sur batterie, en exploitant des modes de faible consommation (Deep Sleep) et ne s'activant que lorsque le véhicule se déplace grâce à un accéléromètre.
+
+Édition rapide Compétences validées
+
+    Conception IoT : Mettre en œuvre une architecture complète allant du capteur (End-Device) à l'application utilisateur via une Gateway et un Network Server.
+
+    Développement embarqué : Programmer en Python/MicroPython sur environnement Pycom (cartes Pytrack/Fipy/Lopy).
+
+    Gestion de l'énergie : Maîtriser les modes « sleep » et les interruptions matérielles (accéléromètre) pour optimiser l'autonomie.
+
+    Protocoles de communication : Utiliser LoRaWAN pour le transport longue distance et MQTT pour l'échange de données applicatives.
+
+    Traitement de données : Formater les Payloads (JSON, binaire) et visualiser les données via Node-RED.
+
+Édition rapide Projets et Évaluations
+
+    Projet de traçage LoRaWAN : Le projet se découpe en plusieurs validations progressives, allant de la simple connexion WiFi à une solution LoRaWAN complète et optimisée. Nous avons dû configurer un End-Device (dans le véhicule) et une Gateway LoRaWAN. Le système devait être capable d'envoyer les coordonnées GPS, d'être mis en veille à distance (Downlink), et d'envoyer des alertes par SMS via une clé 2G/3G.
+
+    Évaluations : L'évaluation porte sur 14 étapes techniques notées sur un total de 30 points. Les critères incluent la réussite technique des étapes (visualisation sur carte, décodage des payloads, notifications SMS) ainsi que la capacité à expliquer le contenu des scripts et les fonctions utilisées lors des validations.
+
+Édition rapide Thèmes abordés
+
+    Réseau LoRaWAN & TTN : Configuration d'application, de Gateway et gestion du "Airtime" (Duty Cycle).
+
+    Protocole MQTT : Utilisation du broker MQTT de The Things Network pour récupérer les données.
+
+    Programmation MicroPython : Développement sur cartes Pycom (FiPy/LoPy) et utilisation de l'extension Pymakr.
+
+    Node-RED : Création d'un serveur web et de tableaux de bord pour la cartographie et le contrôle.
+
+    Optimisation binaire : Encodage de la latitude et longitude sur 3 octets pour réduire la taille des messages LoRa.
+
+    Hardware : Manipulation de modules GNSS, accéléromètres et clés 2G/3G.
+
+Édition rapide Conclusion
+
+La SAE 5.01 m'a permis de synthétiser mes compétences en réseaux et télécommunications en réalisant une chaîne IoT complète "de bout en bout". J'ai appris à maîtriser les contraintes fortes des systèmes embarqués, notamment la gestion de l'énergie via le "Deep Sleep" et l'optimisation des paquets de données pour le réseau LoRaWAN (AC 5.01). J'ai pu mettre en œuvre l'interconnexion de technologies hétérogènes : capteurs physiques, transmission radio LoRa, broker MQTT et interface web Node-RED. Ce projet a renforcé ma capacité à travailler en équipe sur une solution technique complexe, en intégrant à la fois des aspects matériels (capteurs, Gateway) et logiciels (codage, décodage JSON, visualisation), tout en répondant à un besoin client précis : le suivi de véhicule autonome.
+
+
+Immersion 2025 : Projet d'intégration ingénieur Cyril Meyer, Michel Hassenforder, Frédéric Fondement, Jonathan Weber, Germain Forestier, Philippe Studer, Frédéric Drouhin, Joël Dion,
+
+Édition rapide Introduction
+
+L'Immersion 2025 est un module intensif de 15 jours, se déroulant du 8 au 19 septembre 2025, destiné à plonger les étudiants dans le monde du futur métier d'ingénieur-informaticien. L'objectif est de réaliser une application ludique riche en totale autonomie, sans cours formels, mais rythmée par des topos matinaux. Les étudiants travaillent en équipes « constituées scientifiquement » mélangeant diverses origines (BUT, Campus, PC, MP) pour favoriser la cohésion et les soft skills.
+
+Édition rapide Compétences validées
+
+    Compréhension métier : Comprendre les enjeux en évolution permanente du métier d'ingénieur et l'intérêt de la formation.
+
+    Travail en équipe : Opérer au sein d'une équipe soudée, coordonner les membres et développer des compétences relationnelles.
+
+    Développement technique : Mettre en œuvre de nombreuses technologies indispensables (Gestion de sources, IA, Réseaux, IHM, Tests).
+
+    Contraintes de production : Respecter des contraintes strictes d'environnement (Linux Ubuntu), de langage (C uniquement) et de ressources (mémoire, CPU).
+
+Édition rapide Projets et Évaluations
+
+    Projet de Jeu : Les groupes doivent développer une application capable de fonctionner en mode manuel et en mode IA. Le développement se fait sous Linux (Ubuntu) avec des contraintes techniques fortes : langage C (pas de C++ ni Python), compilateur gcc, et bibliothèque graphique GTK4. L'application doit également respecter un format d'exécution en ligne de commande (CLI) précis pour les tests locaux et réseaux.
+
+    Évaluations : L'évaluation repose sur la présence (obligatoire), le dépôt du code source (obligatoire) et la validation technique : le projet doit compiler (« make ») et s'exécuter (« run »). Chaque enseignant évalue la mise en œuvre de son domaine (topo). Enfin, une prime au classement est attribuée lors du tournoi final.
+
+    Le Tournoi : Le dernier vendredi est consacré à des tournois (qualifications, repêchages, phases finales) où les IA des différents groupes s'affrontent, avec une finale prévue dans le Grand Amphi.
+
+Édition rapide Thèmes abordés
+
+    Gestion de projet et Sources : Gestion des versions et sources (Frédéric Fondement).
+
+    Intelligence Artificielle : Implémentation d'une IA pour le jeu (Joël Dion).
+
+    Réseaux : Communication entre instances du jeu (Michel Hassenforder).
+
+    IHM : Interface graphique avec GTK4 (Philippe Studer).
+
+    Qualité Logicielle : Tests (Frédéric Fondement), Bonnes pratiques (Jonathan Weber & Germain Forestier), Documentation (Laurent Thiry) et Automatisation (Frédéric Drouhin).
+
+Édition rapide Conclusion
+
+L'Immersion 2025 impose un cadre professionnel rigoureux dès le début du cursus. Elle force les étudiants à sortir de leur zone de confort en imposant le langage C et des bibliothèques spécifiques (GTK4), tout en limitant les ressources matérielles (2Go RAM, pas de GPU). Le projet culmine par une compétition technique nécessitant une application robuste, capable de gérer des parties en réseau et des décisions par IA, validant ainsi la capacité des étudiants à intégrer rapidement des concepts techniques variés et à collaborer efficacement sous pression.
+
+
+
+
+SAE Certification CSNA : Certified Stormshield Network Administrator Alexendre Valentin
+
+Édition rapide Introduction
+
+Cette SAE a été consacrée à la préparation et à l'obtention de la certification professionnelle CSNA (Certified Stormshield Network Administrator). Basée sur le cursus officiel Stormshield (version 4), cette formation vise à maîtriser l'administration des appliances de sécurité Stormshield Network Security (SNS). À travers des laboratoires pratiques virtualisés, nous avons appris à déployer, configurer et maintenir un pare-feu de nouvelle génération pour protéger efficacement un système d'information contre les menaces modernes.
+
+Édition rapide Compétences validées
+
+    Administration Système et Réseau : Initialiser une appliance, gérer les mises à jour, configurer les interfaces réseaux et le routage.
+
+    Sécurité des flux : Définir et appliquer des politiques de filtrage de sécurité et de translation d'adresses (NAT).
+
+    Authentification et Utilisateurs : Intégrer le pare-feu à un annuaire (LDAP/AD) et configurer des portails captifs pour l'authentification des utilisateurs.
+
+    Réseaux Privés Virtuels (VPN) : Mettre en œuvre des tunnels VPN IPSec pour l'interconnexion de sites et des VPN SSL pour les utilisateurs nomades.
+
+    Supervision : Exploiter les journaux (logs) et les outils de monitoring pour surveiller l'activité du réseau.
+
+Édition rapide Projets et Évaluations
+
+    Laboratoires Pratiques (Labs) : La formation s'est articulée autour d'une série de travaux pratiques (Labs) réalisés sur un environnement virtualisé (VirtualBox). Nous avons configuré progressivement une maquette d'entreprise complète :
+
+        Configuration initiale et enregistrement du boîtier via l'assistant.
+
+        Création d'objets réseaux et mise en place de règles de filtrage granulaires.
+
+        Configuration de la protection applicative via les proxys (HTTP, SMTP) et l'inspection SSL.
+
+        Mise en place d'une infrastructure à clés publiques (PKI) et génération de certificats.
+
+    Examen de Certification : La validation finale de cette SAE repose sur le passage de l'examen officiel CSNA, testant l'ensemble des connaissances théoriques et pratiques acquises durant les laboratoires.
+
+Édition rapide Thèmes abordés
+
+    Prise en main et Système : Présentation de la gamme SNS, inscription, prise en main de l'interface d'administration Web et gestion des sauvegardes.
+
+    Objets et Utilisateurs : Création d'objets (hôtes, réseaux, services) et gestion de l'annuaire d'objets pour simplifier les règles de sécurité.
+
+    Politique de Sécurité (Filtrage & NAT) : Compréhension du mécanisme "Stateful", création de règles de filtrage, configuration du NAT (Masquerading, DNAT, SNAT) et prévention d'intrusions.
+
+    Proxies et Filtrage URL : Configuration du filtrage d'URL, déchiffrement SSL, et protection contre les malwares via les modules applicatifs.
+
+    VPN (Virtual Private Network) :
+
+        IPSec : Configuration de tunnels site-à-site (IKEv1/IKEv2) et authentification par clés pré-partagées ou certificats.
+
+        SSL : Mise en place d'un portail VPN SSL pour l'accès distant sécurisé des collaborateurs nomades (client lourd et portail web).
+
+    Authentification : Méthodes d'authentification (LDAP, Kerberos, Radius) et configuration du portail captif.
+
+    Haute Disponibilité (HA) : Principes de mise en cluster de deux boîtiers pour assurer la continuité de service.
+
+Édition rapide Conclusion
+
+La réalisation de la certification Stormshield CSNA m'a permis d'acquérir une compétence opérationnelle forte et reconnue sur le marché de la cybersécurité française et européenne. J'ai dépassé la simple théorie des pare-feux pour maîtriser la configuration concrète d'équipements de sécurité industrielle. J'ai appris à traduire une politique de sécurité écrite en règles techniques précises, à gérer les identités utilisateurs et à sécuriser les accès distants via VPN. Cette SAE constitue une preuve tangible de ma capacité à administrer et sécuriser le périmètre réseau d'une entreprise.

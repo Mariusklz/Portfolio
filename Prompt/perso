@@ -1,0 +1,2 @@
+actuellement je n'ai pas de FW, j'ai ma box sfr, un serveur proxmox ou dessus il y a des conteneurs NPM (Nginx Proxy Manager), AdGuardHome, VaultWarden, et enfin une vm avec un serveur pterodyctyl ou j'heberge des serveur de jeux.
+Ensuite j'aim mon synology, ou j'héberger un serveur VPN, un serveur de fichier (NAS SMB et SFTP), un vm avec home assistant et enfin j'ai un portainer qui est héberger sur le synology qui à un serveur web pour mon portfolio et un zabbix pour la supervision
