@@ -16,7 +16,17 @@
     <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
     
     <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- Meta tags de sécurité -->
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="geolocation=(), microphone=(), camera=()">
+    
+    <!-- DOMPurify pour protection XSS -->
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@3.0.9/dist/purify.min.js" integrity="sha512-JyYz3xhKu4DjVf2c+CY1fn/W3CQ6B7pJ+RRs3OqPrCZi0x3UZstR9hmP9gp4X4Mz7eJEWs9FrvV8i1F9xPJQUg==" crossorigin="anonymous"></script>
 </head>
 <body>
     <!-- Navigation -->
@@ -123,23 +133,25 @@
                     <form class="contact-form" id="contact-form" action="https://formsubmit.co/keltz.marius.colmar@gmail.com" method="POST">
                         <!-- Configuration FormSubmit -->
                         <input type="hidden" name="_subject" value="Nouveau message depuis le portfolio">
-                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_captcha" value="true">
                         <input type="hidden" name="_template" value="table">
-                        <input type="text" name="_honey" style="display:none">
+                        <input type="hidden" name="_next" value="https://web.primegaming.freedns.org/merci.html">
+                        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                         
                         <div class="form-group">
-                            <input type="text" name="name" placeholder="Votre nom" required>
+                            <input type="text" name="name" id="contact-name" placeholder="Votre nom" required minlength="2" maxlength="100" pattern="[A-Za-zÀ-ÿ\s\-']+" title="Nom invalide (lettres uniquement)">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" placeholder="Votre email" required>
+                            <input type="email" name="email" id="contact-email" placeholder="Votre email" required maxlength="100">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="subject" placeholder="Sujet">
+                            <input type="text" name="subject" id="contact-subject" placeholder="Sujet" maxlength="200">
                         </div>
                         <div class="form-group">
-                            <textarea name="message" rows="5" placeholder="Votre message" required></textarea>
+                            <textarea name="message" id="contact-message" rows="5" placeholder="Votre message" required minlength="10" maxlength="5000"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Envoyer</button>
+                        <div id="form-error" style="color: #e74c3c; margin-bottom: 15px; display: none;"></div>
+                        <button type="submit" class="btn btn-primary" id="submit-btn">Envoyer</button>
                     </form>
                 </div>
             </div>

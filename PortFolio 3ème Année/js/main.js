@@ -297,3 +297,151 @@ window.addEventListener('load', () => {
 // ===================================
 console.log('%c👋 Bienvenue sur mon portfolio!', 'color: #3498db; font-size: 20px; font-weight: bold;');
 console.log('%cSi vous voyez ce message, c\'est que vous êtes curieux! 🔍', 'color: #2c3e50; font-size: 14px;');
+
+// ===================================
+// Validation et Sécurité du Formulaire de Contact
+// ===================================
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+    // Rate limiting côté client (basique)
+    let lastSubmitTime = 0;
+    const SUBMIT_COOLDOWN = 5000; // 5 secondes entre chaque soumission
+
+    contactForm.addEventListener('submit', function(e) {
+        const currentTime = Date.now();
+        const formError = document.getElementById('form-error');
+        const submitBtn = document.getElementById('submit-btn');
+
+        // Rate limiting
+        if (currentTime - lastSubmitTime < SUBMIT_COOLDOWN) {
+            e.preventDefault();
+            showError('Veuillez attendre quelques secondes avant de renvoyer le formulaire.');
+            return false;
+        }
+
+        // Vérifier le honeypot
+        const honeypot = this.querySelector('[name="_honey"]').value;
+        if (honeypot !== '') {
+            e.preventDefault();
+            // Ne pas afficher d'erreur pour ne pas alerter les bots
+            return false;
+        }
+
+        // Récupérer et valider les champs
+        const name = document.getElementById('contact-name').value.trim();
+        const email = document.getElementById('contact-email').value.trim();
+        const subject = document.getElementById('contact-subject').value.trim();
+        const message = document.getElementById('contact-message').value.trim();
+
+        // Validation du nom
+        if (name.length < 2 || name.length > 100) {
+            e.preventDefault();
+            showError('Le nom doit contenir entre 2 et 100 caractères.');
+            return false;
+        }
+
+        // Validation du nom (pas de caractères spéciaux dangereux)
+        const namePattern = /^[A-Za-zÀ-ÿ\s\-']+$/;
+        if (!namePattern.test(name)) {
+            e.preventDefault();
+            showError('Le nom ne peut contenir que des lettres, espaces, tirets et apostrophes.');
+            return false;
+        }
+
+        // Validation de l'email
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email) || email.length > 100) {
+            e.preventDefault();
+            showError('Veuillez entrer une adresse email valide.');
+            return false;
+        }
+
+        // Validation du sujet
+        if (subject.length > 200) {
+            e.preventDefault();
+            showError('Le sujet ne peut pas dépasser 200 caractères.');
+            return false;
+        }
+
+        // Validation du message
+        if (message.length < 10) {
+            e.preventDefault();
+            showError('Le message doit contenir au moins 10 caractères.');
+            return false;
+        }
+
+        if (message.length > 5000) {
+            e.preventDefault();
+            showError('Le message ne peut pas dépasser 5000 caractères.');
+            return false;
+        }
+
+        // Détecter les patterns suspects (injection SQL, XSS basique)
+        const suspiciousPatterns = [
+            /<script/i,
+            /javascript:/i,
+            /on\w+\s*=/i,
+            /<iframe/i,
+            /\bSELECT\b.*\bFROM\b/i,
+            /\bUNION\b.*\bSELECT\b/i,
+            /\bDROP\b.*\bTABLE\b/i,
+            /\bINSERT\b.*\bINTO\b/i,
+            /\bUPDATE\b.*\bSET\b/i,
+            /\bDELETE\b.*\bFROM\b/i
+        ];
+
+        const allContent = name + ' ' + email + ' ' + subject + ' ' + message;
+        for (let pattern of suspiciousPatterns) {
+            if (pattern.test(allContent)) {
+                e.preventDefault();
+                showError('Contenu suspect détecté. Veuillez vérifier votre message.');
+                return false;
+            }
+        }
+
+        // Tout est valide, on peut envoyer
+        lastSubmitTime = currentTime;
+        hideError();
+        
+        // Désactiver le bouton temporairement
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Envoi en cours...';
+        
+        // Réactiver après 5 secondes (au cas où)
+        setTimeout(() => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Envoyer';
+        }, 5000);
+
+        return true;
+    });
+
+    // Fonctions d'affichage des erreurs
+    function showError(message) {
+        const formError = document.getElementById('form-error');
+        if (formError) {
+            formError.textContent = message;
+            formError.style.display = 'block';
+            formError.style.padding = '10px';
+            formError.style.backgroundColor = '#fee';
+            formError.style.border = '1px solid #e74c3c';
+            formError.style.borderRadius = '5px';
+        }
+    }
+
+    function hideError() {
+        const formError = document.getElementById('form-error');
+        if (formError) {
+            formError.style.display = 'none';
+        }
+    }
+
+    // Nettoyage en temps réel des inputs
+    const inputs = contactForm.querySelectorAll('input[type="text"], input[type="email"], textarea');
+    inputs.forEach(input => {
+        input.addEventListener('input', function() {
+            // Supprimer les caractères dangereux en temps réel
+            this.value = this.value.replace(/<|>|{|}|\[|\]|`/g, '');
+        });
+    });
+}

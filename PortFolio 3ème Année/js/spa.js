@@ -145,10 +145,19 @@ async function loadAndShowPage(pageName) {
         // Masquer les sections home
         hideHomeSections();
         
-        // Injecter le contenu
+        // Injecter le contenu avec DOMPurify pour sécurité XSS
         const contentContainer = document.getElementById('dynamic-content');
         if (contentContainer) {
-            contentContainer.innerHTML = content;
+            // Sanitize le contenu HTML avant injection
+            const cleanContent = typeof DOMPurify !== 'undefined' 
+                ? DOMPurify.sanitize(content, { 
+                    ALLOWED_TAGS: ['a', 'abbr', 'b', 'blockquote', 'br', 'button', 'cite', 'code', 'dd', 'div', 'dl', 'dt', 'em', 'footer', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'header', 'i', 'img', 'li', 'nav', 'ol', 'p', 'pre', 'section', 'span', 'strong', 'table', 'tbody', 'td', 'th', 'thead', 'tr', 'ul', 'form', 'input', 'textarea', 'label', 'select', 'option'],
+                    ALLOWED_ATTR: ['class', 'id', 'href', 'src', 'alt', 'title', 'target', 'rel', 'aria-label', 'type', 'name', 'value', 'placeholder', 'required', 'rows', 'style'],
+                    ALLOW_DATA_ATTR: false
+                }) 
+                : content;
+            
+            contentContainer.innerHTML = cleanContent;
             contentContainer.classList.remove('hidden-page');
             contentContainer.classList.add('fade-in');
             
