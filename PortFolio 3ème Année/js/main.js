@@ -452,3 +452,160 @@ if (contactForm) {
         });
     });
 }
+
+// ===================================
+// Filtrage des Projets par Niveau
+// ===================================
+// Note: Le code de filtrage a été déplacé en inline dans projets.html
+// pour éviter les conflits de timing avec le chargement du DOM
+
+/*
+window.addEventListener('load', function() {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const projectDetails = document.querySelectorAll('.project-detail');
+
+    console.log('Boutons trouvés:', filterButtons.length);
+    console.log('Projets trouvés:', projectDetails.length);
+
+    if (filterButtons.length > 0 && projectDetails.length > 0) {
+        // État des filtres actifs
+        let activeFilters = [];
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.preventDefault();
+                const filter = button.getAttribute('data-filter');
+                console.log('Clic sur:', filter);
+                
+                // Toggle l'état actif du bouton
+                button.classList.toggle('active');
+                
+                // Mettre à jour la liste des filtres actifs
+                if (button.classList.contains('active')) {
+                    if (!activeFilters.includes(filter)) {
+                        activeFilters.push(filter);
+                    }
+                } else {
+                    activeFilters = activeFilters.filter(f => f !== filter);
+                }
+                
+                console.log('Filtres actifs:', activeFilters);
+                
+                // Filtrer les projets
+                filterProjects();
+            });
+        });
+        
+        function filterProjects() {
+            projectDetails.forEach(project => {
+                const projectLevel = project.getAttribute('data-level');
+                
+                // Si aucun filtre actif, afficher tous les projets
+                if (activeFilters.length === 0) {
+                    project.style.display = 'block';
+                    project.style.opacity = '1';
+                    project.style.transform = 'translateY(0)';
+                } else {
+                    // Afficher seulement si le projet correspond à un des filtres actifs
+                    if (activeFilters.includes(projectLevel)) {
+                        project.style.display = 'block';
+                        project.style.opacity = '1';
+                        project.style.transform = 'translateY(0)';
+                    } else {
+                        project.style.display = 'none';
+                        project.style.opacity = '0';
+                    }
+                }
+            });
+            console.log('Filtrage terminé');
+        }
+    } else {
+        console.error('Boutons ou projets non trouvés!');
+    }
+});
+*/
+
+// ===================================
+// Gestion des sections déroulantes (Collapsibles)
+// ===================================
+// Fonction réutilisable pour initialiser les sections déroulantes
+window.initCollapsibles = function() {
+    console.log('=== INITIALISATION SECTIONS DEROULANTES ===');
+    
+    // Chercher d'abord dans le contenu dynamique, puis dans tout le document
+    const dynamicContent = document.getElementById('dynamic-content');
+    const searchArea = (dynamicContent && !dynamicContent.classList.contains('hidden-page')) 
+        ? dynamicContent 
+        : document;
+    
+    const headers = searchArea.querySelectorAll('.collapsible-header');
+    console.log('Nombre de headers collapsibles trouvés:', headers.length);
+    console.log('Zone de recherche:', searchArea === document ? 'document entier' : 'contenu dynamique');
+    
+    if (headers.length === 0) {
+        console.log('Aucun header collapsible trouvé');
+        return;
+    }
+    
+    headers.forEach(function(header, index) {
+        // Éviter d'ajouter plusieurs fois le listener
+        const alreadyInitialized = header.getAttribute('data-collapsible-init');
+        if (alreadyInitialized === 'true') {
+            console.log(`Header ${index} déjà initialisé, passage...`);
+            return;
+        }
+        
+        const headerText = header.querySelector('span') ? header.querySelector('span').textContent : header.textContent;
+        console.log(`Initialisation header ${index}: "${headerText.trim().substring(0, 40)}"`);
+        
+        header.style.cursor = 'pointer';
+        header.setAttribute('data-collapsible-init', 'true');
+        
+        header.onclick = function(e) {
+            console.log(`\n>>> CLIC sur header ${index}`);
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const content = this.nextElementSibling;
+            const icon = this.querySelector('.toggle-icon');
+            
+            if (!content) {
+                console.error('PAS DE CONTENU TROUVÉ !');
+                console.log('nextElementSibling:', this.nextElementSibling);
+                return;
+            }
+            
+            console.log('Contenu trouvé:', content.className);
+            const isActive = content.classList.contains('active');
+            console.log('État actuel: ', isActive ? 'OUVERT' : 'FERMÉ');
+            
+            if (isActive) {
+                content.classList.remove('active');
+                if (icon) icon.classList.remove('rotate');
+                console.log('→ FERMETURE');
+            } else {
+                content.classList.add('active');
+                if (icon) icon.classList.add('rotate');
+                console.log('→ OUVERTURE');
+            }
+            
+            console.log('Classes après toggle:', content.className);
+        };
+    });
+    
+    console.log('=== SECTIONS DEROULANTES INITIALISÉES ===\n');
+};
+
+// Initialiser au chargement de la page
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded déclenché');
+    window.initCollapsibles();
+});
+
+// Si le DOM est déjà chargé (script chargé après le HTML), initialiser immédiatement
+if (document.readyState === 'loading') {
+    console.log('DOM en cours de chargement, attente de DOMContentLoaded');
+} else {
+    console.log('DOM déjà chargé, initialisation immédiate');
+    window.initCollapsibles();
+}

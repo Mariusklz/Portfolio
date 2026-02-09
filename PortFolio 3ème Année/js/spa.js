@@ -176,6 +176,12 @@ async function loadAndShowPage(pageName) {
         // Mettre à jour la navigation
         updateActiveNav(pageName);
         
+        // Réinitialiser les fonctionnalités interactives pour le contenu chargé
+        // Utiliser setTimeout pour s'assurer que le DOM est complètement mis à jour
+        setTimeout(() => {
+            reinitializePageScripts();
+        }, 100);
+        
         // Scroll en haut
         window.scrollTo({ top: 0, behavior: 'smooth' });
         
@@ -315,5 +321,21 @@ function updateActiveNav(pageName) {
             activeLink.classList.add('active');
         }
     }
+}
+
+// Réinitialiser les scripts interactifs après chargement dynamique
+function reinitializePageScripts() {
+    console.log('=== REINITIALISATION DES SCRIPTS ===');
+    
+    // Réinitialiser les sections collapsibles
+    if (typeof window.initCollapsibles === 'function') {
+        console.log('Appel de initCollapsibles...');
+        window.initCollapsibles();
+    } else {
+        console.error('initCollapsibles n\'est pas disponible!');
+    }
+    
+    // Ajouter d'autres réinitialisations si nécessaire
+    console.log('Scripts de page réinitialisés');
 }
 

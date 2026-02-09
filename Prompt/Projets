@@ -1,78 +1,12 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projets et SAE - KELTZ Marius - BUT Réseaux et Télécommunications">
-    <meta name="keywords" content="projets, SAE, réseaux, télécommunications, portfolio">
-    <meta name="author" content="KELTZ Marius">
-    
-    <title>Projets - KELTZ Marius</title>
-    
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="assets/icons/favicon.ico">
-    
-    <!-- Font Awesome pour les icônes -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="container">
-            <ul class="nav-menu" id="nav-menu">
-                <li><a href="index.html" class="nav-link">Accueil</a></li>
-                <li><a href="index.html#about" class="nav-link">À propos</a></li>
-                <li><a href="competences.html" class="nav-link">Compétences</a></li>
-                <li class="dropdown active">
-                    <a href="#" class="nav-link dropdown-toggle">Projets <i class="fas fa-chevron-down"></i></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="projets.html" class="active">Projets SAE</a></li>
-                        <li><a href="perso.html">Projets Perso</a></li>
-                        <li><a href="entreprise.html">Projets Entreprise</a></li>
-                    </ul>
-                </li>
-                <li><a href="annexes.html" class="nav-link">Annexes</a></li>
-                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger" id="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
-    </nav>
+Affiche tout par défaut :
 
-    <!-- Section Hero -->
-    <section class="page-hero">
-        <div class="container">
-            <h1 class="page-title">Mes Projets & SAE</h1>
-            <p class="page-subtitle">Situations d'Apprentissage et d'Évaluation réalisées durant ma formation</p>
-        </div>
-    </section>
 
-    <!-- Section Projets -->
-    <section class="projects-section">
-        <div class="container">
-            <div class="intro-text">
-                <p>
-                    Voici l'ensemble des projets et SAE (Situations d'Apprentissage et d'Évaluation) que j'ai réalisés 
-                    durant ma formation en BUT Réseaux et Télécommunications. Chaque projet illustre une ou plusieurs 
-                    compétences du référentiel et démontre ma progression dans le domaine.
-                </p>
-            </div>
 
-            <!-- Filtres par niveau -->
-            <div class="project-filters">
-                <button class="filter-btn" data-filter="but1">BUT 1</button>
-                <button class="filter-btn" data-filter="but2">BUT 2</button>
-                <button class="filter-btn" data-filter="but3">BUT 3</button>
-            </div>
-            
-            <!-- Projet 1 : SAE1.01 -->
-            <div class="project-detail" id="sae-101" data-level="but1">
+
+Bouton BUT1 :
+
+
+<div class="project-detail" id="sae-101" data-level="but1">
                 <div class="project-header">
                     <div class="project-number">01</div>
                     <div>
@@ -620,10 +554,13 @@
                 </div>
             </div>
 
-            <!-- Projet 5 : SAE3.03 -->
-            
 
-            <div class="project-detail" id="sae-301" data-level="but2">
+
+
+Bouton BUT 2 :
+
+
+<div class="project-detail" id="sae-301" data-level="but2">
                 <div class="project-header">
                     <div class="project-number">10</div>
                     <div>
@@ -951,8 +888,15 @@
                 </div>
             </div>
 
-            <!-- Projet 15 : SAE5.01 -->
-            <div class="project-detail" id="sae-501" data-level="but3">
+
+
+
+
+
+bouton but 3 :
+
+
+<div class="project-detail" id="sae-501" data-level="but3">
                 <div class="project-header">
                     <div class="project-number">15</div>
                     <div>
@@ -1146,94 +1090,3 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Section CTA -->
-            <div class="projects-cta">
-                <h2>Intéressé par mes compétences ?</h2>
-                <p>
-                    Ces projets représentent les principales réalisations de ma formation. Chacun m'a permis de développer 
-                    des compétences techniques solides et une méthodologie de travail rigoureuse. Je continue à approfondir 
-                    mes connaissances dans le cadre de mon alternance chez Wienerberger.
-                </p>
-                <div class="cta-buttons">
-                    <a href="competences.html" class="btn btn-primary">Voir mes compétences</a>
-                    <a href="index.html#contact" class="btn btn-secondary">Me contacter</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 KELTZ Marius. Tous droits réservés.</p>
-            <div class="footer-links">
-                <a href="#"><i class="fab fa-github"></i></a>
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Bouton Scroll to Top -->
-    <button id="scroll-top" class="scroll-top" aria-label="Retour en haut">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="js/main.js"></script>
-    <script>
-        // Filtrage des projets par niveau BUT
-        document.addEventListener('DOMContentLoaded', function() {
-            const filterButtons = document.querySelectorAll('.filter-btn');
-            const projectDetails = document.querySelectorAll('.project-detail');
-            let activeFilters = [];
-
-            console.log('Filtres initialisés - Boutons:', filterButtons.length, 'Projets:', projectDetails.length);
-
-            filterButtons.forEach(function(button) {
-                button.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    
-                    const filter = this.getAttribute('data-filter');
-                    console.log('Clic sur bouton:', filter);
-                    
-                    // Toggle le bouton
-                    this.classList.toggle('active');
-                    
-                    // Mise à jour des filtres actifs
-                    if (this.classList.contains('active')) {
-                        if (!activeFilters.includes(filter)) {
-                            activeFilters.push(filter);
-                        }
-                    } else {
-                        activeFilters = activeFilters.filter(function(f) { return f !== filter; });
-                    }
-                    
-                    console.log('Filtres actifs:', activeFilters);
-                    
-                    // Appliquer le filtrage
-                    projectDetails.forEach(function(project) {
-                        const level = project.getAttribute('data-level');
-                        
-                        if (activeFilters.length === 0) {
-                            // Aucun filtre : tout afficher
-                            project.style.display = 'block';
-                        } else {
-                            // Afficher uniquement les projets correspondant aux filtres actifs
-                            if (activeFilters.includes(level)) {
-                                project.style.display = 'block';
-                            } else {
-                                project.style.display = 'none';
-                            }
-                        }
-                    });
-                    
-                    console.log('Filtrage appliqué');
-                });
-            });
-        });
-    </script>
-</body>
-</html>
-
