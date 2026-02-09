@@ -1,0 +1,177 @@
+Administrer Administrer les réseaux et l’Internet
+- CE1.01 | en choisissant les solutions et technologies réseaux adaptées
+- CE1.02 | en respectant les principes fondamentaux de la sécurité informatique
+- CE1.03 | en utilisant une approche rigoureuse pour la résolution des dysfonctionnements
+- CE1.04 | en respectant les règles métiers
+- CE1.05 | en assurant une veille technologique
+Situations professionnelles
+Conception et administration de l’infrastructure du réseau informatique d’une entreprise
+Installation et administration des services réseau informatique d’une entreprise
+Déploiement et administration des solutions fixes pour les clients d’un opérateur de télécommunication
+Niveaux Apprentissages critiques
+Niveau 1
+Assister l’administrateur du réseau
+- AC11.01 | Maîtriser les lois fondamentales de l’électricité afin d’intervenir sur des équipements de réseaux et télécommunications
+- AC11.02 | Comprendre l'architecture et les fondements des systèmes numériques, les principes du codage de l'information, des communications et de l'Internet
+- AC11.03 | Configurer les fonctions de base du réseau local
+- AC11.04 | Maîtriser les rôles et les principes fondamentaux des systèmes d’exploitation afin d’interagir avec ceux-ci pour la configuration et l'administration des réseaux et services fournis
+- AC11.05 | Identifier les dysfonctionnements du réseau local et savoir les signaler
+- AC11.06 | Installer un poste client, expliquer la procédure mise en place
+Niveau 2
+Administrer un réseau
+- AC21.01 | Configurer et dépanner le routage dynamique dans un réseau
+- AC21.02 | Configurer et expliquer une politique simple de QoS et les fonctions de base de la sécurité d’un réseau
+- AC21.03 | Déployer des postes clients et des solutions virtualisées adaptées à une situation donnée
+- AC21.04 | Déployer des services réseaux avancés
+- AC21.05 | Identifier les réseaux opérateurs et l’architecture d’Internet
+- AC21.06 | Travailler en équipe pour développer ses compétences professionnelles
+Niveau 3
+Concevoir un réseau
+- AC31.01 | Concevoir un projet de réseau informatique d’une entreprise en intégrant les problématiques de haute disponibilité, de QoS, de sécurité et de supervision
+- AC31.02 | Réaliser la documentation technique de ce projet
+- AC31.03 | Réaliser une maquette de démonstration du projet
+- AC31.04 | Défendre/argumenter un projet
+- AC31.05 | Communiquer avec les acteurs du projet
+- AC31.06 | Gérer le projet et les différentes étapes de sa mise en œuvre en respectant les délais
+
+
+
+
+Connecter Connecter les entreprises et les usagers
+- CE2.01 | en communiquant avec le client et les différents acteurs impliqués, parfois en anglais
+- CE2.02 | en faisant preuve d’une démarche scientifique
+- CE2.03 | en choisissant les solutions et technologies adaptées
+- CE2.04 | en proposant des solutions respectueuses de l'environnement
+Situations professionnelles
+Déploiement des supports et systèmes de transmission
+Mise en service et administration des équipements d’accès fixe ou mobile d’un opérateur de télécommunications
+Déploiement et administration des accès sans fil pour l'entreprise
+Déploiement des systèmes de communications
+Niveaux Apprentissages critiques
+Niveau 1
+Découvrir les transmissions et la
+ToIP
+- AC12.01 | Mesurer, analyser et commenter les signaux
+- AC12.02 | Caractériser des systèmes de transmissions élémentaires et découvrir la modélisation mathématique de leur fonctionnement
+- AC12.03 | Déployer des supports de transmission
+- AC12.04 | Connecter les systèmes de ToIP
+- AC12.05 | Communiquer avec un tiers (client, collaborateur...) et adapter son discours et sa langue à son interlocuteur
+Niveau 2
+Maîtriser les différentes
+composantes des solutions de
+connexion des entreprises et des
+usagers
+- AC22.01 | Déployer et caractériser des systèmes de transmissions complexes
+- AC22.02 | Mettre en place un accès distant sécurisé
+- AC22.03 | Mettre en place une connexion multi-site via un réseau opérateur
+- AC22.04 | Déployer des réseaux d’accès des opérateurs
+- AC22.05 | Capacité à questionner un cahier des charges RT
+Niveau 3
+Déployer une solution de connexion
+ou de communication sur IP
+- AC32.01 | Déployer un système de communication pour l’entreprise
+- AC32.02 | Déployer un réseau d’accès sans fil pour le réseau d’entreprise en intégrant les enjeux de la sécurité
+- AC32.03 | Déployer un réseau d’accès fixe ou mobile pour un opérateur de télécommunications en intégrant la sécurité
+- AC32.04 | Permettre aux collaborateurs de se connecter de manière sécurisée au système d’information de l’entreprise
+- AC32.05 | Collaborer en mode projet en français et en anglais
+
+Programmer Créer des outils et applications informatiques pour
+les R&T
+- CE3.01 | en étant à l’écoute des besoins du client
+- CE3.02 | en documentant le travail réalisé
+- CE3.03 | en utilisant les outils numériques à bon escient
+- CE3.04 | en choisissant les outils de développement adaptés
+- CE3.05 | en intégrant les problématiques de sécurité
+Situations professionnelles
+Conception, déploiement et maintenance du système d’information d’une entreprise
+Automatisation du déploiement et de la maintenance des outils logiciels
+Développement d’outils informatiques à usage interne d'une équipe
+Niveaux Apprentissages critiques
+Niveau 1
+S’intégrer dans un service
+informatique
+- AC13.01 | Utiliser un système informatique et ses outils
+- AC13.02 | Lire, exécuter, corriger et modifier un programme
+- AC13.03 | Traduire un algorithme, dans un langage et pour un environnement donné
+- AC13.04 | Connaître l’architecture et les technologies d’un site Web
+- AC13.05 | Choisir les mécanismes de gestion de données adaptés au développement de l’outil et argumenter ses choix
+- AC13.06 | S’intégrer dans un environnement propice au développement et au travail collaboratif
+Niveau 2
+Développer une application R&T
+- AC23.01 | Automatiser l’administration système avec des scripts
+- AC23.02 | Développer une application à partir d’un cahier des charges donné, pour le Web ou les périphériques mobiles
+- AC23.03 | Utiliser un protocole réseau pour programmer une application client/serveur
+- AC23.04 | Installer, administrer un système de gestion de données
+- AC23.05 | Accéder à un ensemble de données depuis une application et/ou un site web
+Niveau 3
+Piloter un projet de développement
+d’une application R&T
+- AC33.01 | Élaborer les spécifications techniques et le cahier des charges d’une application informatique
+- AC33.02 | Mettre en place un environnement de travail collaboratif
+- AC33.03 | Participer à la formation des utilisateurs
+- AC33.04 | Déployer et maintenir une solution informatique
+- AC33.05 | S’informer sur les évolutions et les nouveautés technologiques
+- AC33.06 | Sécuriser l'environnement numérique d'une application
+
+
+
+
+Compétence Sécuriser B.U.T. Réseaux et Télécommunications
+Parcours Cybersécurité
+Sécuriser Administrer un système d’information sécurisé
+- CE4.01 | en visant un juste compromis entre exigences de sécurité et contraintes d’utilisation
+- CE4.02 | en respectant les normes et le cadre juridique
+- CE4.03 | en intégrant les dernières technologies
+- CE4.04 | en travaillant en équipe
+- CE4.05 | en sensibilisant efficacement des utilisateurs
+Situations professionnelles Analyse de l’existant et étude des besoins de sécurité d’une petite structure
+Évolution et mise en conformité du système d’information d’une entreprise
+Niveaux Apprentissages critiques
+Niveau 1
+Sensibiliser aux vulnérabilités d'un
+système d'information et aux
+remédiations possibles
+- AC24.01Cyber | Connaître et utiliser les bonnes pratiques et les recommandations de cybersécurité
+- AC24.02Cyber | Mettre en œuvre les outils fondamentaux de sécurisation d’une infrastructure du réseau
+- AC24.03Cyber | Sécuriser les services
+- AC24.04Cyber | Choisir les outils cryptographiques adaptés au besoin fonctionnel du système d’information
+- AC24.05Cyber | Connaître les différents types d’attaque
+- AC24.06Cyber | Comprendre des documents techniques en anglais
+Niveau 2
+Mettre en œuvre un système
+d’information sécurisé pour une
+petite structure
+- AC34.01Cyber | Participer activement à une analyse de risque pour définir une politique de sécurité pour une petite structure
+- AC34.02Cyber | Mettre en œuvre des outils avancés de sécurisation d’une infrastructure du réseau
+- AC34.03Cyber | Sécuriser les systèmes d’exploitation
+- AC34.04Cyber | Proposer une architecture sécurisée de système d'information pour une petite structure
+
+
+
+
+
+Surveiller Surveiller un système d’information sécurisé
+- CE5.01 | en assurant une veille permanente
+- CE5.02 | en réalisant les mises à jour critiques
+- CE5.03 | en automatisant des tâches
+- CE5.04 | en s’intégrant dans une équipe
+- CE5.05 | en surveillant le comportement du réseau
+- CE5.06 | en veillant au respect des contrats et à la conformité des obligations du système d'information
+Situations professionnelles
+Surveillance et analyse du système d’information
+Audit de sécurité
+Gestion d’un incident de sécurité
+Niveaux Apprentissages critiques
+Niveau 1
+Prendre en main les outils de
+surveillance et de test du système
+d'information
+- AC25.01Cyber | Administrer les protections contre les logiciels malveillants
+- AC25.02Cyber | Prendre en main des outils de test de pénétration réseau/système
+Niveau 2
+Mettre en œuvre le système de
+surveillance d’incidents de sécurité
+- AC35.01Cyber | Surveiller l’activité du système d’information
+- AC35.02Cyber | Appliquer une méthodologie de tests de pénétration
+- AC35.03Cyber | Réagir face à un incident de sécurité
+- AC35.04Cyber | Administrer les outils de surveillance du système d’information

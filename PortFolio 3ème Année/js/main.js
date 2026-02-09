@@ -248,6 +248,13 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         // Ne pas empêcher le comportement par défaut si c'est juste "#"
         if (href === '#') return;
         
+        // Ne traiter que les ancres de la page actuelle (pas les liens inter-pages comme "annexes.html#sae-101")
+        const fullHref = this.getAttribute('href');
+        if (fullHref.includes('.html#')) {
+            // C'est un lien vers une ancre sur une autre page, laisser le navigateur gérer
+            return;
+        }
+        
         e.preventDefault();
         const target = document.querySelector(href);
         
