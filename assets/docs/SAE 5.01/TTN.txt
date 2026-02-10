@@ -1,0 +1,11 @@
+# --- Configuration à copier depuis la console TTN ---
+# Attention au format des clés. TTN les fournit dans le bon format.
+# Copiez-collez ces valeurs depuis la page "Overview" de votre appareil sur TTN.
+APP_EUI = ubinascii.unhexlify('0000000000000000')
+DEV_EUI = ubinascii.unhexlify('70B3D57ED00735C3')
+APP_KEY = ubinascii.unhexlify('84491D7080CEF78F01C96CA98D7C504D')
+
+# Affiche les identifiants pour vérification
+print("DevEUI: {}".format(ubinascii.hexlify(lora.mac()).upper().decode('utf-8')))
+print("AppEUI: {}".format(ubinascii.hexlify(APP_EUI).upper().decode('utf-8')))
+# --- Fin de la Configuration ---
