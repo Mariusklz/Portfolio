@@ -1180,60 +1180,183 @@
     </button>
 
     <!-- JavaScript -->
-    <script src="js/main.js"></script>
     <script>
-        // Filtrage des projets par niveau BUT
-        document.addEventListener('DOMContentLoaded', function() {
+        console.log('==============================================');
+        console.log('>>> SCRIPT FILTRAGE CHARGE <<<');
+        console.log('Date:', new Date().toISOString());
+        console.log('document.readyState:', document.readyState);
+        console.log('==============================================');
+        
+        function debugFilters() {
+            console.log('\n========== DEBUT INITIALISATION FILTRES ==========');
+            console.log('Heure:', new Date().toLocaleTimeString());
+            
+            // Recherche des boutons
+            console.log('\n[ETAPE 1] Recherche des boutons de filtre...');
             const filterButtons = document.querySelectorAll('.filter-btn');
+            console.log('Sélecteur utilisé: .filter-btn');
+            console.log('Nombre de boutons trouvés:', filterButtons.length);
+            
+            if (filterButtons.length > 0) {
+                console.log('Liste des boutons:');
+                filterButtons.forEach(function(btn, idx) {
+                    console.log('  Bouton', idx, ':', {
+                        text: btn.textContent.trim(),
+                        filter: btn.getAttribute('data-filter'),
+                        classes: btn.className,
+                        visible: btn.offsetParent !== null
+                    });
+                });
+            } else {
+                console.error('❌ AUCUN BOUTON TROUVE !');
+                console.log('Contenu de .project-filters:', document.querySelector('.project-filters')?.innerHTML);
+            }
+            
+            // Recherche des projets
+            console.log('\n[ETAPE 2] Recherche des projets...');
             const projectDetails = document.querySelectorAll('.project-detail');
+            console.log('Sélecteur utilisé: .project-detail');
+            console.log('Nombre de projets trouvés:', projectDetails.length);
+            
+            if (projectDetails.length > 0) {
+                console.log('Liste des 5 premiers projets:');
+                for (let i = 0; i < Math.min(5, projectDetails.length); i++) {
+                    const proj = projectDetails[i];
+                    console.log('  Projet', i, ':', {
+                        id: proj.id,
+                        level: proj.getAttribute('data-level'),
+                        visible: proj.style.display !== 'none'
+                    });
+                }
+            } else {
+                console.error('❌ AUCUN PROJET TROUVE !');
+            }
+            
+            if (filterButtons.length === 0 || projectDetails.length === 0) {
+                console.error('❌ IMPOSSIBLE DE CONTINUER - Éléments manquants');
+                return;
+            }
+            
+            // Configuration des filtres
+            console.log('\n[ETAPE 3] Configuration des événements de clic...');
             let activeFilters = [];
-
-            console.log('Filtres initialisés - Boutons:', filterButtons.length, 'Projets:', projectDetails.length);
-
-            filterButtons.forEach(function(button) {
+            let clickCount = 0;
+            
+            filterButtons.forEach(function(button, index) {
+                console.log('Configuration bouton', index, '(' + button.textContent.trim() + ')...');
+                
+                button.style.cursor = 'pointer';
+                button.style.backgroundColor = '#f0f0f0'; // Pour voir qu'ils sont configurés
+                
                 button.addEventListener('click', function(e) {
+                    clickCount++;
+                    console.log('\n╔════════════════════════════════════════╗');
+                    console.log('║  CLIC #' + clickCount + ' DETECTE sur bouton ' + index + '           ║');
+                    console.log('╚════════════════════════════════════════╝');
+                    console.log('Heure:', new Date().toLocaleTimeString());
+                    console.log('Event:', e.type);
+                    console.log('Target:', e.target.textContent.trim());
+                    
                     e.preventDefault();
                     e.stopPropagation();
                     
                     const filter = this.getAttribute('data-filter');
-                    console.log('Clic sur bouton:', filter);
+                    console.log('Filtre sélectionné:', filter);
+                    console.log('Classes avant toggle:', this.className);
                     
                     // Toggle le bouton
                     this.classList.toggle('active');
+                    const isActive = this.classList.contains('active');
+                    console.log('Classes après toggle:', this.className);
+                    console.log('État du bouton:', isActive ? 'ACTIF ✓' : 'INACTIF ✗');
                     
                     // Mise à jour des filtres actifs
-                    if (this.classList.contains('active')) {
+                    console.log('\nFiltres actifs AVANT mise à jour:', JSON.stringify(activeFilters));
+                    if (isActive) {
                         if (!activeFilters.includes(filter)) {
                             activeFilters.push(filter);
+                            console.log('→ Ajout du filtre:', filter);
                         }
                     } else {
                         activeFilters = activeFilters.filter(function(f) { return f !== filter; });
+                        console.log('→ Suppression du filtre:', filter);
                     }
-                    
-                    console.log('Filtres actifs:', activeFilters);
+                    console.log('Filtres actifs APRÈS mise à jour:', JSON.stringify(activeFilters));
                     
                     // Appliquer le filtrage
-                    projectDetails.forEach(function(project) {
+                    console.log('\n[APPLICATION DU FILTRAGE]');
+                    let visibleCount = 0;
+                    let hiddenCount = 0;
+                    const changes = [];
+                    
+                    projectDetails.forEach(function(project, idx) {
                         const level = project.getAttribute('data-level');
+                        const beforeDisplay = project.style.display;
+                        let afterDisplay;
                         
                         if (activeFilters.length === 0) {
                             // Aucun filtre : tout afficher
                             project.style.display = 'block';
+                            afterDisplay = 'block';
+                            visibleCount++;
                         } else {
                             // Afficher uniquement les projets correspondant aux filtres actifs
                             if (activeFilters.includes(level)) {
                                 project.style.display = 'block';
+                                afterDisplay = 'block';
+                                visibleCount++;
                             } else {
                                 project.style.display = 'none';
+                                afterDisplay = 'none';
+                                hiddenCount++;
                             }
+                        }
+                        
+                        if (beforeDisplay !== afterDisplay) {
+                            changes.push({
+                                id: project.id,
+                                level: level,
+                                before: beforeDisplay || 'block',
+                                after: afterDisplay
+                            });
                         }
                     });
                     
-                    console.log('Filtrage appliqué');
+                    console.log('Résultat du filtrage:');
+                    console.log('  • Projets visibles:', visibleCount);
+                    console.log('  • Projets cachés:', hiddenCount);
+                    console.log('  • Total:', visibleCount + hiddenCount);
+                    
+                    if (changes.length > 0) {
+                        console.log('\nChangements appliqués (' + changes.length + '):');
+                        changes.forEach(function(change) {
+                            console.log('  -', change.id, ':', change.before, '→', change.after, '(niveau:', change.level + ')');
+                        });
+                    } else {
+                        console.log('\n⚠ AUCUN CHANGEMENT appliqué');
+                    }
+                    
+                    console.log('╚════════════════════════════════════════╝\n');
                 });
+                
+                console.log('  ✓ Bouton', index, 'configuré');
             });
-        });
+            
+            console.log('\n✓ Tous les boutons configurés');
+            console.log('========== FIN INITIALISATION FILTRES ==========\n');
+        }
+        
+        // Lancement
+        if (document.readyState === 'loading') {
+            console.log('⏳ DOM en cours de chargement, attente de DOMContentLoaded...');
+            document.addEventListener('DOMContentLoaded', debugFilters);
+        } else {
+            console.log('✓ DOM déjà chargé, lancement immédiat');
+            debugFilters();
+        }
     </script>
+    <script src="js/main.js"></script>
+
 </body>
 </html>
 

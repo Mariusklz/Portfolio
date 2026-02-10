@@ -308,13 +308,13 @@ console.log('%cSi vous voyez ce message, c\'est que vous êtes curieux! 🔍', '
 // ===================================
 // Validation et Sécurité du Formulaire de Contact
 // ===================================
-const contactForm = document.getElementById('contact-form');
-if (contactForm) {
+const contactFormSecure = document.getElementById('contact-form');
+if (contactFormSecure) {
     // Rate limiting côté client (basique)
     let lastSubmitTime = 0;
     const SUBMIT_COOLDOWN = 5000; // 5 secondes entre chaque soumission
 
-    contactForm.addEventListener('submit', function(e) {
+    contactFormSecure.addEventListener('submit', function(e) {
         const currentTime = Date.now();
         const formError = document.getElementById('form-error');
         const submitBtn = document.getElementById('submit-btn');
@@ -444,7 +444,7 @@ if (contactForm) {
     }
 
     // Nettoyage en temps réel des inputs
-    const inputs = contactForm.querySelectorAll('input[type="text"], input[type="email"], textarea');
+    const inputs = contactFormSecure.querySelectorAll('input[type="text"], input[type="email"], textarea');
     inputs.forEach(input => {
         input.addEventListener('input', function() {
             // Supprimer les caractères dangereux en temps réel
@@ -531,6 +531,7 @@ window.addEventListener('load', function() {
 // Fonction réutilisable pour initialiser les sections déroulantes
 window.initCollapsibles = function() {
     console.log('=== INITIALISATION SECTIONS DEROULANTES ===');
+    console.log('Timestamp:', new Date().toLocaleTimeString());
     
     // Chercher d'abord dans le contenu dynamique, puis dans tout le document
     const dynamicContent = document.getElementById('dynamic-content');
@@ -538,9 +539,17 @@ window.initCollapsibles = function() {
         ? dynamicContent 
         : document;
     
+    console.log('Zone de recherche:', searchArea === document ? 'document entier' : 'contenu dynamique');
+    console.log('searchArea est:', searchArea);
+    
     const headers = searchArea.querySelectorAll('.collapsible-header');
     console.log('Nombre de headers collapsibles trouvés:', headers.length);
-    console.log('Zone de recherche:', searchArea === document ? 'document entier' : 'contenu dynamique');
+    
+    // Lister tous les headers trouvés
+    headers.forEach((h, i) => {
+        const text = h.textContent.trim().substring(0, 50);
+        console.log(`  Header ${i}: "${text}..."`);
+    });
     
     if (headers.length === 0) {
         console.log('Aucun header collapsible trouvé');
@@ -561,45 +570,179 @@ window.initCollapsibles = function() {
         header.style.cursor = 'pointer';
         header.setAttribute('data-collapsible-init', 'true');
         
+        console.log(`  → Ajout du listener de clic pour header ${index}`);
+        
         header.onclick = function(e) {
-            console.log(`\n>>> CLIC sur header ${index}`);
+            console.log(`\n╔═══════════════════════════════════════════════════════════════`);
+            console.log(`║ >>> CLIC DETECTE sur header ${index}`);
+            console.log(`╚═══════════════════════════════════════════════════════════════`);
+            console.log('Timestamp:', new Date().toLocaleTimeString());
+            console.log('Event:', e);
+            console.log('This:', this);
+            
             e.preventDefault();
             e.stopPropagation();
             
             const content = this.nextElementSibling;
             const icon = this.querySelector('.toggle-icon');
             
+            console.log('Recherche du contenu...');
+            console.log('  nextElementSibling:', content);
+            console.log('  nextElementSibling tagName:', content ? content.tagName : 'NULL');
+            console.log('  nextElementSibling className:', content ? content.className : 'NULL');
+            
             if (!content) {
-                console.error('PAS DE CONTENU TROUVÉ !');
-                console.log('nextElementSibling:', this.nextElementSibling);
+                console.error('❌ PAS DE CONTENU TROUVÉ !');
+                console.log('Éléments enfants du parent:');
+                Array.from(this.parentElement.children).forEach((child, idx) => {
+                    console.log(`  ${idx}: ${child.tagName}.${child.className}`);
+                });
                 return;
             }
             
-            console.log('Contenu trouvé:', content.className);
+            if (!content.classList.contains('collapsible-content')) {
+                console.warn('⚠️ Le nextElementSibling n\'est PAS un collapsible-content !');
+                console.log('Classes:', content.className);
+            }
+            
+            console.log('Icône toggle:', icon ? 'trouvée' : 'non trouvée');
             const isActive = content.classList.contains('active');
-            console.log('État actuel: ', isActive ? 'OUVERT' : 'FERMÉ');
+            console.log('État actuel:', isActive ? '✅ OUVERT' : '⬜ FERMÉ');
             
             if (isActive) {
                 content.classList.remove('active');
                 if (icon) icon.classList.remove('rotate');
-                console.log('→ FERMETURE');
+                console.log('→ 🔽 FERMETURE effectuée');
             } else {
                 content.classList.add('active');
                 if (icon) icon.classList.add('rotate');
-                console.log('→ OUVERTURE');
+                console.log('→ 🔼 OUVERTURE effectuée');
             }
             
-            console.log('Classes après toggle:', content.className);
+            console.log('Classes finales du contenu:', content.className);
+            console.log('Max-height calculé:', window.getComputedStyle(content).maxHeight);
+            console.log('Opacity calculée:', window.getComputedStyle(content).opacity);
+            console.log('═══════════════════════════════════════════════════════════════\n');
         };
     });
     
     console.log('=== SECTIONS DEROULANTES INITIALISÉES ===\n');
 };
 
+// ===================================
+// Filtrage des Projets par Niveau (BUT 1/2/3)
+// ===================================
+window.initProjectFilters = function() {
+    console.log('\n========== INITIALISATION FILTRES PROJETS ==========');
+    console.log('Timestamp:', new Date().toLocaleTimeString());
+    
+    // Chercher dans le contenu dynamique d'abord
+    const dynamicContent = document.getElementById('dynamic-content');
+    const searchArea = (dynamicContent && !dynamicContent.classList.contains('hidden-page')) 
+        ? dynamicContent 
+        : document;
+    
+    console.log('Zone de recherche:', searchArea === document ? 'document entier' : 'contenu dynamique');
+    
+    // Recherche des boutons
+    const filterButtons = searchArea.querySelectorAll('.filter-btn');
+    console.log('Nombre de boutons de filtre trouvés:', filterButtons.length);
+    
+    if (filterButtons.length === 0) {
+        console.log('⚠️ Aucun bouton de filtre trouvé - Cette page ne contient probablement pas de filtres');
+        return;
+    }
+    
+    // Recherche des projets
+    const projectDetails = searchArea.querySelectorAll('.project-detail');
+    console.log('Nombre de projets trouvés:', projectDetails.length);
+    
+    if (projectDetails.length === 0) {
+        console.warn('⚠️ Aucun projet trouvé - Impossible de filtrer');
+        return;
+    }
+    
+    console.log('✓ Boutons et projets trouvés, configuration...');
+    
+    // État des filtres actifs
+    let activeFilters = [];
+    
+    // Configurer chaque bouton
+    filterButtons.forEach(function(button, index) {
+        // Éviter la double initialisation
+        if (button.getAttribute('data-filter-init') === 'true') {
+            console.log('Bouton', index, 'déjà initialisé');
+            return;
+        }
+        
+        button.setAttribute('data-filter-init', 'true');
+        
+        button.addEventListener('click', function(e) {
+            console.log('\n╔════════════════════════════════════════╗');
+            console.log('║  CLIC sur filtre:', this.getAttribute('data-filter').toUpperCase().padEnd(24), '║');
+            console.log('╚════════════════════════════════════════╝');
+            
+            e.preventDefault();
+            e.stopPropagation();
+            
+            const filter = this.getAttribute('data-filter');
+            
+            // Toggle le bouton
+            this.classList.toggle('active');
+            const isActive = this.classList.contains('active');
+            
+            console.log('Bouton:', isActive ? '✓ ACTIF' : '✗ INACTIF');
+            
+            // Mise à jour des filtres actifs
+            if (isActive) {
+                if (!activeFilters.includes(filter)) {
+                    activeFilters.push(filter);
+                }
+            } else {
+                activeFilters = activeFilters.filter(f => f !== filter);
+            }
+            
+            console.log('Filtres actifs:', activeFilters.length > 0 ? activeFilters.join(', ') : 'AUCUN');
+            
+            // Appliquer le filtrage
+            let visibleCount = 0;
+            let hiddenCount = 0;
+            
+            projectDetails.forEach(function(project) {
+                const level = project.getAttribute('data-level');
+                
+                if (activeFilters.length === 0) {
+                    // Aucun filtre : tout afficher
+                    project.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    // Afficher uniquement les projets correspondant aux filtres actifs
+                    if (activeFilters.includes(level)) {
+                        project.style.display = 'block';
+                        visibleCount++;
+                    } else {
+                        project.style.display = 'none';
+                        hiddenCount++;
+                    }
+                }
+            });
+            
+            console.log('Résultat: ', visibleCount, 'visibles /', hiddenCount, 'cachés');
+            console.log('═══════════════════════════════════════════\n');
+        });
+        
+        console.log('  ✓ Bouton', index, 'configuré (' + button.textContent.trim() + ')');
+    });
+    
+    console.log('✓ Filtres initialisés avec succès');
+    console.log('========== FIN INITIALISATION FILTRES ==========\n');
+};
+
 // Initialiser au chargement de la page
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOMContentLoaded déclenché');
     window.initCollapsibles();
+    window.initProjectFilters();
 });
 
 // Si le DOM est déjà chargé (script chargé après le HTML), initialiser immédiatement
@@ -608,4 +751,5 @@ if (document.readyState === 'loading') {
 } else {
     console.log('DOM déjà chargé, initialisation immédiate');
     window.initCollapsibles();
+    window.initProjectFilters();
 }

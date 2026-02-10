@@ -1649,13 +1649,14 @@ section {
 }
 
 .collapsible-content {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: max-height 0.5s ease, opacity 0.5s ease;
 }
 
 .collapsible-content.active {
-    display: block;
+    max-height: 10000px;
     opacity: 1;
 }
 

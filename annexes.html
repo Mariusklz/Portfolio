@@ -900,40 +900,6 @@
 
     <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script>
-        // Gestion des sections déroulantes
-        document.addEventListener('DOMContentLoaded', function() {
-            console.log('Initialisation des sections déroulantes');
-            
-            const headers = document.querySelectorAll('.collapsible-header');
-            console.log('Nombre de headers trouvés:', headers.length);
-            
-            headers.forEach(function(header, index) {
-                header.style.cursor = 'pointer';
-                
-                header.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    console.log('Clic sur header', index);
-                    
-                    const content = this.nextElementSibling;
-                    const icon = this.querySelector('.toggle-icon');
-                    
-                    if (content) {
-                        const isActive = content.classList.contains('active');
-                        
-                        if (isActive) {
-                            content.classList.remove('active');
-                            if (icon) icon.classList.remove('rotate');
-                        } else {
-                            content.classList.add('active');
-                            if (icon) icon.classList.add('rotate');
-                        }
-                    }
-                });
-            });
-            
-            console.log('Sections déroulantes initialisées');
-        });
-    </script>
+    <script src="js/spa.js"></script>
 </body>
 </html>

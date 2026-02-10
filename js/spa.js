@@ -335,6 +335,12 @@ function reinitializePageScripts() {
         console.error('initCollapsibles n\'est pas disponible!');
     }
     
+    // Initialiser les filtres de projets
+    if (typeof window.initProjectFilters === 'function') {
+        console.log('Appel de initProjectFilters...');
+        window.initProjectFilters();
+    }
+    
     // Ajouter d'autres réinitialisations si nécessaire
     console.log('Scripts de page réinitialisés');
 }
