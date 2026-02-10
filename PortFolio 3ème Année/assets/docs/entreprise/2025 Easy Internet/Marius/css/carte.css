@@ -1,0 +1,303 @@
+body {
+    margin: 0;
+    font-family: "Open Sans", "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+}
+/* Contenu principal */
+.content-container {
+    margin-left: 75px;
+    width: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.content-Recherche {
+    margin-top: 32.31px;
+    margin-left: auto;
+    width: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    flex-wrap: wrap;
+    align-content: space-around;
+    
+}
+.content-Carte {
+    margin: auto;
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.button-icon {
+    width: 50px;
+    height: 50px;
+    background: #cdd1d5;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.button-icon:hover {
+    background: #E7AE9E;
+}
+
+.button-icon img {
+    width: 30px;
+    height: 30px;
+}
+
+#button-clear {
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+
+
+
+/* CSS DE LA CARTE */
+.carte {
+    width: 50%;
+    margin: 0 auto;
+    transition: transform 0.3s ease-in-out;  /* Animation de transformation */
+    position: relative;
+    z-index: 1;
+    pointer-events: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+path {
+    stroke: #000000;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: .50;
+    fill: #e3e4e6;
+    transition: fill 0.3s ease-in-out;  /* Animation du changement de couleur */
+}
+
+g:hover path {
+    fill: #b2b3b4;  /* Changer la couleur au survol */
+}
+
+.carteSVG.path {
+    stroke: #000000;
+    stroke-width: 1px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-opacity: .50;
+    fill: white;
+    transition: fill 0.3s ease-in-out;  /* Animation du changement de couleur */
+}
+
+g:hover path2 {
+    fill: #b2b3b4;  /* Changer la couleur au survol */
+}
+
+/* Sélecteur pour zoomer et animer les régions */
+.region {
+    transform: scale(1); /* Valeur initiale */
+    transform-origin: center; /* Garder le centre de la région fixe pendant le zoom */
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out; /* Animation fluide */
+    position: relative;
+    z-index : 0;
+    pointer-events: auto;
+}
+/* Désactive le clic sur une région non sélectionnée */
+.region.disabled {
+    pointer-events: none !important; /* Empêche d'interagir avec les autres régions */
+
+}
+.bouton {
+    position: relative;
+}
+.site_Tel {
+    position: absolute;
+    pointer-events: auto;
+}
+.selected-site_Tel {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+.site_Print {
+    position: absolute;
+    pointer-events: auto;
+}
+.selected-site_Print {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+text{
+    font-family : Bahnschrift SemiBold; /* Police d'écriture du text dans les cercles */
+    font-size : 6.5px ;	/* taille d'écriture du text dans les cercles */
+    text-anchor : middle ; /* placement du text dans les cercles */
+    fill : rgb(255, 255, 255); /* Couleur du text dans les cercle */
+}
+circle{
+    r : 7; /* Rayon des cercles */
+    fill: black; /* couleur des cercles */
+}
+#depot{
+    position: relative;
+    z-index: 2;
+    pointer-events: all;
+    transition: transform 0.5s ease-in-out;
+}
+.Commerce{
+    fill: #000000;
+    font-size: 14px;
+    text-anchor : start ;
+    transition: transform 0.5s ease-in-out;
+}
+
+th{
+    font-size: 1.1rem;
+}
+th,td{
+    padding-left: 10px;
+    padding-right: 5px;
+    border-style: solid;
+    border-color: #cacbcc;
+    border-width: 1px;
+    background-color: #fff; /* Fond blanc pour bien délimiter le conteneur */
+    text-align: start;
+    justify-content: center;
+}
+#tableau-container {
+    border-color: gray;
+    text-align: start;
+    align-items: center;
+    display: flex;
+    width: 1120px;
+    margin-top: 18px;
+    font-size: 0.85rem;
+}
+table, tbody{
+    background-color: #fff; /* Fond blanc pour bien délimiter le conteneur */
+    align-items: center;
+    justify-content: center;
+    font-size: 0.85rem;
+    flex-direction: column;
+    border-collapse: collapse;
+}
+#recherche-container {
+    margin-top: 10px;
+    text-align: center;
+    display: block;
+    display: flex; /* Alignement horizontal */
+    align-items: center; /* Centre verticalement */
+    width: fit-content;
+}
+
+
+#recherche-input, #recherche-input2 {
+    padding: 5px;
+    max-width: 1008px;
+    width: 1008px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+#recherche-input:focus {
+    border-color: #cdd1d5;
+    box-shadow: 0 0 8px rgba(52, 152, 219, 0.5);
+}
+
+.tel-Site {width: 60px;}
+.tel-NomPrenom { 
+    min-width: 100px;
+    width: 230px;
+    max-width: 385px;}
+.tel-Fonction {width: 385px;}
+.tel-Téléphone {width: 110px;}
+.tel-Interne {width: auto;}
+.tel-Mobile {width: 110px;}
+.tel-Abrégé {width: 65px;}
+
+.prt-Site {width: 60px;}
+.prt-Place { 
+    min-width: 100px;
+    width: 190px;
+    max-width: 250px;}
+.prt-Type {width: 80px;}
+.prt-Nom {width: 110px;}
+.prt-Modèle {width: 250px;}
+.prt-Actions {width: 300px;}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    display: flex;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+    align-items: start;
+}
+.info {
+    font-size: 12px;
+}
+h1{
+    font-size: 2.5rem;
+    align-items: start;
+    text-align: start;
+    align-items: self-start;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0px 0px 8px;
+}
+h2 {
+    font-size: 1.75rem;
+    box-sizing: border-box;
+    margin-bottom: .5rem;
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: start;
+    margin: 0px 0px 8px;
+}
+
+img{
+    height: auto;
+    width: 21px;
+    vertical-align: middle;
+    margin-bottom: 1px;
+}
+@media (min-width: 992px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        max-width: 720px;
+    }
+}
+@media (min-width: 576px) {
+    .container {
+        max-width: 540px;
+    }
+}

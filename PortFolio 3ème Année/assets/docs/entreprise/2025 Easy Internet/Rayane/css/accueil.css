@@ -1,0 +1,54 @@
+
+/* accueil.css */
+
+
+/* Conteneur des cases */
+#accueil-cases {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 122.31px;
+    margin-left: 6%;
+    margin-right: auto;
+    max-width: auto;
+}
+
+/* Style des cases individuelles */
+.accueil-case {
+    width: 350px; /* Chaque case occupe un tiers de la largeur moins l'espace de marge */
+    height: 125px; /* Hauteur des cases */
+    background-color: white;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cdd1d5;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif; /* Police par défaut */
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol de la case */
+.accueil-case:hover {
+    background-color: #cdd1d5; /* Changer la couleur de fond */
+}
+
+/* Style de l'image dans chaque case */
+.case-image {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+/* Style du texte sous l'image */
+.accueil-case p {
+    font-size: 20.8px;
+    color: #333;
+    margin: 0;
+}
+
+
+

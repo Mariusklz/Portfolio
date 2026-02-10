@@ -1,0 +1,88 @@
+/* easy.css */
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.logo {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    width: 300px;
+    height: 85.31px;
+}
+
+.barre-grise {
+    background-color: #cdd1d5;
+    height: 32px;
+    width: 100%;
+    position: absolute;
+    top: 90.31px;
+}
+
+.onglets {
+    height: auto;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: absolute; /* Fixe les onglets à un endroit */
+    top: 122.31px; /* Ajuste cette valeur pour qu'ils restent sous la barre grise */
+}
+
+.onglet {
+    width: 76px;
+    height: 80px;
+    background-color: #cdd1d5;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.3s;
+    margin: 1px;
+    padding: 0;
+}
+
+.onglet.active {
+    background-color: #E7AE9E !important;
+}
+
+.onglet:hover:not(.active) {
+    background-color: #E7AE9E;
+}
+
+.onglet img {
+    width: 50px;
+    height: 50px;
+}
+
+
+.logo-container {
+    padding: 45px;
+    display: flex;
+    align-items: center;
+    background-color: white;
+}
+
+.logo {
+    width: 300px;
+    height: 85.31px;
+}
+
+#dynamic-text {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36.8px;
+    position: absolute;
+    top: 20px;
+    left: 330px; /* Ajustez cette valeur pour régler horizontalement */
+    white-space: nowrap; /* Empêche le texte de passer à la ligne */
+    font-weight: 500;
+}
+
+#text-content {
+    margin-left: 20px; /* Espacement entre le tiret et le texte */
+}

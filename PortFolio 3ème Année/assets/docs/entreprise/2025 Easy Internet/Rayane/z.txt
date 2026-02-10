@@ -1,0 +1,294 @@
+// info.js
+
+document.addEventListener("DOMContentLoaded", function () {
+    const infoCasesContainer = document.getElementById("info-cases");
+    const infoOnglet = [...document.querySelectorAll('.onglet')].find(onglet =>
+        onglet.querySelector('img')?.alt === "Info"
+    );
+
+    function afficherChargement() {
+        infoCasesContainer.innerHTML = "<p>Chargement des informations...</p>";
+    }
+
+    function afficherErreur() {
+        infoCasesContainer.innerHTML = "<p>Impossible de charger les informations.</p>";
+    }
+
+    function afficherInfos(data) {
+        const osVersionWithLineBreak = data.Windows.replace(/(\(Build .+\))/g, '<br>$1');
+        infoCasesContainer.innerHTML = ` 
+            <div class="info-box"><strong>Identifiant:</strong> ${data.Utilisateur}</div>
+            <div class="info-box"><strong>Nom de l'ordinateur:</strong> ${data.Machine}</div>
+            <div class="info-box"><strong>Domaine:</strong> ${data.Domaine}</div>
+            <div class="info-box"><strong>Modèle - S/N:</strong> ${data.Modele}</div>
+            <div class="info-box"><strong>Version du système:</strong> ${osVersionWithLineBreak}</div>
+            <div class="info-box"><strong>Mémoire:</strong> ${data.RAM}</div>
+            <div class="info-box"><strong>Espace disque dur:</strong> ${data.Stockage}</div>
+            <div class="info-box"><strong>Adresse IP:</strong> ${data.IP}</div>
+            <div class="info-box"><strong>Démarré depuis:</strong> ${data.DernierBoot}</div>
+            <div class="info-box"><strong>Imprimante par défaut:</strong> ${data.ImprimanteDefaut}</div>
+        `;
+    }    
+
+    function executerScriptInfo() {
+        fetch("info.bat")
+            .then(() => {
+                console.log("info.bat exécuté.");
+                // Attendre que le fichier information.js soit disponible
+                const checkIfFileExists = setInterval(() => {
+                    fetch('js/information.js')
+                        .then(response => {
+                            if (response.ok) {
+                                clearInterval(checkIfFileExists);
+                                const timestamp = new Date().getTime();
+                                const script = document.createElement("script");
+                                   script.onload = function () {
+                                    if (typeof systemInfo !== "undefined") {
+                                        afficherInfos(systemInfo);
+                                    } else {
+                                        afficherErreur();
+                                    }
+                                };
+                                script.onerror = afficherErreur;
+                                document.body.appendChild(script);
+                            }
+                        })
+                        .catch(() => {
+                            // Continue à vérifier si le fichier existe
+                        });
+                }, 1000); // Vérifie toutes les 500ms
+            })
+            .catch(afficherErreur);
+    }
+    
+    // Exécuter info.bat dès le chargement
+    executerScriptInfo();
+
+    if (infoOnglet) {
+        infoOnglet.addEventListener("click", () => {
+            afficherChargement();
+            executerScriptInfo();  // Vous pouvez garder la possibilité d'exécuter manuellement aussi
+        });
+    } else {
+        console.error("Onglet Info non trouvé !");
+    }
+});
+
+
+:: info.bat
+
+@echo off
+start /min powershell -ExecutionPolicy Bypass -File "%~dp0info.ps1"
+exit
+
+
+
+
+##info.ps1
+
+# Définir le chemin du fichier de sortie
+$outputFile = "$PSScriptRoot\js\information.js"
+
+# Vérifier s'il existe déjà et supprimer le fichier s'il existe
+if (Test-Path $outputFile) {
+    Remove-Item $outputFile -Force
+}
+
+# Récupérer les informations système
+$lastBoot = (Get-WmiObject Win32_OperatingSystem).LastBootUpTime
+$DernierBoot = [Management.ManagementDateTimeConverter]::ToDateTime($lastBoot)
+
+$model = (Get-WmiObject Win32_ComputerSystem).Model
+$bios = Get-WmiObject Win32_BIOS
+$serialNumber = $bios.SerialNumber
+$windows = Get-WmiObject Win32_OperatingSystem
+$windowsVersion = (Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion").ReleaseId + "H"
+
+$ip = (Get-NetIPAddress -AddressFamily IPv4 | Where-Object { $_.PrefixOrigin -eq "Dhcp" -or $_.PrefixOrigin -eq "Manual" }).IPAddress | Select-Object -First 1
+
+# Obtenir l'imprimante par défaut
+$defaultPrinter = (Get-WmiObject -Class Win32_Printer | Where-Object { $_.Default -eq $true }).Name
+
+# Créer un tableau avec les informations système
+$infos = @{
+    "Utilisateur" = $env:USERNAME
+    "Machine" = $env:COMPUTERNAME
+    "Domaine" = (Get-WmiObject Win32_ComputerSystem).Domain
+    "Modele" = "$model <br>($serialNumber)"  
+    "Windows" = "$($windows.Caption) (Build $($windows.BuildNumber), $windowsVersion)"
+    "RAM" = "{0:N2} GB" -f ((Get-WmiObject Win32_ComputerSystem).TotalPhysicalMemory / 1GB)
+    "Stockage" = "{1:N2} GB / {0:N2} GB" -f ((Get-PSDrive C).Used / 1GB), ((Get-PSDrive C).Free / 1GB)
+    "IP" = $ip
+    "DernierBoot" = $DernierBoot.ToString("dd/MM/yyyy HH:mm:ss")
+    "ImprimanteDefaut" = $defaultPrinter
+}
+
+# Convertir en JSON
+$jsonData = $infos | ConvertTo-Json -Depth 2 -Compress
+$jsContent = "const systemInfo = $jsonData;"
+
+# Afficher les données dans la console PowerShell pour débogage
+Write-Host "Données système générées : $jsContent"
+
+# Écrire les données dans le fichier
+Set-Content -Path $outputFile -Value $jsContent -Encoding UTF8
+Write-Host "Fichier $outputFile mis à jour avec succès"
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// easy.js
+
+document.addEventListener("DOMContentLoaded", () => {
+    const ongletsContainer = document.getElementById("onglets");
+    const accueilCasesContainer = document.getElementById("accueil-cases");
+    const docCasesContainer = document.getElementById("doc-cases");
+    const liensCasesContainer = document.getElementById("liens-cases");
+    const infoCasesContainer = document.getElementById("info-cases")
+
+    const images = [
+        { src: 'img/home.png', text: 'Accueil' },
+        { src: 'img/phone.png', text: 'Listes' },
+        { src: 'img/printer.png', text: 'Imprimante et scanners' },
+        { src: 'img/ie.png', text: 'Liens rapides' },
+        { src: 'img/file.png', text: 'Documentation' },
+        { src: 'img/info.png', text: 'Info' }
+    ];
+
+    function afficherSection(section) {
+        accueilCasesContainer.style.display = "none";
+        docCasesContainer.style.display = "none";
+        liensCasesContainer.style.display ="none";
+        infoCasesContainer.style.display = "none";
+
+
+        if (section === "Accueil") {
+            loadExcelData(); // Charger les données d'accueil
+            accueilCasesContainer.style.display = "flex";
+        } else if (section === "Documentation") {
+            loadExcelDataForDocumentation(); // Charger les données de documentation
+            docCasesContainer.style.display = "flex";
+        } else if (section === "Liens rapides") {
+            loadExcelDataForLiens(); // Charger les données des Liens
+            liensCasesContainer.style.display = "flex";
+        } else if (section === "Info") {
+            infoCasesContainer.style.display = "flex";
+        }
+
+    }
+
+    images.forEach((item, i) => {
+        const onglet = document.createElement("button");
+        onglet.classList.add("onglet");
+
+        const img = document.createElement("img");
+        img.src = item.src;
+        img.alt = item.text;
+
+        onglet.appendChild(img);
+        ongletsContainer.appendChild(onglet);
+
+        onglet.addEventListener("click", () => {
+            document.querySelectorAll(".onglet").forEach(el => el.classList.remove("active"));
+            onglet.classList.add("active");
+            document.getElementById("dynamic-text").textContent = ` - ${item.text}`;
+
+            afficherSection(item.text);
+        });
+
+        if (i === 0) { // Active le premier onglet par défaut
+            onglet.classList.add("active");
+            document.getElementById("dynamic-text").textContent = ` - ${item.text}`;
+            afficherSection(item.text);
+        }
+    });
+});
+
+
+
+
+
+
+
+
+// accueil.js
+
+function loadExcelData() {
+    const accueilCasesContainer = document.getElementById("accueil-cases");
+    accueilCasesContainer.innerHTML = ""; // Vide l'affichage pour éviter les doublons
+    
+    fetch('data/liens.xlsx')
+        .then(response => response.arrayBuffer())
+        .then(data => {
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheet = workbook.Sheets[workbook.SheetNames[0]];
+            const jsonData = XLSX.utils.sheet_to_json(sheet);
+            displayExcelData(jsonData);
+        })
+        .catch(error => console.error("Erreur lors du chargement du fichier Excel:", error));
+}
+
+function displayExcelData(data) {
+    const accueilCasesContainer = document.getElementById("accueil-cases");
+    data.forEach(item => {
+        const { Nom, Image, Lien } = item;
+
+        const caseDiv = document.createElement("div");
+        caseDiv.classList.add("accueil-case");
+
+        const img = document.createElement("img");
+        img.src = `img/${Image}`;
+        img.alt = Nom;
+        img.classList.add("case-image");
+
+        caseDiv.appendChild(img);
+        const name = document.createElement("p");
+        name.textContent = Nom;
+        caseDiv.appendChild(name);
+
+        caseDiv.addEventListener("click", () => {
+            window.location.href = Lien;
+        });
+
+        accueilCasesContainer.appendChild(caseDiv);
+    });
+}
+
+
+
+
+
+
+
+
+Il me faudrait un moyen qui me permetrraie d'afiher ce type de donné dynamiquement sans recharger la ma page web il faut que ces donné ce mette à jour dans l'onglet info le js de l'onglet s'appelle info.js
+ "Utilisateur" = $env:USERNAME
+    "Machine" = $env:COMPUTERNAME
+    "Domaine" = (Get-WmiObject Win32_ComputerSystem).Domain
+    "Modele" = "$model <br>($serialNumber)"  
+    "Windows" = "$($windows.Caption) (Build $($windows.BuildNumber), $windowsVersion)"
+    "RAM" = "{0:N2} GB" -f ((Get-WmiObject Win32_ComputerSystem).TotalPhysicalMemory / 1GB)
+    "Stockage" = "{1:N2} GB / {0:N2} GB" -f ((Get-PSDrive C).Used / 1GB), ((Get-PSDrive C).Free / 1GB)
+    "IP" = $ip
+    "DernierBoot" = $DernierBoot.ToString("dd/MM/yyyy HH:mm:ss")
+    "ImprimanteDefaut" = $defaultPrinter                script.src = `js/information.js?t=${timestamp}`;
+

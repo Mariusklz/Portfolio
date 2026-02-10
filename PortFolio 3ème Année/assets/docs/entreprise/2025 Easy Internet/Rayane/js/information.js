@@ -1,0 +1,1 @@
+﻿const systemInfo = {"Machine":"WFRLT578","Windows":"Microsoft Windows 10 Entreprise (Build 19045, 2009H)","Utilisateur":"FRSADRAY","RAM":"15,61 GB","Domaine":"einstein.local","ImprimanteDefaut":"\\\\FRXPRT01\\ACHLJ210","Modele":"Latitude 5510 \u003cbr\u003e(59V0FB3)","IP":"172.25.12.164","DernierBoot":"06/03/2025 09:06:23","Stockage":"130,85 GB / 342,53 GB"};

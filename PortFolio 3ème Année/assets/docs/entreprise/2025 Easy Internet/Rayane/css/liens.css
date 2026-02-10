@@ -1,0 +1,102 @@
+/* Conteneur principal */
+#liens-cases {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 122.31px;
+    margin-left: calc(5% + 76px); /* Ajoute 76px pour compenser les onglets à gauche */
+    margin-right: 5%; /* Garde une marge à droite */
+    max-width: auto;
+}
+
+/* Catégorie */
+.liens-category {
+    padding: 3px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+    background-color: #CDD1D5;
+    border-radius: 5px;
+    text-align: left;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    width: 100%; /* Rend la catégorie responsive */
+    max-width: 1110px; /* Empêche d’être trop large */
+    height: 24px;
+    display: flex;
+    align-items: center;
+    box-shadow: 1px 1px 4px #777;
+    transition: font-size 0.3s ease; /* Animation pour les changements de taille */
+}
+
+/* Conteneur des cases */
+.liens-cases-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacement entre les cases */
+    width: 100%; /* Rend le conteneur flexible */
+    max-width: 1110px;
+    justify-content: center; /* Centrer les cases horizontalement */
+}
+
+/* Style des cases */
+.liens-case {
+    width: calc(25% - 20px); /* 4 cases par ligne sur grand écran */
+    max-width: 250px;
+    height: 38.39px;
+    background-color: white;
+    border: 1px solid #cdd1d5;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 2px;
+}
+
+/* Effet au survol */
+.liens-case:hover {
+    background-color: #cdd1d5;
+}
+
+/* Media query pour les écrans de moins de 768px */
+@media (max-width: 768px) {
+    #liens-cases {
+        margin-left: calc(5% + 76px); /* Garder l'espacement à gauche et compenser les onglets */
+    }
+
+    /* Catégorie */
+    .liens-category {
+        font-size: 14px; /* Réduction de la taille de la police sur les petits écrans */
+        padding: 3px 8px;
+    }
+
+    /* Conteneur des cases */
+    .liens-cases-container {
+        gap: 5px; /* Moins d'espacement entre les cases */
+    }
+
+    /* Style des cases */
+    .liens-case {
+        width: calc(50% - 10px); /* 2 cases par ligne sur petits écrans */
+        max-width: 220px;
+        font-size: 16px; /* Réduction de la taille de la police */
+    }
+}
+
+/* Media query pour les écrans de moins de 480px */
+@media (max-width: 480px) {
+    #liens-cases {
+        margin-left: calc(5% + 76px); /* Garder l'espacement à gauche et compenser les onglets */
+    }
+
+    .liens-case {
+        width: 100%; /* 1 case par ligne sur les très petits écrans */
+        max-width: 100%;
+        font-size: 14px; /* Réduction de la taille de la police */
+        height: auto; /* Laisser la hauteur s'ajuster */
+    }
+}

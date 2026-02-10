@@ -1,0 +1,38 @@
+/* Styles pour le container d'informations */
+#info-cases {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 122.31px;
+    margin-left: 6%;
+    margin-right: auto;
+    max-width: auto;
+}
+
+.info-box {
+    width: 350px; /* Chaque case occupe un tiers de la largeur moins l'espace de marge */
+    height: 125px; /* Hauteur des cases */
+    background-color: white;
+    margin: 10px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #cdd1d5;
+    cursor: pointer;
+    font-family: 'Open Sans', sans-serif; /* Police par défaut */
+    transition: background-color 0.3s ease;
+}
+
+/* Effet au survol de la case */
+.info-box:hover {
+    background-color: #cdd1d5; /* Changer la couleur de fond */
+}
+
+/* Chargement et erreur */
+#info-box p {
+    font-size: 20.8px;
+    color: #333;
+    margin: 0;
+}
